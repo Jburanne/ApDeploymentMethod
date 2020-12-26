@@ -3,17 +3,18 @@ import dxfgrabber
 import os
 import matplotlib.pyplot as plt
 
-def testF():
-    print("testtesthwyhwy")
-
+# get lines information for whole area
 def saveLines(filepath):
     #read cad files
     dxf = dxfgrabber.readfile(filepath)
 
     lines = []
+    layerkeywordlist = ['窗','WALL','wall','WINDOWS','玻璃','垂直面','门扇','阴影']
+
     for e in dxf.entities:
-        if (
-                '窗' in e.layer or 'WALL' in e.layer or 'wall' in e.layer or 'WINDOWS' in e.layer or '玻璃' in e.layer or '垂直面' in e.layer or '阴影' in e.layer or '门扇' in e.layer):
+        for kw in layerkeywordlist:
+            if kw not in e.layer:
+                continue
             if e.dxftype == 'LINE':
                 if e.start[0] < 150000:
                     continue
@@ -32,6 +33,7 @@ def saveLines(filepath):
                     if p[0][1] < 0 or p[0][0] < 150000:
                         continue
                     lines.append([round(p[0][0]), round(p[0][1]), round(p[-1][0]), round(p[-1][1])])
+            break
 
     nums = len(lines)
     print(nums)
@@ -41,6 +43,7 @@ def saveLines(filepath):
     df.to_csv(save_path, index=0, sep=',', header=None)
     print('success')
 
+# get lines information for test area
 def saveLines1(filepath):
     dxf = dxfgrabber.readfile(filepath)
 

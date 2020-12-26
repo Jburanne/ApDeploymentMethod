@@ -514,8 +514,6 @@ void writeFile(vector<vector<int>>& cover_sets, int m, int n){
 
 //输出算法所需数据2 
 void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& cands,int cover_times, int thre){
-	//ofstream location_out("../data/newtestfile");
-	//ofstream location_out("./testfile"); //!
 	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/newtestfile");
 	
 	//约束：距离太近的两个部署点不能同时被选中
@@ -564,13 +562,7 @@ void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Poin
 }
 
 void writeMergedLines(vector<Line>& lines){
-	//ofstream location_out("../data/mergedLines.csv");
 	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/mergedLines.csv");
-	/*
-	location_out.open("../data/mergedLines1.csv",std::ios::out | std::ios::app);
-	if(!location_out.is_open())
-		return;
-	*/
 	for(Line l:lines){
 		location_out<<l.endpoint1.x<<" "<<l.endpoint2.x<<" "<<l.endpoint1.y<<" "<<l.endpoint2.y<<endl;
 	}
@@ -640,7 +632,7 @@ void verifyManualRes(vector<int>& resPoints, vector<vector<int>>& cover_sets, in
 
  
 int main(int argc, char *argv[]){
-	// 要获取的数据类型：0-线条处理数据以及算法输入所需数据 1-算法输出对应的节点数据
+	// 要获取的数据类型：0-线条处理数据以及算法输入所需数据 1-解中对应的节点数据，2-确认人工构造的解
 	int data_type = atoi(argv[1]);
 	int spread_dist = atoi(argv[2]);
 	int reduce_dist = atoi(argv[3]);
@@ -659,23 +651,13 @@ int main(int argc, char *argv[]){
 	}
 	//打点（地板，待覆盖坐标点） 
 	vector<Point> points = createPoints(border[0],border[2],border[1],border[3],1000,lines,0);
-	//cout<<points.size()<<endl;
 
 	//打点（天花板，设备候选部署点）
 	vector<Point> cands = createPoints(border[0],border[2],border[1],border[3],1000,lines,1);
-	//cout<<cands.size()<<endl;	
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
 	vector<vector<int>> cover_sets(points.size());
-	//getRelations(points, cands, lines, 20000, 15000, cover_points, cover_sets);
 	getRelations2(points, cands, lines, spread_dist, reduce_dist, cover_points, cover_sets);
-	//cout<<cover_points.size()<<endl;
-	//cout<<cover_sets.size()<<endl;
-	/*for check
-	for(int i = 0;i < 3;++i){
-		for(int num:cover_points[i]) cout<<num<<' ';
-		cout<<endl;
-	}*/
 	cout<<"total cands:"<<cover_points.size()<<" total points:"<<cover_sets.size()<<endl;
 	if(data_type == 0){
 	    //输出scp算法所需数据

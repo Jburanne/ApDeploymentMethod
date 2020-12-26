@@ -44,7 +44,7 @@ def add(request):
             #return HttpResponse("上传成功")
             #return HttpResponse(cover_num)
     else:
-        readCad.testF()
+        #readCad.testF()
         print(os.getcwd())
         af = AddForm()
         return render(request, 'users/add.html', context={'af':af})
