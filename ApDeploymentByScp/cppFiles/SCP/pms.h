@@ -407,14 +407,15 @@ void Satlike::init(vector<int> &init_solution)
 			}
 		}
 	}
-
+	
+	/*
 	for (int i = 0; i < num_clauses; ++i)
 	{
 		if (org_unit_weight[i] != 1) //???
 		{
 			cout << "something si wrong " << endl;
 		}
-	}
+	}*/
 
 	//init solution
 	if (init_solution.size() == 0)

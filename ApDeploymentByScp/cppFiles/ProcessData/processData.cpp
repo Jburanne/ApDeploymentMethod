@@ -478,13 +478,16 @@ void getRelations1(vector<Point>& points, vector<Point>& cands, vector<Line>& li
 }
 
 //约束2：距离太近的两个部署点不能同时被选中 
-vector<pair<int,int>> getConflictCand(vector<Point>& cands, double thre){
-	vector<pair<int,int>> ans;
+vector<vector<int>> getConflictCand(vector<Point>& cands, double thre){
+	vector<vector<int>> ans;
 	for(int i = 0;i < cands.size();++i){
 		for(int j = i+1;j < cands.size();++j){
 			double dist = sqrt(pow((cands[i].x - cands[j].x),2) + pow((cands[i].y - cands[j].y), 2));
 			if(dist <= thre){
-				pair<int,int> p(i,j);
+				vector<int> p(3,0);
+				p[0] = i;
+				p[1] = j;
+				p[2] = ceil(dist);
 				ans.push_back(p);
 			}
 		}
@@ -517,8 +520,8 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/newtestfile");
 	
 	//约束：距离太近的两个部署点不能同时被选中
-	vector<pair<int,int>> ans = getConflictCand(cands,thre); //5000：5米
-	int total_constraints = m+n+ans.size();
+	vector<vector<int>> conflictPos = getConflictCand(cands,thre); //5000：5米
+	int total_constraints = m+n+conflictPos.size();
 	//int total_constraints = m+n; //!
 	location_out << "p wcnf " << n << ' ' << total_constraints << ' ' << 10 << endl;
 	for(int i = 0;i < cover_sets.size();++i){
@@ -533,13 +536,24 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 		location_out<<"1 1 "<<num<<" 0"<<endl;
 	}
 	
-	
+	for(int i = 0;i < conflictPos.size();++i){
+		int num1 = -(conflictPos[i][0] + 1);
+		int num2 = -(conflictPos[i][1] + 1);
+		int dist = conflictPos[i][2];
+		if(dist <= 5000){
+			location_out<<"10 1 "<<num1<<" "<<num2<<" 0"<<endl;
+		} else{
+			location_out<<"5 1 "<<num1<<" "<<num2<<" 0"<<endl;
+		}
+	}
+	/*
 	for(auto elem:ans){
 		int num1 = -(elem.first+1);
 		int num2 = -(elem.second+1);
-		location_out<<"1 1 "<<num1<<" "<<num2<<" 0"<<endl;
+		
+		location_out<<"8 1 "<<num1<<" "<<num2<<" 0"<<endl;
 	} 	
-	
+	*/
 } 
 
 void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Point>& cands,vector<Point>& points){
