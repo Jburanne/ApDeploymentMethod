@@ -19,7 +19,8 @@ struct Point{
 struct Line{
 	Point endpoint1;
 	Point endpoint2;
-	Line(Point p1, Point p2): endpoint1(p1), endpoint2(p2){}
+	int type;
+	Line(Point p1, Point p2, int lines_type = 0): endpoint1(p1), endpoint2(p2), type(lines_type){}
 };
 
 //读取线段信息 
@@ -43,6 +44,32 @@ vector<Line> readLines(string filepath){
 		lines.push_back(curline);	
 	}
 	return lines;
+}
+
+//读取线段信息 （含障碍物类型）
+vector<vector<Line>> readLinesByType(string filepath, int type_cnt){
+	//vector<Line> lines;
+	ifstream fin(filepath);
+	cout<<filepath<<endl;
+	string line;
+	vector<vector<Line>> lines_by_type(type_cnt);
+	while(getline(fin,line)){
+		//cout<<line<<endl;
+		istringstream sin(line);
+		vector<int> fields(5,0);
+		string field;
+		int i = 0;
+		while(getline(sin,field,',')){
+			fields[i++] = stoi(field);
+		}
+		Point p1(fields[0],fields[1]);
+		Point p2(fields[2],fields[3]);
+		int type = fields[4];
+		Line curline(p1, p2, type);
+		//lines.push_back(curline);
+		lines_by_type[type].push_back(curline);
+	}
+	return lines_by_type;
 }
 
 vector<int> readResult(string filepath){
@@ -181,6 +208,45 @@ int barrierNum1(Point p1, Point p2, vector<Line>& lines){
 	return cnt;	
 }
 
+//判断两点之间障碍物的数量，若障碍物距离很近，当作一个
+vector<int> barrierNumByType(Point p1, Point p2, vector<Line>& lines, int type_cnt){
+	Line curline(p1,p2);
+	vector<Line> h_lines;
+	vector<Line> v_lines;
+	for(Line l:lines){
+		if(isCrossed(curline,l)){
+			if(l.endpoint1.x == l.endpoint2.x){
+				v_lines.push_back(l);
+			} else if(l.endpoint1.y == l.endpoint2.y){
+				h_lines.push_back(l);
+			}
+		}
+	}
+	//排序
+	sort(v_lines.begin(),v_lines.end(),vlinesCompare);
+	sort(h_lines.begin(),h_lines.end(),hlinesCompare);
+	vector<int> ans(type_cnt,0);
+	if(v_lines.size() > 0){
+		int last = 0;
+		for(int i = 1;i < v_lines.size();++i){
+			if(v_lines[i].endpoint1.x - v_lines[last].endpoint1.x > 500){
+			    ans[v_lines[last].type]++;
+				last = i;
+			}
+		}
+	}
+	if(h_lines.size() > 0){
+		int last = 0;
+		for(int i = 1;i < h_lines.size();++i){
+			if(h_lines[i].endpoint1.y - h_lines[last].endpoint1.y > 500){
+				ans[h_lines[last].type]++;
+				last = i;
+			}
+		}
+	}
+	return ans;
+}
+
 //判断点是否在线段上
 bool isOnLine(Point p, vector<Line>& lines){
 	for(Line l:lines){
@@ -308,7 +374,106 @@ vector<Line> mergeLines(vector<Line>& lines){
 		}
 	}
 	return new_lines; 
-} 
+}
+
+//处理断断续续的线段（考虑障碍物类型）
+vector<Line> mergeLinesByType(vector<Line>& lines, int type){
+	map<int, vector<pair<int,int>>> h_lines;
+	map<int, vector<pair<int,int>>> v_lines;
+	for(Line l:lines){
+		int x1 = l.endpoint1.x;
+		int x2 = l.endpoint2.x;
+		int y1 = l.endpoint1.y;
+		int y2 = l.endpoint2.y;
+		if(x1 == x2){
+			pair<int,int> p(min(y1,y2), max(y1,y2));
+			v_lines[x1].push_back(p);
+		}else if(y1 == y2){
+			pair<int,int> p(min(x1,x2), max(x1,x2));
+			h_lines[y1].push_back(p);
+		}
+	}
+	vector<Line> new_lines;
+	map<int, vector<pair<int,int>>>::iterator iter;
+	//处理水平线
+	for(iter = h_lines.begin(); iter != h_lines.end(); ++iter){
+		int y = iter->first;
+		vector<pair<int,int>> elem = iter->second;
+		sort(elem.begin(),elem.end(),myCompare);
+		int begin_pos = 0;
+		int i = 0;
+		while(i < elem.size()){
+			if(i < elem.size()-1 && elem[i+1].first - elem[i].second <= 2000 && elem[i+1].first - elem[i].second >= 0) i++;
+			else{
+				//check是否重复
+				int k = new_lines.size()-1;
+				int flag = 0;
+				while(k >= 0 && new_lines[k].endpoint1.y == y){
+					if(new_lines[k].endpoint1.x == elem[begin_pos].first && new_lines[k].endpoint2.x == elem[i].second){
+						flag = 1;
+						break;
+					}
+					k--;
+				}
+				if(flag == 1){
+					begin_pos = i+1;
+					i = begin_pos;
+					continue;
+				}
+				Point p1(elem[begin_pos].first, y);
+				Point p2(elem[i].second, y);
+				Line temp(p1,p2,type);
+				new_lines.push_back(temp);
+				begin_pos = i+1;
+				i = begin_pos;
+			}
+		}
+	}
+	//处理垂直线
+	for(iter = v_lines.begin(); iter != v_lines.end(); ++iter){
+		int x = iter->first;
+		vector<pair<int,int>> elem = iter->second;
+		sort(elem.begin(),elem.end(),myCompare);
+		int begin_pos = 0;
+		int i = 0;
+		while(i < elem.size()){
+			if(i < elem.size()-1 && elem[i+1].first - elem[i].second <= 2000 && elem[i+1].first - elem[i].second >= 0) i++;
+			else{
+				//check是否重复
+				int k = new_lines.size()-1;
+				int flag = 0;
+				while(k >= 0 && new_lines[k].endpoint1.x == x){
+					if(new_lines[k].endpoint1.y == elem[begin_pos].first && new_lines[k].endpoint2.y == elem[i].second){
+						flag = 1;
+						break;
+					}
+					k--;
+				}
+				if(flag == 1){
+					begin_pos = i+1;
+					i = begin_pos;
+					continue;
+				}
+				Point p1(x, elem[begin_pos].first);
+				Point p2(x, elem[i].second);
+				Line temp(p1,p2,type);
+				new_lines.push_back(temp);
+				begin_pos = i+1;
+				i = begin_pos;
+			}
+		}
+	}
+	return new_lines;
+}
+
+vector<Line> mergeLinesByType(vector<vector<Line>>& lines_by_type){
+    vector<Line> lines;
+    for(int i = 0;i < lines_by_type.size();++i){
+        vector<Line> partial_lines = mergeLinesByType(lines_by_type[i],i);
+        lines.insert(lines.end(),partial_lines.begin(),partial_lines.end());
+    }
+    return lines;
+}
 
 //处理缺口
 vector<Line> closeLines(vector<Line>& lines){
@@ -475,6 +640,30 @@ void getRelations1(vector<Point>& points, vector<Point>& cands, vector<Line>& li
 			cover_sets[p].push_back(c);
 		}
 	}
+}
+
+//确定每个候选部署点能够覆盖到的坐标点集合
+//dist1：无障碍物时传播的最远距离，dist2：每遇到一次障碍物，距离就减少dist2 ，若两个障碍物很近，当作一个
+ void getRelationsByType(vector<Point>& points, vector<Point>& cands, vector<Line>& lines, int dist1, vector<vector<int>>& cover_points, vector<vector<int>>& cover_sets, vector<int>& reduceDist){
+	for(int c = 0; c < cands.size();++c){
+		for(int p = 0;p < points.size();++p){
+			double dist = sqrt(pow((cands[c].x - points[p].x),2) + pow((cands[c].y - points[p].y), 2));
+			if(dist > dist1) continue;
+			//cout<<"here 1"<<endl;
+			vector<int> bcnt = barrierNumByType(cands[c],points[p],lines,reduceDist.size());
+			//cout<<"here 2"<<endl;
+			int total_reduce_dist = 0;
+			for(int i = 0;i < reduceDist.size();++i){
+			    total_reduce_dist += reduceDist[i]*bcnt[i];
+			}
+			//cout<<"total_reduce_dist"<<endl;
+			int farthest = dist1 - total_reduce_dist >= 0 ? dist1 - total_reduce_dist : 0;
+			if(dist > farthest) continue;
+			cover_points[c].push_back(p);
+			cover_sets[p].push_back(c);
+		}
+	}
+	cout<<"success"<<endl;
 }
 
 //约束2：距离太近的两个部署点不能同时被选中 
@@ -649,20 +838,34 @@ int main(int argc, char *argv[]){
 	// 要获取的数据类型：0-线条处理数据以及算法输入所需数据 1-解中对应的节点数据，2-确认人工构造的解
 	int data_type = atoi(argv[1]);
 	int spread_dist = atoi(argv[2]);
-	int reduce_dist = atoi(argv[3]);
-	int cover_num = atoi(argv[4]);
-	int dist_thre = atoi(argv[5]);
+	int cover_num = atoi(argv[3]);
+	int dist_thre = atoi(argv[4]);
+	int wall_reduce_dist = atoi(argv[5]);
+	int glass_reduce_dist = atoi(argv[6]);
+	int wood_reduce_dist = atoi(argv[7]);
+	int other_reduce_dist = atoi(argv[8]);
+
+	int reduce_dist = wall_reduce_dist;
+	//记录不同类型的材料的衰减距离
+	vector<int> reduceDist;
+	reduceDist.push_back(wall_reduce_dist);
+	reduceDist.push_back(glass_reduce_dist);
+	reduceDist.push_back(wood_reduce_dist);
+	reduceDist.push_back(other_reduce_dist);
+	int type_cnt = reduceDist.size();
 	//读取线段
 	vector<Line> lines = readLines("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesdata.csv");
-	vector<int> border = getBorder(lines);
-	for(int num:border) cout<<num<<' ';
-	cout<<endl;
-	
+	//vector<vector<Line>> lines_by_type = readLinesByType("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv",type_cnt);
+	//cout<<lines_by_type[0].size()<<" "<<lines_by_type[1].size()<<" "<<lines_by_type[2].size()<<" "<<lines_by_type[3].size()<<endl;
 	lines = mergeLines(lines);
+	//vector<Line> lines = mergeLinesByType(lines_by_type); 
 	lines = deleteShortLine(lines);
 	if(data_type == 0){
 	    writeMergedLines(lines);
 	}
+	vector<int> border = getBorder(lines);
+	for(int num:border) cout<<num<<' ';
+	cout<<endl;
 	//打点（地板，待覆盖坐标点） 
 	vector<Point> points = createPoints(border[0],border[2],border[1],border[3],1000,lines,0);
 
@@ -671,7 +874,9 @@ int main(int argc, char *argv[]){
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
 	vector<vector<int>> cover_sets(points.size());
+	cout<<"here"<<endl;
 	getRelations2(points, cands, lines, spread_dist, reduce_dist, cover_points, cover_sets);
+	//getRelationsByType(points, cands, lines, spread_dist, cover_points, cover_sets, reduceDist);
 	cout<<"total cands:"<<cover_points.size()<<" total points:"<<cover_sets.size()<<endl;
 	if(data_type == 0){
 	    //输出scp算法所需数据

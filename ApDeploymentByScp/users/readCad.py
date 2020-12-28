@@ -43,6 +43,66 @@ def saveLines(filepath):
     df.to_csv(save_path, index=0, sep=',', header=None)
     print('success')
 
+# get lines information for whole area with regard to different types
+def saveLinesByTypes(filepath):
+    #read cad files
+    dxf = dxfgrabber.readfile(filepath)
+
+    lines = []
+    wall_kw = ['WALL','wall']
+    glass_kw = ['窗','WINDOWS','玻璃']
+    wood_kw = ['门扇']
+    other_kw = ['阴影','垂直面']
+    all_kw = wall_kw+glass_kw+wood_kw+other_kw
+    #layerkeywordlist = ['窗','WALL','wall','WINDOWS','玻璃','垂直面','门扇','阴影']
+    for e in dxf.entities:
+        for kw in all_kw:
+            if kw not in e.layer:
+                continue
+            #linestype = -1
+            #reduce_dist = 0
+            #print(linestype)
+            if kw in wall_kw:
+                linestype = 0
+                #reduce_dist = wall_reduce_dist
+            elif kw in glass_kw:
+                linestype = 1
+                #reduce_dist = glass_reduce_dist
+            elif kw in wood_kw:
+                linestype = 2
+                #reduce_dist = wood_reduce_dist
+            else:
+                linestype = 3
+                #reduce_dist = other_reduce_dist
+
+            if e.dxftype == 'LINE':
+                if e.start[0] < 150000:
+                    continue
+                x1 = round(e.start[0])
+                y1 = round(e.start[1])
+                x2 = round(e.end[0])
+                y2 = round(e.end[1])
+                lines.append([x1, y1, x2, y2, linestype])
+            elif e.dxftype == 'LWPOLYLINE':
+                p = e.points
+                for i in range(len(p) - 1):
+                    if p[i][0] < 150000:
+                        continue
+                    lines.append([round(p[i][0]), round(p[i][1]), round(p[i + 1][0]), round(p[i + 1][1]), linestype])
+                if e.is_closed:
+                    if p[0][1] < 0 or p[0][0] < 150000:
+                        continue
+                    lines.append([round(p[0][0]), round(p[0][1]), round(p[-1][0]), round(p[-1][1]), linestype])
+            break
+
+    nums = len(lines)
+    print(nums)
+    df = pd.DataFrame(lines)
+    print(df)
+    save_path = os.getcwd().replace("\\",'/')+"/data/linesDataByMaterials.csv"
+    df.to_csv(save_path, index=0, sep=',', header=None)
+    print('success')
+
 # get lines information for test area
 def saveLines1(filepath):
     dxf = dxfgrabber.readfile(filepath)
@@ -300,9 +360,12 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
 def mergeLines(cpp_path):
     os.system(cpp_path)
 
-def getInput(spread_dist, reduce_dist, cover_num, dist_thre):
-    to_exec = os.getcwd().replace("\\",'/')+"/cppFiles/processData/processData.exe 0 "+str(spread_dist)+" "\
-              +str(reduce_dist) + " " + str(cover_num) + " " + str(dist_thre)
+def getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre):
+    #to_exec = os.getcwd().replace("\\",'/')+"/cppFiles/processData/processData.exe 0 "+str(spread_dist)+" "\
+              #+str(reduce_dist) + " " + str(cover_num) + " " + str(dist_thre)
+    to_exec = os.getcwd().replace("\\", '/') + "/cppFiles/processData/processData.exe 0 " + str(spread_dist) + " " \
+               + " " + str(cover_num) + " " + str(dist_thre) + " " + str(wall_reduce_dist) \
+              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)
     os.system(to_exec)
 
 def runScp(time_limit):
@@ -311,8 +374,9 @@ def runScp(time_limit):
     to_exec = code_path + " " + file_path + " " + str(time_limit)
     os.system(to_exec)
 
-def getResPoints(spread_dist, reduce_dist, cover_num):
-    to_exec = os.getcwd().replace("\\", '/') + "/cppFiles/processData/processData.exe 1 "+str(spread_dist)+" "\
-              +str(reduce_dist) + " " + str(cover_num)
+def getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre):
+    to_exec = os.getcwd().replace("\\", '/') + "/cppFiles/processData/processData.exe 1 "+ str(spread_dist) + " " \
+               + " " + str(cover_num) + " " + str(dist_thre) + " " + str(wall_reduce_dist) \
+              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)
     os.system(to_exec)
 

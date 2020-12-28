@@ -17,7 +17,12 @@ def add(request):
             headimg = af.cleaned_data['headimg']
             cover_num = af.cleaned_data['cover_num']
             spread_dist = af.cleaned_data['propagation_distance']
-            reduce_dist = af.cleaned_data['reduction_distance']
+            reduce_dist = af.cleaned_data['wall_reduction_distance']
+            wall_reduce_dist = af.cleaned_data['wall_reduction_distance']
+            glass_reduce_dist = af.cleaned_data['glass_reduction_distance']
+            wood_reduce_dist = af.cleaned_data['wood_reduction_distance']
+            other_reduce_dist = af.cleaned_data['other_reduction_distance']
+
             time_limit = af.cleaned_data['time_limit']
             dist_thre = af.cleaned_data['dist_thre']
 
@@ -27,12 +32,13 @@ def add(request):
             # 读取cad文件
             cad_file_path = os.getcwd().replace("\\","/")+"/media/img/"+str(headimg)
             readCad.saveLines(cad_file_path)
+            #readCad.saveLinesByTypes(cad_file_path)
             # c++处理线条&获取算法的输入文件
-            readCad.getInput(spread_dist, reduce_dist, cover_num, dist_thre)
+            readCad.getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre)
             # 运行scp代码，输出解
             readCad.runScp(time_limit)
             # 读取解
-            readCad.getResPoints(spread_dist, reduce_dist, cover_num)
+            readCad.getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre)
             # 解的可视化
             img_path = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
             #img_path = readCad.readLines()

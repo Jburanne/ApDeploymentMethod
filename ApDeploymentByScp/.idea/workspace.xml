@@ -5,14 +5,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cppFiles/SCP/pms.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/SCP/pms.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cppFiles/SCP/pms.h" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/SCP/pms.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cppFiles/SCP/pms.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/SCP/pms.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/data/newtestfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/resPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/data/solution.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/img/test_graph_1.dxf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/readCad.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/readCad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,47 +84,62 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="3" />
+          <entry key="cpp" value="4" />
           <entry key="png" value="5" />
-          <entry key="py" value="12" />
+          <entry key="py" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C++" value="3" />
+          <entry key="C++" value="4" />
           <entry key="Image" value="5" />
-          <entry key="Python" value="12" />
+          <entry key="Python" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="13" />
-          <entry key="py" value="364" />
+          <entry key="cpp" value="1143" />
+          <entry key="py" value="1557" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C++" value="13" />
-          <entry key="Python" value="364" />
+          <entry key="C++" value="1143" />
+          <entry key="Python" value="1557" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1075">
-              <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+            <state relative-caret-position="200">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/apps.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -132,8 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/readCad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="312">
+              <caret line="382" selection-start-line="382" selection-end-line="382" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -150,11 +165,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/drawStructure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state relative-caret-position="225">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -175,14 +190,28 @@
     <findStrings>
       <find>uplo</find>
       <find>create</find>
-      <find>getRelations2</find>
       <find>getConflictCand</find>
       <find>local</find>
       <find>readScpRes</find>
-      <find>getInput</find>
       <find>runScp</find>
+      <find>linestype</find>
+      <find>Line</find>
+      <find>readLines</find>
+      <find>ByTypes</find>
+      <find>merge</find>
+      <find>mergeLines</find>
+      <find>By</find>
+      <find>ByTy</find>
+      <find>getRelations2</find>
+      <find>barrierNum1</find>
+      <find>readLinesByTypes</find>
+      <find>mergeLinesByType</find>
+      <find>readLinesByType</find>
+      <find>deleteShortLine</find>
       <find>writeMergedLines</find>
+      <find>getRelationsByType</find>
       <find>writeFile1</find>
+      <find>getInput</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,12 +225,12 @@
         <option value="$PROJECT_DIR$/ApDeploymentByScp/urls.py" />
         <option value="$PROJECT_DIR$/cppFiles/SCP/pms.h" />
         <option value="$PROJECT_DIR$/templates/users/add.html" />
-        <option value="$PROJECT_DIR$/users/forms.py" />
         <option value="$PROJECT_DIR$/data/draetest.py" />
+        <option value="$PROJECT_DIR$/data/drawStructure.py" />
+        <option value="$PROJECT_DIR$/users/forms.py" />
         <option value="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" />
         <option value="$PROJECT_DIR$/users/readCad.py" />
         <option value="$PROJECT_DIR$/users/views.py" />
-        <option value="$PROJECT_DIR$/data/drawStructure.py" />
       </list>
     </option>
   </component>
@@ -223,11 +252,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -277,7 +312,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -400,8 +434,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31285366" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3177041" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -415,7 +450,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29003558" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.29003558" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -442,7 +477,6 @@
     <entry file="file://$PROJECT_DIR$/users/models.py" />
     <entry file="file://$PROJECT_DIR$/templates/users/add.html" />
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/urls.py" />
-    <entry file="file://$PROJECT_DIR$/users/forms.py" />
     <entry file="file://$PROJECT_DIR$/data/test1.png" />
     <entry file="file://$PROJECT_DIR$/cppFiles/ProcessData/testpy.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -454,30 +488,6 @@
     <entry file="file://$PROJECT_DIR$/users/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16200">
-          <caret line="648" column="23" selection-start-line="648" selection-start-column="23" selection-end-line="648" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1075">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/readCad.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/draetest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -487,11 +497,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/drawStructure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="225">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="837" column="34" selection-start-line="837" selection-start-column="34" selection-end-line="837" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/readCad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="382" selection-start-line="382" selection-end-line="382" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
       </provider>
     </entry>
