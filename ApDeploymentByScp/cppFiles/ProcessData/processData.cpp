@@ -268,21 +268,19 @@ vector<int> barrierNum1ByType(Point p1, Point p2, vector<Line>& lines, int type_
 	for(Line l:lines){
 		if(isCrossed(curline,l)){
 			if(l.endpoint1.x == l.endpoint2.x){
-				if(l.type > 3) cout<<"illegal line"<<endl;
 				v_lines.push_back(l);
 			} else if(l.endpoint1.y == l.endpoint2.y){
-				if(l.type > 3) cout<<"illegal line"<<endl;
 				h_lines.push_back(l);
 			}
 		}
 	}
-	if(!checkLineType1(v_lines)) cout<<"before sort, has illegal vertical line"<<endl;
-	if(!checkLineType1(h_lines)) cout<<"before sort, has illegal h_line"<<endl;
+	//if(!checkLineType1(v_lines)) cout<<"before sort, has illegal vertical line"<<endl;
+	//if(!checkLineType1(h_lines)) cout<<"before sort, has illegal h_line"<<endl;
 	//排序
 	sort(v_lines.begin(),v_lines.end(),vlinesCompare);
 	sort(h_lines.begin(),h_lines.end(),hlinesCompare);
-	if(!checkLineType1(v_lines)) cout<<"after sort, has illegal vertical line"<<endl;
-	if(!checkLineType1(h_lines)) cout<<"after sort, has illegal h_line"<<endl;
+	//if(!checkLineType1(v_lines)) cout<<"after sort, has illegal vertical line"<<endl;
+	//if(!checkLineType1(h_lines)) cout<<"after sort, has illegal h_line"<<endl;
 	vector<int> ans(type_cnt,0);
 	if(!checkLineType1(lines)) cout<<"has illegal line"<<endl;
 	if(v_lines.size() > 0){
@@ -290,7 +288,6 @@ vector<int> barrierNum1ByType(Point p1, Point p2, vector<Line>& lines, int type_
 		ans[v_lines[last].type]++;
 		for(int i = 1;i < v_lines.size();++i){
 			if(v_lines[i].endpoint1.x - v_lines[last].endpoint1.x > 500){
-				if(v_lines[last].type > 3) cout<<"wrong vertical:"<<v_lines[last].type<<endl;
 				last = i;
 				ans[v_lines[last].type]++;
 			}
@@ -301,7 +298,6 @@ vector<int> barrierNum1ByType(Point p1, Point p2, vector<Line>& lines, int type_
 		ans[h_lines[last].type]++;
 		for(int i = 1;i < h_lines.size();++i){
 			if(h_lines[i].endpoint1.y - h_lines[last].endpoint1.y > 500){
-				if(h_lines[last].type > 3) cout<<"wrong h："<<h_lines[last].type<<endl;
 				last = i;
 				ans[h_lines[last].type]++;
 			}
@@ -496,7 +492,7 @@ vector<Line> mergeLinesByType(vector<Line>& lines){
 				}
 				Point p1(elem[begin_pos][0], y);
 				Point p2(elem[i][1], y);
-				int type = 0;
+				int type = elem[begin_pos][2];
 				Line temp(p1,p2,type);
 				new_lines.push_back(temp);
 				begin_pos = i+1;
@@ -531,7 +527,7 @@ vector<Line> mergeLinesByType(vector<Line>& lines){
 				}
 				Point p1(x, elem[begin_pos][0]);
 				Point p2(x, elem[i][1]);
-				int type = 0;
+				int type = elem[begin_pos][2];
 				Line temp(p1,p2,type);
 				new_lines.push_back(temp);
 				begin_pos = i+1;
@@ -910,6 +906,18 @@ void verifyManualRes(vector<int>& resPoints, vector<vector<int>>& cover_sets, in
 	cout<<ans<<" points <"<<cover_num<<" Aps";
 }
 
+void checkLineCntByType(vector<Line>& lines, int type_cnt){
+	vector<int> ans(type_cnt,0);
+	for(Line l:lines){
+		ans[l.type]++;
+	}
+	cout<<"different Line type:"<<endl;
+	for(int num:ans){
+		cout<<num<<' ';
+	}
+	cout<<endl;
+}
+
 
 
  
@@ -934,19 +942,19 @@ int main(int argc, char *argv[]){
 	int type_cnt = reduceDist.size();
 	//读取线段
 	/*
+	//不区分障碍物类型 
 	vector<Line> lines = readLines("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesdata.csv");
 	cout<<lines.size()<<endl;
 	lines = mergeLines(lines);
 	cout<<lines.size()<<endl;*/
 	
-	
-	//vector<vector<Line>> lines_by_type = readLinesByType("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv",type_cnt);
+	//区分障碍物类型 
 	vector<Line> lines = readLinesByType1("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv");
-	//cout<<lines_by_type[0].size()<<" "<<lines_by_type[1].size()<<" "<<lines_by_type[2].size()<<" "<<lines_by_type[3].size()<<endl;
-	//vector<Line> lines = mergeLinesByType(lines_by_type); 
+	checkLineCntByType(lines,type_cnt);
 	checkLineType(lines);
 	lines = mergeLinesByType(lines); 
 	checkLineType(lines);
+	checkLineCntByType(lines,type_cnt);
 	cout<<lines.size()<<endl;
 	
 	

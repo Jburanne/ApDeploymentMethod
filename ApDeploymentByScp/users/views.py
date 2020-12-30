@@ -16,23 +16,23 @@ def add(request):
             filename = af.cleaned_data['filename']
             headimg = af.cleaned_data['headimg']
             cover_num = af.cleaned_data['cover_num']
-            spread_dist = af.cleaned_data['propagation_distance']
-            reduce_dist = af.cleaned_data['wall_reduction_distance']
-            wall_reduce_dist = af.cleaned_data['wall_reduction_distance']
-            glass_reduce_dist = af.cleaned_data['glass_reduction_distance']
-            wood_reduce_dist = af.cleaned_data['wood_reduction_distance']
-            other_reduce_dist = af.cleaned_data['other_reduction_distance']
+            spread_dist = af.cleaned_data['propagation_distance']*1000
+            reduce_dist = af.cleaned_data['wall_reduction_distance']*1000
+            wall_reduce_dist = af.cleaned_data['wall_reduction_distance']*1000
+            glass_reduce_dist = af.cleaned_data['glass_reduction_distance']*1000
+            wood_reduce_dist = af.cleaned_data['wood_reduction_distance']*1000
+            other_reduce_dist = af.cleaned_data['other_reduction_distance']*1000
 
             time_limit = af.cleaned_data['time_limit']
-            dist_thre = af.cleaned_data['dist_thre']
+            dist_thre = af.cleaned_data['dist_thre']*1000
 
             #写入数据表User中
             user = User(name=filename,headimg=headimg)
             user.save()
             # 读取cad文件
             cad_file_path = os.getcwd().replace("\\","/")+"/media/img/"+str(headimg)
-            readCad.saveLines(cad_file_path)
-            #readCad.saveLinesByTypes(cad_file_path)
+            #readCad.saveLines(cad_file_path)
+            readCad.saveLinesByTypes(cad_file_path)
             # c++处理线条&获取算法的输入文件
             readCad.getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre)
             # 运行scp代码，输出解
