@@ -16,7 +16,7 @@ for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
 
 #plt.savefig('./structureGraph')
-file_path = "./resPoints"
+file_path = "./squareResPoints"
 cnames = {
         'aliceblue': '#F0F8FF',
         'antiquewhite': '#FAEBD7',
@@ -190,6 +190,6 @@ for i in range(len(x)):
     # plt.scatter(x[i],y[i],color='b')
 print(cnt)
 plt.xlim(184934, 246714)
-plt.title("30m_10m_cover3_red9")
+#plt.title("30m_10m_cover3_red9")
 plt.savefig("./test.png")
 #plt.show()

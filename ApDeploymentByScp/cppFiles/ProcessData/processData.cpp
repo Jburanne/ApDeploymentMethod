@@ -918,11 +918,49 @@ void checkLineCntByType(vector<Line>& lines, int type_cnt){
 	cout<<endl;
 }
 
-
+//正四边形部署方法
+void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+	vector<Point> s_ans;
+	Point p1(maxX,maxY);
+	Point p2(minX,minY);
+	Point p3(minX,maxY);
+	Point p4(maxX,minY);
+	int dist = floor(r*1.0/sqrt(2));
+	for(int i = minX + dist; i < maxX; i += dist){
+		for(int j = minY + dist; j < maxY; j+= dist){
+			Point pos(i,j);
+			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
+				continue;
+			}
+			//if(isOnLine(pos,lines)) continue;
+			//if(isNearLine(pos,lines)) continue;
+			s_ans.push_back(pos);
+		}
+	}
+	vector<vector<int>> s_cover_points(s_ans.size());
+	vector<vector<int>> s_cover_sets(points.size());
+	getRelationsByType(points, s_ans, lines, r, s_cover_points, s_cover_sets, reduceDist);
+	//write result
+	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
+	vector<int> flag(points.size(),0);
+	for(int num = 0;num < s_ans.size();++num){
+		location_out<<s_cover_points[num].size()<<endl;
+		location_out<<s_ans[num].x<<" "<<s_ans[num].y<<endl;
+		for(int pos:s_cover_points[num]){
+			if(flag[pos] == 1) continue;
+			location_out<<points[pos].x<<" "<<points[pos].y<<endl;
+			flag[pos] = 1;
+		}
+	}
+}
 
  
 int main(int argc, char *argv[]){
-	// 要获取的数据类型：0-线条处理数据以及算法输入所需数据 1-解中对应的节点数据，2-确认人工构造的解
+	// 要获取的数据类型：
+	//0-线条处理数据以及算法输入所需数据
+	//1-解中对应的节点数据
+	//2-确认人工构造的解
+	//3-产出正四边形部署结果 
 	int data_type = atoi(argv[1]);
 	int spread_dist = atoi(argv[2]);
 	int cover_num = atoi(argv[3]);
@@ -970,6 +1008,10 @@ int main(int argc, char *argv[]){
 
 	//打点（天花板，设备候选部署点）
 	vector<Point> cands = createPoints(border[0],border[2],border[1],border[3],1000,lines,1);
+	//若为正四边形部署，产出部署方案
+	if(data_type == 3){
+		squareDeployment(spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+	} 
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
 	vector<vector<int>> cover_sets(points.size());
