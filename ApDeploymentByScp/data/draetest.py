@@ -191,5 +191,5 @@ for i in range(len(x)):
 print(cnt)
 plt.xlim(184934, 246714)
 #plt.title("30m_10m_cover3_red9")
-plt.savefig("./test.png")
+plt.savefig("./test3.png")
 #plt.show()

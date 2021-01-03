@@ -658,8 +658,10 @@ vector<Point> createPoints(int minX, int minY, int maxX, int maxY, int dist, vec
 			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
 				continue;
 			}
+			
 			if(isOnLine(pos,lines)) continue;
 			if(type == 1 && isNearLine(pos,lines)) continue;
+			
 			points.push_back(pos);
 		}
 	}
@@ -918,6 +920,7 @@ void checkLineCntByType(vector<Line>& lines, int type_cnt){
 	cout<<endl;
 }
 
+
 //正四边形部署方法
 void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
 	vector<Point> s_ans;
@@ -925,21 +928,27 @@ void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<
 	Point p2(minX,minY);
 	Point p3(minX,maxY);
 	Point p4(maxX,minY);
-	int dist = floor(r*1.0/sqrt(2));
-	for(int i = minX + dist; i < maxX; i += dist){
-		for(int j = minY + dist; j < maxY; j+= dist){
+	r = r/1000;
+	int dist = floor(r*sqrt(2))*1000;
+	int half_dist = (dist/1000)/2*1000;
+	for(int i = minX + half_dist; i <= maxX; i += dist){
+		for(int j = minY + half_dist; j <= maxY; j+= dist){
 			Point pos(i,j);
 			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
 				continue;
 			}
-			//if(isOnLine(pos,lines)) continue;
-			//if(isNearLine(pos,lines)) continue;
 			s_ans.push_back(pos);
+			if(j + dist/2 < maxY && j + dist > maxY){
+				j = maxY-dist;
+			}
+		}
+		if(i + dist/2 < maxX && i + dist > maxX){
+			i = maxX-dist;
 		}
 	}
 	vector<vector<int>> s_cover_points(s_ans.size());
 	vector<vector<int>> s_cover_sets(points.size());
-	getRelationsByType(points, s_ans, lines, r, s_cover_points, s_cover_sets, reduceDist);
+	getRelationsByType(points, s_ans, lines, r*1000, s_cover_points, s_cover_sets, reduceDist);
 	//write result
 	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
 	vector<int> flag(points.size(),0);
@@ -952,6 +961,77 @@ void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<
 			flag[pos] = 1;
 		}
 	}
+	cout<<"num   "<<s_ans.size()<<endl;
+	int not_cover_cnt = 0;
+	for(int s:flag){
+		if(s == 0) not_cover_cnt++;
+	}
+	cout<<"not_cover_cnt:   "<<not_cover_cnt<<endl;
+}
+
+//正六边形部署 
+void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+	vector<Point> h_ans;
+	Point p1(maxX,maxY);
+	Point p2(minX,minY);
+	Point p3(minX,maxY);
+	Point p4(maxX,minY);
+	r = r/1000;
+	int dist = floor(sqrt(3)*r)*1000;
+	int dist1 = floor(1.5*r)*1000;
+	int half_dist = floor(sqrt(3)*1.0*r/2)*1000;
+	int odd = 1;
+	int j = minY + r/2*1000;
+	while(j <= maxY){
+		int i = minX;
+		//找到第一个合法的部署点 
+		while(i < maxX){
+			Point pos(i,j);
+			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
+				i += 1000;
+			}else{
+				break;
+			}
+		}
+		if(odd == -1) i += half_dist;
+		odd *= -1;
+		for(; i <= maxX;  i += dist){
+			Point pos(i,j);
+			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
+				continue;
+			}
+			h_ans.push_back(pos);
+			if(i + half_dist < maxX && i + dist > maxX){
+				i = maxX - dist;
+			}
+		}
+		if(j + r/2*1000 < maxY && j + dist1 > maxY){
+			j = maxY;
+		}else{
+			j += dist1;
+		}
+	}
+	vector<vector<int>> h_cover_points(h_ans.size());
+	vector<vector<int>> h_cover_sets(points.size());
+	getRelationsByType(points, h_ans, lines, r*1000, h_cover_points, h_cover_sets, reduceDist);
+	//write result
+	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
+	vector<int> flag(points.size(),0);
+	for(int num = 0;num < h_ans.size();++num){
+		location_out<<h_cover_points[num].size()<<endl;
+		location_out<<h_ans[num].x<<" "<<h_ans[num].y<<endl;
+		for(int pos:h_cover_points[num]){
+			if(flag[pos] == 1) continue;
+			location_out<<points[pos].x<<" "<<points[pos].y<<endl;
+			flag[pos] = 1;
+		}
+	}
+	cout<<"num:    "<<h_ans.size()<<endl;
+	int not_cover_cnt = 0;
+	for(int s:flag){
+		if(s == 0) not_cover_cnt++;
+	}
+	cout<<"not_cover_cnt:   "<<not_cover_cnt<<endl;
 }
 
  
@@ -1011,7 +1091,9 @@ int main(int argc, char *argv[]){
 	//若为正四边形部署，产出部署方案
 	if(data_type == 3){
 		squareDeployment(spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
-	} 
+	} else if(data_type == 4){
+		hexagonDeployment(spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+	}
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
 	vector<vector<int>> cover_sets(points.size());
