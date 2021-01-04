@@ -6,15 +6,32 @@
       <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/draetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/draetest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/hexagonResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/hexagonResPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/linesDataByMaterials.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/mergedLines.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/data/newtestfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/resPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/data/solution.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/squareResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/squareResPoints" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/test2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/test_graph_1.dxf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/10m_0m_cover1_red17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/10m_0m_cover1_red19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/15m_0m_cover1_red8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/15m_0m_cover1_red9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/20m_0m_cover1_red4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/4m_0m_cover1_red108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/6m_0m_cover1_red49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/6m_0m_cover1_red50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/7m_0m_cover1_red38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/8m_0m_cover1_red29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/9m_0m_cover1_red23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/rectangle.dxf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../experiment_results/results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../experiment_results/results.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +41,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ApDeploymentByScp$createDxf.coverage" NAME="createDxf Coverage Results" MODIFIED="1609666033832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
-    <SUITE FILE_PATH="coverage/ApDeploymentByScp$draetest.coverage" NAME="draetest Coverage Results" MODIFIED="1609681535323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/ApDeploymentByScp$draetest.coverage" NAME="draetest Coverage Results" MODIFIED="1609745026982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/ApDeploymentByScp$drawStructure.coverage" NAME="drawStructure Coverage Results" MODIFIED="1609069222159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
@@ -82,18 +99,19 @@
     <session id="-1404983895">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -113,13 +131,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cpp" value="1143" />
-          <entry key="py" value="1835" />
+          <entry key="py" value="1856" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="C++" value="1143" />
-          <entry key="Python" value="1835" />
+          <entry key="Python" value="1856" />
         </counts>
       </usages-collector>
     </session>
@@ -129,7 +147,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-450">
+            <state relative-caret-position="525">
               <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
             </state>
           </provider>
@@ -152,7 +170,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/readCad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="100">
               <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -164,8 +182,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/draetest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4077">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="234">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -247,7 +265,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1890" />
@@ -464,9 +482,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33953112" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -480,7 +498,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28825623" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26334518" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -531,6 +549,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/test.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/testh.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/users/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -541,11 +572,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/testh.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/users/readCad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/createDxf.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -554,27 +589,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/readCad.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/draetest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4077">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="234">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

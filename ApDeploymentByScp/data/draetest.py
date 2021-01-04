@@ -16,7 +16,7 @@ for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
 
 #plt.savefig('./structureGraph')
-file_path = "./squareResPoints"
+file_path = "./hexagonResPoints"
 cnames = {
         'aliceblue': '#F0F8FF',
         'antiquewhite': '#FAEBD7',
@@ -191,5 +191,5 @@ for i in range(len(x)):
 print(cnt)
 plt.xlim(184934, 246714)
 #plt.title("30m_10m_cover3_red9")
-plt.savefig("./test3.png")
+plt.savefig("./test2.png")
 #plt.show()

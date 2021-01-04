@@ -920,8 +920,15 @@ void checkLineCntByType(vector<Line>& lines, int type_cnt){
 	cout<<endl;
 }
 
+bool isLegalPoint(vector<Point>& points, int px, int py){
+	for(Point temp:points){
+		if(temp.x == px && temp.y == py) return true;
+	}
+	return false;
+} 
 
-//正四边形部署方法
+
+//正四边形部署方法（规则区域） 
 void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
 	vector<Point> s_ans;
 	Point p1(maxX,maxY);
@@ -969,7 +976,67 @@ void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<
 	cout<<"not_cover_cnt:   "<<not_cover_cnt<<endl;
 }
 
-//正六边形部署 
+//正四边形部署方法（不规则区域） 
+void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+	vector<Point> s_ans;
+	Point p1(maxX,maxY);
+	Point p2(minX,minY);
+	Point p3(minX,maxY);
+	Point p4(maxX,minY);
+	r = r/1000;
+	int dist = floor(r*sqrt(2))*1000;
+	int half_dist = (dist/1000)/2*1000;
+	for(int i = minX + half_dist; i <= maxX; i += dist){
+		int j = minY+half_dist;
+		for(; j <= maxY; j+= dist){
+			if(!isLegalPoint(points, i, j)) continue;
+			Point pos(i,j);
+			s_ans.push_back(pos);
+			if(isLegalPoint(points, i, j+dist/2000*1000) && !isLegalPoint(points, i, j+dist)) {
+				j = j+dist-1000;
+				while(!isLegalPoint(points, i, j)){
+					j -= 1000;
+				}
+				j = j-dist;
+			}
+		}
+		j = minY+half_dist;
+		if(isLegalPoint(points, i+dist/2000*1000,j) && !isLegalPoint(points, i+dist,j)){
+			i = i+dist-1000;
+			while(!isLegalPoint(points,i,j)) i -= 1000;
+			i = i-dist;
+		}
+	}
+	vector<vector<int>> s_cover_points(s_ans.size());
+	vector<vector<int>> s_cover_sets(points.size());
+	getRelationsByType(points, s_ans, lines, spread_dist, s_cover_points, s_cover_sets, reduceDist);
+	//write result
+	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
+	vector<int> cnt(points.size(),0);
+	for(int num = 0;num < s_ans.size();++num){
+		location_out<<s_cover_points[num].size()<<endl;
+		location_out<<s_ans[num].x<<" "<<s_ans[num].y<<endl;
+		for(int pos:s_cover_points[num]){
+			cnt[pos]++;
+			if(cnt[pos] > 1) continue;
+			location_out<<points[pos].x<<" "<<points[pos].y<<endl;
+		}
+	}
+	cout<<"num   "<<s_ans.size()<<endl;
+	vector<int> morethancnt(11,0);
+	for(int s:cnt){
+		for(int i = 1;i <= 10;i++){
+			if(s >= i) morethancnt[i]++;
+		}
+	}
+	cout<<"cover rate:"<<endl;
+	for(int i = 1;i <= 10;++i){
+		double rate = morethancnt[i]*1.0/cnt.size();
+		cout<<"more than "<< i << " :"<<morethancnt[i]<<",   "<<rate<<endl;
+	}
+}
+
+//正六边形部署 （规则区域） 
 void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
 	vector<Point> h_ans;
 	Point p1(maxX,maxY);
@@ -1034,6 +1101,93 @@ void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector
 	cout<<"not_cover_cnt:   "<<not_cover_cnt<<endl;
 }
 
+//正六边形部署 （不规则区域） 
+void hexagonDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+	vector<Point> h_ans;
+	Point p1(maxX,maxY);
+	Point p2(minX,minY);
+	Point p3(minX,maxY);
+	Point p4(maxX,minY);
+	r = r/1000;
+	int dist = floor(sqrt(3)*r)*1000;
+	int dist1 = floor(1.5*r)*1000;
+	int half_dist = floor(sqrt(3)*1.0*r/2)*1000;
+	int odd = 1;
+	int j = minY + r/2*1000;
+	while(j <= maxY){
+		int i = minX;
+		//找到第一个合法的部署点 
+		while(i < maxX){
+			Point pos(i,j);
+			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
+				i += 1000;
+			}else{
+				break;
+			}
+		}
+		if(odd == -1) i += half_dist;
+		odd *= -1;
+		for(; i <= maxX;  i += dist){
+			/*
+			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
+				continue;
+			}*/
+			if(isLegalPoint(points,i,j-dist1+r/2*1000) && !isLegalPoint(points,i,j)){
+				j = j-1000;
+				while(!isLegalPoint(points,i,j)) j -= 1000;
+				cout<<"hhhh"<<endl;
+			}
+			if(!isLegalPoint(points,i,j)) continue;
+			Point pos(i,j);
+			h_ans.push_back(pos);
+			if(isLegalPoint(points,i+half_dist,j) && !isLegalPoint(points,i+dist,j)){
+				i = i+dist-1000;
+				while(!isLegalPoint(points,i,j)) i -= 1000;
+				i = i-dist;
+			}
+			/*
+			if(i + half_dist < maxX && i + dist > maxX){
+				i = maxX - dist - 1000;
+			}*/
+		}
+		j += dist1;
+		
+		/*
+		if(j + r/2*1000 < maxY && j + dist1 > maxY){
+			j = maxY-1000;
+		}else{
+			j += dist1;
+		}*/
+	}
+	vector<vector<int>> h_cover_points(h_ans.size());
+	vector<vector<int>> h_cover_sets(points.size());
+	getRelationsByType(points, h_ans, lines, spread_dist, h_cover_points, h_cover_sets, reduceDist);
+	//write result
+	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
+	vector<int> cnt(points.size(),0);
+	for(int num = 0;num < h_ans.size();++num){
+		location_out<<h_cover_points[num].size()<<endl;
+		location_out<<h_ans[num].x<<" "<<h_ans[num].y<<endl;
+		for(int pos:h_cover_points[num]){
+			cnt[pos]++;
+			if(cnt[pos] > 1) continue;
+			location_out<<points[pos].x<<" "<<points[pos].y<<endl;
+		}
+	}
+	cout<<"num   "<<h_ans.size()<<endl;
+	vector<int> morethancnt(11,0);
+	for(int s:cnt){
+		for(int i = 1;i <= 10;i++){
+			if(s >= i) morethancnt[i]++;
+		}
+	}
+	cout<<"cover rate:"<<endl;
+	for(int i = 1;i <= 10;++i){
+		double rate = morethancnt[i]*1.0/cnt.size();
+		cout<<"more than "<< i << " :"<<morethancnt[i]<<",   "<<rate<<endl;
+	}
+}
+
  
 int main(int argc, char *argv[]){
 	// 要获取的数据类型：
@@ -1090,9 +1244,11 @@ int main(int argc, char *argv[]){
 	vector<Point> cands = createPoints(border[0],border[2],border[1],border[3],1000,lines,1);
 	//若为正四边形部署，产出部署方案
 	if(data_type == 3){
-		squareDeployment(spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		int r = cover_num;//temp
+		squareDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
 	} else if(data_type == 4){
-		hexagonDeployment(spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		int r = cover_num;//temp
+		hexagonDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
 	}
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
