@@ -3,35 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="781c3f07-4210-477d-b9f2-9e04a21336e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cppFiles/ProcessData/processData.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/draetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/draetest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/hexagonResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/hexagonResPoints" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/linesDataByMaterials.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/mergedLines.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/data/newtestfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/resPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/data/solution.res" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/squareResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/squareResPoints" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/test2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/10m_0m_cover1_red17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/10m_0m_cover1_red19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/15m_0m_cover1_red8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/15m_0m_cover1_red9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/20m_0m_cover1_red4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/4m_0m_cover1_red108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/5m_0m_cover1_red66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/6m_0m_cover1_red49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/6m_0m_cover1_red50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/7m_0m_cover1_red38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/8m_0m_cover1_red29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/9m_0m_cover1_red23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle.dxf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../experiment_results/results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../experiment_results/results.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover3_red36.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/img/30m_10m_cover3_red36.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/img/test_graph_1.dxf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +82,7 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="12" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -111,33 +94,41 @@
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpp" value="4" />
+          <entry key="css" value="2" />
+          <entry key="html" value="4" />
           <entry key="png" value="15" />
-          <entry key="py" value="15" />
+          <entry key="py" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C++" value="4" />
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="4" />
           <entry key="Image" value="15" />
-          <entry key="Python" value="15" />
+          <entry key="Python" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cpp" value="1143" />
-          <entry key="py" value="1856" />
+          <entry key="css" value="206" />
+          <entry key="html" value="1004" />
+          <entry key="py" value="2216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="C++" value="1143" />
-          <entry key="Python" value="1856" />
+          <entry key="CSS" value="206" />
+          <entry key="HTML" value="1004" />
+          <entry key="Python" value="2216" />
         </counts>
       </usages-collector>
     </session>
@@ -147,55 +138,74 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+            <state relative-caret-position="475">
+              <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/users/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/readCad.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="275">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <marker date="1609936692172" expanded="true" signature="1160:1165" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/draetest.py">
+        <entry file="file://$PROJECT_DIR$/templates/users/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="225">
+              <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/createDxf.py">
+        <entry file="file://$PROJECT_DIR$/templates/users/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="400">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/uploadCad.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -206,6 +216,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -236,6 +248,9 @@
       <find>writeFile1</find>
       <find>linesdata</find>
       <find>getInput</find>
+      <find>media</find>
+      <find>staticfiles</find>
+      <find>staticfile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -245,17 +260,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/users/models.py" />
-        <option value="$PROJECT_DIR$/ApDeploymentByScp/settings.py" />
-        <option value="$PROJECT_DIR$/ApDeploymentByScp/urls.py" />
         <option value="$PROJECT_DIR$/cppFiles/SCP/pms.h" />
-        <option value="$PROJECT_DIR$/templates/users/add.html" />
         <option value="$PROJECT_DIR$/data/drawStructure.py" />
-        <option value="$PROJECT_DIR$/users/forms.py" />
         <option value="$PROJECT_DIR$/cppFiles/ProcessData/processData.cpp" />
         <option value="$PROJECT_DIR$/users/readCad.py" />
-        <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/data/createDxf.py" />
         <option value="$PROJECT_DIR$/data/draetest.py" />
+        <option value="$PROJECT_DIR$/users/urls.py" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/urls.py" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/settings.py" />
+        <option value="$PROJECT_DIR$/templates/users/login.html" />
+        <option value="$PROJECT_DIR$/static/css/login.css" />
+        <option value="$PROJECT_DIR$/static/css/input.css" />
+        <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/users/forms.py" />
+        <option value="$PROJECT_DIR$/static/css/uploadCad.css" />
+        <option value="$PROJECT_DIR$/templates/users/add.html" />
       </list>
     </option>
   </component>
@@ -265,7 +285,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1890" />
@@ -277,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -293,28 +312,23 @@
             <path>
               <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="cppFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="cppFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcessData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,17 +351,21 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Study\FinalProject\ApDeployment\ApDeploymentByScp\static\img" />
       <recent name="E:\Study\FinalProject\DjangoTest\ApDeploymentByScp\cppFiles" />
       <recent name="E:\Study\FinalProject\DjangoTest\ApDeploymentByScp\templates\users" />
     </key>
@@ -482,9 +500,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34519" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35084882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -498,7 +517,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26334518" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26334518" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -521,17 +540,12 @@
     <entry file="file://$PROJECT_DIR$/cppFiles/SCP/basis_pms.h" />
     <entry file="file://$PROJECT_DIR$/cppFiles/SCP/deci.h" />
     <entry file="file://$PROJECT_DIR$/cppFiles/SCP/pms.h" />
-    <entry file="file://$PROJECT_DIR$/users/urls.py" />
-    <entry file="file://$PROJECT_DIR$/users/models.py" />
-    <entry file="file://$PROJECT_DIR$/templates/users/add.html" />
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/urls.py" />
     <entry file="file://$PROJECT_DIR$/data/test1.png" />
     <entry file="file://$PROJECT_DIR$/cppFiles/ProcessData/testpy.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/structureGraph.png" />
     <entry file="file://$PROJECT_DIR$/media/img/30m_10m_cover3_red40.png" />
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/settings.py" />
     <entry file="file://$PROJECT_DIR$/users/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -552,23 +566,15 @@
     <entry file="file://$PROJECT_DIR$/data/test.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/testh.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
+    <entry file="file://$PROJECT_DIR$/data/testh.png" />
+    <entry file="file://$PROJECT_DIR$/data/createDxf.py" />
+    <entry file="file://$PROJECT_DIR$/data/draetest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="234">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -582,19 +588,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/createDxf.py">
+    <entry file="file://$PROJECT_DIR$/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="364">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/draetest.py">
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        <state relative-caret-position="169">
+          <caret line="125" column="1" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <marker date="1609936692172" expanded="true" signature="1160:1165" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/uploadCad.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

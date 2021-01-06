@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import User
-from .forms import AddForm
+from .forms import AddForm,LoginForm
 from . import readCad
 import os
 from django.shortcuts import HttpResponse,render,redirect
@@ -54,5 +54,9 @@ def add(request):
         print(os.getcwd())
         af = AddForm()
         return render(request, 'users/add.html', context={'af':af})
+        #loginform = LoginForm()
+        #return render(request, 'users/login.html', context={'loginform':loginform})
+
+
 
 

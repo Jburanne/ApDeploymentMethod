@@ -1,17 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/uploadCad.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Add</title>
 </head>
 <body>
-    <h1>上传CAD文件，获取设备部署方案！</h1>
-
-    <form method="post" enctype="multipart/form-data" action="{% url 'users:add' %}">
+    <!--<h1>上传CAD文件，获取设备部署方案！</h1>-->
+    <form class="needs-validation" method="post" enctype="multipart/form-data" action="{% url 'users:add' %}" novalidate>
         {% csrf_token %}
-        {{ af.as_p }}
-        <input type="submit" value="OK"/>
-    </form>
 
+        <div class="card" style="width: 30rem;">
+            <!-- 上传文件卡片 -->
+            <div class="card-header">
+                <b>文件上传</b>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="file-name">文件说明</label>
+                        {{ af.filename }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="file">cad文件</label>
+                        {{ af.headimg }}
+                    </div>
+                </div>
+            </div>
+            <!-- 部署约束卡片 -->
+            <div class="card-header">
+                <b>部署约束</b>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cover-num">最低信号数量</label>
+                        {{ af.cover_num }}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="ap-dist">设备间距</label>
+                        {{ af.dist_thre }}
+                    </div>
+                </div>
+            </div>
+            <!-- 信号约束卡片 -->
+            <div class="card-header">
+                <b>信号约束</b>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="spread-dist">信号传播距离（米）</label>
+                        {{ af.propagation_distance }}
+                    </div>
+                    <b class="card-title">信号遇障碍物衰减距离（米）</b>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
+                        <label for="wall-reduce">墙壁</label>
+                        {{ af.wall_reduction_distance }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="glass-reduce">玻璃</label>
+                        {{ af.glass_reduction_distance }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="wood-reduce">木材</label>
+                        {{ af.wood_reduction_distance }}
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="other-reduce">其他</label>
+                        {{ af.other_reduction_distance }}
+                    </div>
+                </div>
+            </div>
+            <!-- 算法约束卡片 -->
+            <div class="card-header">
+                <b>算法约束</b>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="time-limit">运行时间（秒）</label>
+                        {{ af.time_limit }}
+                    </div>
+                </div>
+            </div>
+            <div class="card-header">
+                <input type="submit" value="OK" class="btn btn-outline-primary btn-lg btn-block"/>
+            </div>
+            </div>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
