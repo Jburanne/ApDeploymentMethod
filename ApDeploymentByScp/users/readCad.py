@@ -355,7 +355,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     plt.title(pic_name)
     save_path = os.getcwd().replace("\\", '/')+"/media/img/"+pic_name+".png"
     plt.savefig(save_path)
-    return save_path
+    return save_path,pic_name
 
 def mergeLines(cpp_path):
     os.system(cpp_path)
