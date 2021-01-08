@@ -40,7 +40,7 @@ def add(request):
             # 读取解
             readCad.getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre)
             # 解的可视化
-            img_path,pic_name = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
+            img_path,pic_name,ap_num = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
             #img_path = readCad.readLines()
             #展示图片
             #img_data = open(img_path,'rb').read()
@@ -48,8 +48,9 @@ def add(request):
             img_relative_path = '/media/img/'+pic_name+'.png'
             return render(request, 'users/deploymentResult.html',
                           context={"resimgpath":img_relative_path,"cover_num":cover_num,
-                                   "spread_dist":spread_dist, "wall_reduce_dist":wall_reduce_dist,
-                                   "dist_thre":dist_thre})
+                                   "spread_dist":spread_dist/1000, "time_limit":time_limit,
+                                   "dist_thre":dist_thre/1000,"ap_num":ap_num,
+                                   "filename":filename})
             #print(os.getcwd())
             #return render(request, 'users/index.html', context={"user": user})
             #return HttpResponse("上传成功")
@@ -57,10 +58,11 @@ def add(request):
     else:
         #readCad.testF()
         print(os.getcwd())
-        #af = AddForm()
+        af = AddForm()
         #return render(request, 'users/add.html', context={'af':af})
-        loginform = LoginForm()
-        return render(request, 'users/login.html', context={'loginform':loginform})
+        #loginform = LoginForm()
+        return render(request, 'users/uploadCad.html', context={'af':af})
+        #return render(request, 'users/deploymentResult.html', context={'af': af})
 
 
 
