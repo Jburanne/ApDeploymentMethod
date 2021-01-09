@@ -3,41 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="781c3f07-4210-477d-b9f2-9e04a21336e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/linesDataByMaterials.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/mergedLines.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/data/newtestfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/resPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/data/solution.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/10m_0m_cover2_red39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/11m_0m_cover1_red16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/11m_0m_cover1_red17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/12m_0m_cover1_red14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/13m_0m_cover1_red12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/14m_0m_cover1_red10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/16m_0m_cover1_red8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/17m_0m_cover1_red7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/18m_0m_cover1_red7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/19m_0m_cover1_red6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/20m_0m_cover1_red5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover10_red119.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover1_red12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover2_red24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover3_red36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover3_red37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover4_red49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover5_red59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover6_red72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover7_red84.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover8_red95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/30m_10m_cover9_red107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/35m_10m_cover3_red26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle.dxf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle_AJnEqZB.dxf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle_segp3VG.dxf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/media/img/test_graph_1.dxf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/deploymentResult.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/deploymentResult.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/uploadCad.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/uploadCad.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/uploadCad.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/readCad.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/readCad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
@@ -109,7 +81,7 @@
     <session id="-1404983895">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
@@ -119,19 +91,20 @@
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpp" value="4" />
           <entry key="css" value="7" />
-          <entry key="html" value="10" />
-          <entry key="png" value="15" />
+          <entry key="html" value="13" />
+          <entry key="png" value="17" />
           <entry key="py" value="27" />
         </counts>
       </usages-collector>
@@ -139,8 +112,8 @@
         <counts>
           <entry key="C++" value="4" />
           <entry key="CSS" value="7" />
-          <entry key="HTML" value="10" />
-          <entry key="Image" value="15" />
+          <entry key="HTML" value="13" />
+          <entry key="Image" value="17" />
           <entry key="Python" value="27" />
         </counts>
       </usages-collector>
@@ -148,29 +121,30 @@
         <counts>
           <entry key="cpp" value="1143" />
           <entry key="css" value="249" />
-          <entry key="html" value="3090" />
-          <entry key="py" value="2699" />
+          <entry key="html" value="3168" />
+          <entry key="py" value="2929" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="C++" value="1143" />
           <entry key="CSS" value="249" />
-          <entry key="HTML" value="3090" />
-          <entry key="Python" value="2699" />
+          <entry key="HTML" value="3168" />
+          <entry key="Python" value="2929" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+            <state relative-caret-position="233">
+              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
+                <marker date="1610176078992" expanded="true" signature="2927:3173" ph="..." />
               </folding>
             </state>
           </provider>
@@ -179,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/readCad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="357" column="33" selection-start-line="357" selection-start-column="33" selection-end-line="357" selection-end-column="33" />
+            <state relative-caret-position="-473">
+              <caret line="342" column="24" selection-start-line="342" selection-start-column="24" selection-end-line="342" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -191,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="225">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -203,11 +177,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+            <state relative-caret-position="125">
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding>
-                <marker date="1610090775893" expanded="true" signature="1225:1230" ph="..." />
+                <marker date="1610163597559" expanded="true" signature="1219:1224" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="71">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -215,59 +198,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/users/uploadCad.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
-              <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
+            <state relative-caret-position="304">
+              <caret line="216" column="10" selection-end-line="245" selection-end-column="7" />
               <folding>
-                <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4583#4589#0#HTML" expanded="true" />
-                <element signature="e#4589#4595#0#HTML" expanded="true" />
-                <element signature="e#4599#4605#0#HTML" expanded="true" />
-                <element signature="e#4603#4609#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#5974#5980#0#HTML" expanded="true" />
-                <element signature="e#5980#5986#0#HTML" expanded="true" />
-                <element signature="e#5986#5992#0#HTML" expanded="true" />
-                <element signature="e#5992#5998#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#7365#7371#0#HTML" expanded="true" />
-                <element signature="e#7371#7377#0#HTML" expanded="true" />
-                <element signature="e#7377#7383#0#HTML" expanded="true" />
-                <element signature="e#7383#7389#0#HTML" expanded="true" />
-                <element signature="n#div#0;n#ul#5;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#li#0;n#ul#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#10852#10858#0#HTML" expanded="true" />
-                <element signature="e#10858#10864#0#HTML" expanded="true" />
-                <element signature="e#10864#10870#0#HTML" expanded="true" />
-                <element signature="e#10870#10876#0#HTML" expanded="true" />
-                <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="116" column="44" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
-              <folding>
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#3;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#b#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#nav#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/uploadCad.css">
+        <entry file="file://$PROJECT_DIR$/templates/users/myDeployment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="125">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+              <folding>
+                <element signature="n#nav#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -313,8 +261,8 @@
       <find>staticfile</find>
       <find>stylesheet</find>
       <find>jpg</find>
-      <find>readScpRes</find>
       <find>form</find>
+      <find>readScpRes</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -336,12 +284,13 @@
         <option value="$PROJECT_DIR$/static/css/uploadCad.css" />
         <option value="$PROJECT_DIR$/templates/users/add.html" />
         <option value="$PROJECT_DIR$/templates/users/login.html" />
-        <option value="$PROJECT_DIR$/users/urls.py" />
         <option value="$PROJECT_DIR$/users/forms.py" />
-        <option value="$PROJECT_DIR$/templates/users/uploadCad.html" />
         <option value="$PROJECT_DIR$/users/readCad.py" />
-        <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/users/urls.py" />
         <option value="$PROJECT_DIR$/templates/users/deploymentResult.html" />
+        <option value="$PROJECT_DIR$/templates/users/uploadCad.html" />
+        <option value="$PROJECT_DIR$/templates/users/myDeployment.html" />
+        <option value="$PROJECT_DIR$/users/views.py" />
       </list>
     </option>
   </component>
@@ -378,6 +327,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -394,6 +344,12 @@
               <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ApDeploymentByScp" type="b2602c69:ProjectViewProjectNode" />
@@ -426,7 +382,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -579,7 +534,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28536782" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29021826" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -714,10 +669,43 @@
     <entry file="file://$PROJECT_DIR$/static/css/materialdesignicons.min.css" />
     <entry file="file://$PROJECT_DIR$/static/css/typicons.css" />
     <entry file="file://$PROJECT_DIR$/static/css/all.css" />
+    <entry file="file://$PROJECT_DIR$/templates/users/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1974">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/img/10m_0m_cover2_red39.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/media/img/10m_0m_cover1_red19.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/readCad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-473">
+          <caret line="342" column="24" selection-start-line="342" selection-start-column="24" selection-end-line="342" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding>
+            <marker date="1610163597559" expanded="true" signature="1219:1224" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -726,91 +714,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/uploadCad.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="322">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/add.html">
+    <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1974">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="71">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/forms.py">
+    <entry file="file://$PROJECT_DIR$/templates/users/uploadCad.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="81" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="81" />
+        <state relative-caret-position="304">
+          <caret line="216" column="10" selection-end-line="245" selection-end-column="7" />
           <folding>
-            <marker date="1610090775893" expanded="true" signature="1225:1230" ph="..." />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/readCad.py">
+    <entry file="file://$PROJECT_DIR$/templates/users/myDeployment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="357" column="33" selection-start-line="357" selection-start-column="33" selection-end-line="357" selection-end-column="33" />
+        <state relative-caret-position="125">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+        <state relative-caret-position="233">
+          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/uploadCad.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="86" column="53" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#4583#4589#0#HTML" expanded="true" />
-            <element signature="e#4589#4595#0#HTML" expanded="true" />
-            <element signature="e#4599#4605#0#HTML" expanded="true" />
-            <element signature="e#4603#4609#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5974#5980#0#HTML" expanded="true" />
-            <element signature="e#5980#5986#0#HTML" expanded="true" />
-            <element signature="e#5986#5992#0#HTML" expanded="true" />
-            <element signature="e#5992#5998#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#2;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7365#7371#0#HTML" expanded="true" />
-            <element signature="e#7371#7377#0#HTML" expanded="true" />
-            <element signature="e#7377#7383#0#HTML" expanded="true" />
-            <element signature="e#7383#7389#0#HTML" expanded="true" />
-            <element signature="n#div#0;n#ul#5;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#li#0;n#ul#3;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#10852#10858#0#HTML" expanded="true" />
-            <element signature="e#10858#10864#0#HTML" expanded="true" />
-            <element signature="e#10864#10870#0#HTML" expanded="true" />
-            <element signature="e#10870#10876#0#HTML" expanded="true" />
-            <element signature="n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="116" column="44" selection-start-line="116" selection-start-column="44" selection-end-line="116" selection-end-column="44" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#3;n#ul#0;n#nav#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#canvas#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#b#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1610176078992" expanded="true" signature="2927:3173" ph="..." />
           </folding>
         </state>
       </provider>

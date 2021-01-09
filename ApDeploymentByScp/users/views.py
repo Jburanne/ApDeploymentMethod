@@ -7,7 +7,7 @@ from django.shortcuts import HttpResponse,render,redirect
 
 
 # Create your views here.
-def add(request):
+def uploadCad(request):
     # 判断是否为post方法提交
     if request.method == "POST":
         af = AddForm(request.POST, request.FILES)
@@ -56,14 +56,19 @@ def add(request):
             #return HttpResponse("上传成功")
             #return HttpResponse(cover_num)
     else:
-        #readCad.testF()
         print(os.getcwd())
         af = AddForm()
-        #return render(request, 'users/add.html', context={'af':af})
-        #loginform = LoginForm()
         return render(request, 'users/uploadCad.html', context={'af':af})
-        #return render(request, 'users/deploymentResult.html', context={'af': af})
 
+def deploymentResult(request):
+    return render(request, 'users/deploymentResult.html')
+
+def add(request):
+    af = AddForm()
+    return render(request, 'users/add.html', context={'af':af})
+
+def myDeployment(request):
+    return render(request, 'users/myDeployment.html')
 
 
 

@@ -8,9 +8,9 @@ class AddForm(forms.Form):
     propagation_distance = forms.IntegerField(label='传播距离',widget=forms.NumberInput(attrs={'class':'form-control'}))
     # reduction distance with regard to different materials
     wall_reduction_distance = forms.IntegerField(label='遇墙衰减距离',widget=forms.TextInput(attrs={'class':'form-control'}))
-    glass_reduction_distance = forms.IntegerField(label='遇玻璃衰减距离',widget=forms.NumberInput(attrs={'class':'form-control'}))
-    wood_reduction_distance = forms.IntegerField(label='遇木材衰减距离',widget=forms.NumberInput(attrs={'class':'form-control'}))
-    other_reduction_distance = forms.IntegerField(label='遇其他衰减距离',widget=forms.NumberInput(attrs={'class':'form-control'}))
+    glass_reduction_distance = forms.IntegerField(label='遇玻璃衰减距离',widget=forms.TextInput(attrs={'class':'form-control'}))
+    wood_reduction_distance = forms.IntegerField(label='遇木材衰减距离',widget=forms.TextInput(attrs={'class':'form-control'}))
+    other_reduction_distance = forms.IntegerField(label='遇其他衰减距离',widget=forms.TextInput(attrs={'class':'form-control'}))
 
     time_limit = forms.IntegerField(label='运行时间',widget=forms.NumberInput(attrs={'class':'form-control'}))
     dist_thre = forms.IntegerField(label='设备间距',widget=forms.NumberInput(attrs={'class':'form-control'}))

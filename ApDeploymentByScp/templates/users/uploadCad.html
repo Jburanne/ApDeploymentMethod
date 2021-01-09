@@ -28,7 +28,7 @@
     <title>UploadCAD</title>
 </head>
 <body>
-<form class="needs-validation" method="post" enctype="multipart/form-data" action="{% url 'users:add' %}">
+<form class="needs-validation" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
@@ -45,13 +45,13 @@
                     </li>
                     <li class="nav-item nav-category">Main Menu</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users/uploadCad.html">
+                        <a class="nav-link" href="{% url 'users:uploadCad' %}">
                             <i class="menu-icon typcn typcn-document-text"></i>
                             <span class="menu-title">开始部署</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{% url 'users:myDeployment' %}">
                             <i class="menu-icon typcn typcn-shopping-bag"></i>
                             <span class="menu-title">我的部署</span>
                         </a>

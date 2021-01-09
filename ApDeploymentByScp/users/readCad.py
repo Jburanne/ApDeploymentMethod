@@ -339,7 +339,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
                 # break
                 continue
             if flag == 1:
-                plt.scatter(int(pos[0]), int(pos[1]), color='r', s=5)
+                plt.scatter(int(pos[0]), int(pos[1]), color='r', s=6)
                 cnt += 1
                 flag = 0
             else:
@@ -355,6 +355,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     plt.title(pic_name)
     save_path = os.getcwd().replace("\\", '/')+"/media/img/"+pic_name+".png"
     plt.savefig(save_path)
+    plt.close()
     return save_path,pic_name,cnt
 
 def mergeLines(cpp_path):
