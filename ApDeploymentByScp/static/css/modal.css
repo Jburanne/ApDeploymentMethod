@@ -1,0 +1,26 @@
+.hide {
+    display: none;
+}
+
+.shadow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0.6;
+    z-index: 1000;
+}
+
+.check_modal {
+    position: fixed;
+    height: 300px;
+    width: 400px;
+    top: 100px;
+    left: 50%;
+    z-index: 1001;
+    border: 1px solid black;
+    background: white;
+    margin-left: -200px;
+}

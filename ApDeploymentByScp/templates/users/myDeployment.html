@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/uploadCad.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link href="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+    <!-- js -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.js"></script>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/static/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/static/assets/vendors/iconfonts/ionicons/css/ionicons.css">
@@ -28,7 +34,7 @@
     <title>MyDeployment</title>
 </head>
 <body>
-<form class="needs-validation" method="post" enctype="multipart/form-data">
+<form class="needs-validation" method="post" enctype="multipart/form-data" action="{% url 'users:myDeployment' %}">
     {% csrf_token %}
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
@@ -80,13 +86,157 @@
 
                 </ul>
             </nav>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="p-4 pr-5 border-bottom bg-light d-flex justify-content-between">
+                                    <h4 class="card-title mb-0"><b>我的部署</b></h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <td><b>cad文件说明</b></td>
+                                            <td><b>cad文件</b></td>
+                                            <td><b>部署图</b></td>
+                                            <td>部署位置文件</td>
+                                            <td>参数表</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for row in res %}
+                                            <tr>
+                                                <td> {{ row.cadname }}</td>
+                                                <td> {{ row.cadpath }}</td>
+                                                <td> {{ row.resname }}</td>
+                                                <td> {{ row.respath }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-link" data-toggle="modal"
+                                                            data-target="#paramsModal" onclick="showParams({{ row.cover_num }},{{ row.dist_thre }},{{ row.spread_dist }},
+                                                            {{ row.wall_reduce_dist }},{{ row.glass_reduce_dist }},{{ row.wood_reduce_dist }},
+                                                            {{ row.other_reduce_dist }},{{ row.time_limit }})">
+                                                        点击查看部署信息
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <!--<div class="row pt-5">
+                                        <div class="col-lg-6 pl-5">
+                                            <button type="button" class="btn btn-danger btn-rounded btn-fw">保存结果
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-6 pr-5">
+                                            <a href="{% url 'users:uploadCad' %}">
+                                                <button type="button" class="btn btn-info btn-rounded btn-fw">重新部署
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="content-wrapper">
+                    <thead>
+                        <tr>
+                            <th> username</th>
+                            <th>pwd</th>
+                        </tr>
+                    </thead>
+                    {% for row in res %}
+                    <tbody>
+                        <tr>
+                            <th> {{ row.username }}</th>
+                            <th> {{ row.password }}</th>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                <input type="button" value="提交" onclick="showModal();">
+                </div>-->
+            </div>
         </div>
     </div>
 </form>
 
 
+<!-- 部署信息查看模态 -->
+<div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paramsModalLabel">部署参数信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td>信号覆盖次数</td>
+                        <td><input type="text" id="cover_num" style="border: 0;" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>设备最低间隔</td>
+                        <td><input type="text" id="dist_thre" style="border: 0;" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>信号传播距离</td>
+                        <td><input type="text" id="spread_dist" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>信号遇墙衰减</td>
+                        <td><input type="text" id="wall_reduce_dist" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>信号遇玻璃衰减</td>
+                        <td><input type="text" id="glass_reduce_dist" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>信号遇木材衰减</td>
+                        <td><input type="text" id="wood_reduce_dist" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>信号遇其他衰减</td>
+                        <td><input type="text" id="other_reduce_dist" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>算法运行时间</td>
+                        <td><input type="text" id="time_limit" style="border: 0;width: 50px" disabled></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#paramsModal").modal("show");
+
+    function showParams(cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
+                        wood_recude_dist, other_reduce_dist, time_limit) {
+        $("#cover_num").val(cover_num+"次");
+        $("#dist_thre").val(dist_thre+"m");
+        $("#spread_dist").val(spread_dist+"m");
+        $("#wall_reduce_dist").val(wall_reduce_dist+"m");
+        $("#glass_reduce_dist").val(glass_reduce_dist+"m");
+        $("#wood_reduce_dist").val(wood_recude_dist+"m");
+        $("#other_reduce_dist").val(other_reduce_dist+"m");
+        $("#time_limit").val(time_limit+"s");
+    }
+</script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -96,8 +246,28 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<!-- 模态 -->
+<!--
+<div class="shadow" id="shadow">
+    <div class="check_modal" id="modal">
+        <p>覆盖次数：<input id="cover_num" type="text" name="uname"></p>
+        <p>设备间隔：<input id="dist_thre" type="text" name="upwd"></p>
+    </div>
+</div>
+<script>
+    function showModal(){
+        document.getElementById("shadow").classList.remove("hide")
+        document.getElementById("modal").classList.remove("hide")
+    }
+</script>-->
+
+
 <!-- container-scroller -->
 <!-- plugins:js -->
+
 <script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="/static/assets/vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
