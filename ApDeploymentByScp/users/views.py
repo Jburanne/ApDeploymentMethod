@@ -5,6 +5,7 @@ from . import readCad
 import os
 from django.shortcuts import HttpResponse, render, redirect
 import pymysql
+import json
 
 
 def connectToMySQL():
@@ -61,11 +62,14 @@ def uploadCad(request):
             # img_data = open(img_path,'rb').read()
             # return HttpResponse(img_data, content_type="image/png")
             img_relative_path = '/media/img/' + pic_name + '.png'
-            return render(request, 'users/deploymentResult.html',
-                          context={"resimgpath": img_relative_path, "cover_num": cover_num,
+            dc = {"resimgpath": img_relative_path, "cover_num": cover_num,
                                    "spread_dist": spread_dist / 1000, "time_limit": time_limit,
                                    "dist_thre": dist_thre / 1000, "ap_num": ap_num,
-                                   "filename": filename})
+                                   "filename": filename,"wall_reduce_dist":wall_reduce_dist / 1000,
+                  "glass_reduce_dist":glass_reduce_dist / 1000,"wood_reduce_dist":wood_reduce_dist / 1000,
+                  "other_reduce_dist":other_reduce_dist / 1000,"cadpath":cad_file_path,"pospath":""}
+            return render(request, 'users/deploymentResult.html',
+                          context={"dc":dc})
             # print(os.getcwd())
             # return render(request, 'users/index.html', context={"user": user})
             # return HttpResponse("上传成功")
@@ -77,7 +81,84 @@ def uploadCad(request):
 
 
 def deploymentResult(request):
-    return render(request, 'users/deploymentResult.html')
+    contextDict={"resimgpath": "testpath", "cover_num": 4,
+                                   "spread_dist": 30, "time_limit": 30,
+                                   "dist_thre": 5, "ap_num": 39,
+                                   "filename": "testgraph",
+                 "wall_reduce_dist":10,"glass_reduce_dist":8,"wood_reduce_dist":5,
+                 "other_reduce_dist":10,"cadpath":"cadpath","pospath":""}
+    return render(request, 'users/deploymentResult.html',context={'dc':contextDict})
+
+def saveResult(request):
+    conn, cursor = connectToMySQL()
+    '''
+    insert_sql = "insert into users(username,password) values('210111','hhhhhh')"
+    cursor.execute(insert_sql)
+    conn.commit()
+    '''
+    print(request.POST)
+    cover_num = request.POST.get("dc[cover_num]")
+    spread_dist = request.POST.get("dc[spread_dist]")
+    time_limit = request.POST.get("dc[time_limit]")
+    dist_thre = request.POST.get("dc[dist_thre]")
+    resImgPath = request.POST.get("dc[resimgpath]")
+    filename = request.POST.get("dc[filename]")
+    wall_reduce_dist = request.POST.get("dc[wall_reduce_dist]")
+    glass_reduce_dist = request.POST.get("dc[glass_reduce_dist]")
+    wood_reduce_dist = request.POST.get("dc[wood_reduce_dist]")
+    other_reduce_dist = request.POST.get("dc[other_reduce_dist]")
+    ap_num = request.POST.get("dc[ap_num]")
+    cadpath = request.POST.get("dc[cadpath]")
+    pospath = request.POST.get("dc[pospath]")
+    print(cover_num,spread_dist,time_limit,dist_thre,resImgPath,filename,wall_reduce_dist,glass_reduce_dist,
+          wood_reduce_dist,other_reduce_dist,ap_num)
+    # 获得cad id
+    cad_select_sql = "select id from cad where filepath=%s"
+    cursor.execute(cad_select_sql,[cadpath,])
+    res = cursor.fetchall()
+    if(len(res) == 0):
+        cad_insert_sql = "insert into cad(filename,filepath) values(%s,%s)"
+        cursor.execute(cad_insert_sql,[filename,cadpath,])
+        conn.commit()
+        cursor.execute(cad_select_sql,[cadpath,])
+        res = cursor.fetchall()
+    cad_id = res[0]['id']
+    print(cad_id)
+    # 获得参数id
+    param_select_sql = "select id from params where cover_num=%s and dist_thre=%s and spread_dist=%s and " \
+                       "wall_reduce_dist=%s and glass_reduce_dist=%s and wood_reduce_dist=%s and other_reduce_dist=%s and " \
+                       "time_limit=%s"
+    cursor.execute(param_select_sql,[cover_num,dist_thre,spread_dist,wall_reduce_dist,glass_reduce_dist,
+                                     wood_reduce_dist,other_reduce_dist,time_limit,])
+    res = cursor.fetchall()
+    if(len(res) == 0):
+        param_insert_sql = "insert into params(cover_num,dist_thre,spread_dist, wall_reduce_dist, glass_reduce_dist," \
+                           "wood_reduce_dist, other_reduce_dist, time_limit) values(%s,%s,%s,%s,%s,%s,%s,%s)"
+        cursor.execute(param_insert_sql, [cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
+                                          wood_reduce_dist, other_reduce_dist, time_limit,])
+        conn.commit()
+        cursor.execute(param_select_sql, [cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
+                                          wood_reduce_dist, other_reduce_dist, time_limit,])
+        res = cursor.fetchall()
+    param_id = res[0]['id']
+    print(param_id)
+    # 获得结果id
+    res_insert_sql = "insert into result(filepath,ap_num,pospath) values(%s,%s,%s)"
+    cursor.execute(res_insert_sql,[resImgPath,ap_num,pospath,])
+    conn.commit()
+    res_select_sql = "select max(id) as id from result"
+    cursor.execute(res_select_sql)
+    res = cursor.fetchall()
+    res_id = res[0]['id']
+    print(res_id)
+    # user id 暂时固定为1
+    user_id = 1
+    # 将结果插入表中
+    insert_sql = "insert into res2cad(resid,cadid,userid,paramid) values(%s,%s,%s,%s)"
+    cursor.execute(insert_sql,[res_id,cad_id,user_id,param_id,])
+    conn.commit()
+    conn.close()
+    return HttpResponse(json.dumps({'status': 'success'}))
 
 
 def add(request):
@@ -89,7 +170,7 @@ def myDeployment(request):
     conn, cursor = connectToMySQL()
     if request.method == "GET":
         sqlstr = "select username,c.filename as cadname,c.filepath as cadpath," \
-                 "r.filename as resname, r.filepath as respath,p.* from " \
+                 "r.filepath as respath,r.pospath as respospath,p.* from " \
                  "(select * from res2cad where userid=1) a " \
                  "left join (select * from users) u on a.userid=u.id " \
                  "left join (select * from cad) c on a.cadid=c.id " \
@@ -98,11 +179,20 @@ def myDeployment(request):
         #print(sqlstr)
         cursor.execute(sqlstr)
         res = cursor.fetchall()
+        conn.close()
         return render(request, 'users/myDeployment.html', context={"res": res})
     else:
         uname = request.POST.get("uname")
         upwd = request.POST.get("upwd")
         cursor.execute("insert into users(username,password) values(%s,%s)",[uname,upwd,])
         conn.commit()
+        conn.close()
         return redirect('users/myDeployment.html/')
 
+def login(request):
+    return render(request,'users/login.html',context={"username":'小王',"password":12345})
+
+def login_ajax(request):
+    print("login ajax test")
+    print(request.POST)
+    return HttpResponse(json.dumps({'status': 'success'}))

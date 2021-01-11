@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="http://i.gtimg.cn/qzone/biz/gdt/lib/jquery/jquery-2.1.4.js?max_age=31536000"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <!-- plugins:css -->
     <link rel="stylesheet" href="/static/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/static/assets/vendors/iconfonts/ionicons/css/ionicons.css">
@@ -18,7 +24,7 @@
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
+
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="/static/assets/css/demo_1/style.css">
@@ -26,7 +32,7 @@
     <title>Title</title>
 </head>
 <body>
-<form class="needs-validation" enctype="multipart/form-data" >
+<form class="needs-validation" enctype="multipart/form-data" method="POST" id="resform">
     {% csrf_token %}
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
@@ -93,7 +99,7 @@
                                 </div>
                                 <div class="card-body">
                                     <img class="mt-4" style="height:300px"
-                                         src={{ resimgpath }} }}>
+                                         src={{ dc.resimgpath }} }}>
                                     <div class="d-flex pt-3 border-top">
                                         <p class="mb-0 font-weight-semibold"><span
                                                 class="dot-indicator bg-success"></span> 覆盖率</p>
@@ -112,33 +118,34 @@
                                         <tbody>
                                         <tr>
                                             <td> 文件说明 </td>
-                                            <td> {{ filename }} </td>
+                                            <td> {{ dc.filename }} </td>
                                         </tr>
                                         <tr>
                                             <td> 信号覆盖次数 </td>
-                                            <td> {{ cover_num }}次 </td>
+                                            <td>{{ dc.cover_num }}次</td>
                                         </tr>
                                         <tr>
                                             <td> 设备最低间隔 </td>
-                                            <td> {{ dist_thre }}m </td>
+                                            <td> {{ dc.dist_thre }}m </td>
                                         </tr>
                                         <tr>
                                             <td> 信号传播距离 </td>
-                                            <td> {{ spread_dist }}m </td>
+                                            <td> {{ dc.spread_dist }}m </td>
                                         </tr>
                                         <tr>
                                             <td> 算法运行时间 </td>
-                                            <td> {{ time_limit }}s </td>
+                                            <td> {{ dc.time_limit }}s </td>
                                         </tr>
                                         <tr>
                                             <td><b> 部署结果 </b></td>
-                                            <td><b style="color:red;font-size:28px;">{{ ap_num }}</b></td>
+                                            <td><b style="color:red;font-size:28px;">{{ dc.ap_num }}</b></td>
                                         </tr>
                                         </tbody>
                                     </table>
                                     <div class="row pt-5">
                                         <div class="col-lg-6 pl-5">
-                                            <button type="button" class="btn btn-danger btn-rounded btn-fw">保存结果</button>
+                                            <button type="button" class="btn btn-danger btn-rounded btn-fw" data-toggle="modal"
+                                                            data-target="#checkSaveModal">保存结果</button>
                                         </div>
                                         <div class="col-lg-6 pr-5">
                                             <a href="{% url 'users:uploadCad' %}">
@@ -154,27 +161,50 @@
             </div>
         </div>
     </div>
+    <p>
+</p>
 </form>
+<!-- 部署信息查看模态 -->
+<div class="modal fade" id="checkSaveModal" tabindex="-1" role="dialog" aria-labelledby="checkSaveModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paramsModalLabel">部署参数信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                确定要保存吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal" onclick="save_result({{ dc }})">是</button>
+                <button type="button" class="btn btn-secondary btn-success" data-dismiss="modal">否</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!--
-    <img id="resultPic" style="transform: scale(0.7,0.7)" src={{ resimgpath }}>
-    <br>
-    <h5>覆盖次数：{{ cover_num }}</h5><br>
-    <h5>传播距离：{{ spread_dist }}</h5><br>
-    <h5>墙壁衰减距离：{{ wall_reduce_dist }}</h5><br>
-    <h5>间隔：{{ dist_thre }}</h5><br>
-    -->
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+<script>
+        function save_result (dc){
+            var csrfToken = $("[name='csrfmiddlewaretoken']").val();
+            $.ajax({
+                type: "POST",//预期服务器返回的数据类型
+                dataType:"json",
+                url: "/users/saveResult/" ,//url
+                data:{"dc":dc,'csrfmiddlewaretoken':csrfToken},
+                success: function (arg) {
+                    console.log(arg);//打印服务端返回的数据(调试用)
+                    if(arg.status == "success"){
+                        console.log("is suc");
+                        {# 判断确实正确入库之后提示#}
+                        toastr.success("保存成功，可前往我的部署页面查看");
+                     }
+                 }
+            })
+        }
+    </script>
 
 <!-- container-scroller -->
 <!-- plugins:js -->
@@ -190,5 +220,7 @@
 <!-- Custom js for this page-->
 <script src="/static/assets/js/shared/chart.js"></script>
 <!-- End custom js for this page-->
+
 </body>
+
 </html>

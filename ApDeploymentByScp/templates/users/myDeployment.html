@@ -9,6 +9,7 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/uploadCad.css">
     <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
     <link href="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
     <!-- js -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -26,7 +27,7 @@
     <link rel="stylesheet" href="/static/assets/vendors/icheck/skins/all.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
+
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="/static/assets/css/demo_1/style.css">
@@ -34,7 +35,7 @@
     <title>MyDeployment</title>
 </head>
 <body>
-<form class="needs-validation" method="post" enctype="multipart/form-data" action="{% url 'users:myDeployment' %}">
+<form id="mydep-form" class="needs-validation" method="POST" enctype="multipart/form-data" action="{% url 'users:myDeployment' %}">
     {% csrf_token %}
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
@@ -95,7 +96,7 @@
                                     <h4 class="card-title mb-0"><b>我的部署</b></h4>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-bordered">
+                                    <table class="table table-responsive">
                                         <thead>
                                         <tr>
                                             <td><b>cad文件说明</b></td>
@@ -110,8 +111,8 @@
                                             <tr>
                                                 <td> {{ row.cadname }}</td>
                                                 <td> {{ row.cadpath }}</td>
-                                                <td> {{ row.resname }}</td>
                                                 <td> {{ row.respath }}</td>
+                                                <td> {{ row.respospath }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-link" data-toggle="modal"
                                                             data-target="#paramsModal" onclick="showParams({{ row.cover_num }},{{ row.dist_thre }},{{ row.spread_dist }},
@@ -164,8 +165,9 @@
 </form>
 
 
+
 <!-- 部署信息查看模态 -->
-<div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-labelledby="paramsModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -220,7 +222,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    $("#paramsModal").modal("show");
 
     function showParams(cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
                         wood_recude_dist, other_reduce_dist, time_limit) {
@@ -234,9 +235,48 @@
         $("#time_limit").val(time_limit+"s");
     }
 </script>
+<script>
+        {#提交数据函数#}
+        function save_result() {
+            $.ajax({
+            //几个参数需要注意一下
+                cache:false,
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "/users/saveResult/" ,//url
+                data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
+                async:false,  //必须要为false,必须必须
+
+                success: function (data) {
+                    console.log(data);//打印服务端返回的数据(调试用)
+                    if(data.status == "success"){
+                        {# 判断确实正确入库之后提示#}
+                        toastr.success('提交数据成功');
+                     }
+                 },
+                error : function() {
+                    toastr.warning("失败");
+                 }
+            })
+        }
+
+        function testajax (){
+            $.ajax({
+                type: "POST",//预期服务器返回的数据类型
+                dataType: "json",
+                url: "/users/saveResult/" ,//url
+                data: $('#mydep-form').serialize(),
+                success: function (arg) {
+                    console.log(arg);//打印服务端返回的数据(调试用)
+                    toastr.success("成功")
+                 }
+            })
+        }
+    </script>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
+<!--
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -247,7 +287,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+-->
 
 <!-- 模态 -->
 <!--
@@ -274,6 +314,7 @@
 <!-- Plugin js for this page-->
 <!-- End plugin js for this page-->
 <!-- inject:js -->
+
 <script src="/static/assets/js/shared/off-canvas.js"></script>
 <script src="/static/assets/js/shared/misc.js"></script>
 <!-- endinject -->
