@@ -109,15 +109,15 @@
                                         <tbody>
                                         {% for row in res %}
                                             <tr>
-                                                <td> {{ row.cadname }}</td>
-                                                <td> {{ row.cadpath }}</td>
-                                                <td> {{ row.respath }}</td>
-                                                <td> {{ row.respospath }}</td>
+                                                <td> {{ row.cad.cad_description }}</td>
+                                                <td> {{ row.cad.cad_path }}</td>
+                                                <td> {{ row.res.res_path }}</td>
+                                                <td> {{ row.res.pos_path }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-link" data-toggle="modal"
-                                                            data-target="#paramsModal" onclick="showParams({{ row.cover_num }},{{ row.dist_thre }},{{ row.spread_dist }},
-                                                            {{ row.wall_reduce_dist }},{{ row.glass_reduce_dist }},{{ row.wood_reduce_dist }},
-                                                            {{ row.other_reduce_dist }},{{ row.time_limit }})">
+                                                            data-target="#paramsModal" onclick="showParams({{ row.dep_param.cover_num }},{{ row.dep_param.dist_thre }},{{ row.dep_param.spread_dist }},
+                                                            {{ row.dep_param.wall_reduce_dist }},{{ row.dep_param.glass_reduce_dist }},{{ row.dep_param.wood_reduce_dist }},
+                                                            {{ row.dep_param.other_reduce_dist }},{{ row.dep_param.time_limit }},'{{ row.res.res_path }}')">
                                                         点击查看部署信息
                                                     </button>
                                                 </td>
@@ -178,6 +178,9 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div style="text-align: center;">
+                    <img id="res_img" style="width: 70%;height: 70%;margin:0 auto;" />
+                </div>
                 <table class="table table-striped">
                     <tbody>
                     <tr>
@@ -224,7 +227,7 @@
 <script type="text/javascript">
 
     function showParams(cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
-                        wood_recude_dist, other_reduce_dist, time_limit) {
+                        wood_recude_dist, other_reduce_dist, time_limit, res_path) {
         $("#cover_num").val(cover_num+"次");
         $("#dist_thre").val(dist_thre+"m");
         $("#spread_dist").val(spread_dist+"m");
@@ -233,6 +236,9 @@
         $("#wood_reduce_dist").val(wood_recude_dist+"m");
         $("#other_reduce_dist").val(other_reduce_dist+"m");
         $("#time_limit").val(time_limit+"s");
+        {#$("#res_img").attr('src',"/media/img/5m_0m_cover2_red127.png")#}
+        $("#res_img").attr('src',res_path)
+
     }
 </script>
 <script>
