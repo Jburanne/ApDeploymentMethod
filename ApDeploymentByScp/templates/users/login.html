@@ -1,69 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-
-<script src="http://i.gtimg.cn/qzone/biz/gdt/lib/jquery/jquery-2.1.4.js?max_age=31536000"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/uploadCad.css">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/icheck/skins/all.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
     <title>登录</title>
 </head>
 <body>
-    <h1>用户登录</h1>
-    <form id="f1" action="/users/login" method="POST">
-        {% csrf_token %}
-        <div class="alert alert-success" role="alert">
-  A simple success alert—check it out!
+<form enctype="multipart/form-data" method="POST" id="loginform">
+    {% csrf_token %}
+<div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+          <div class="row w-100">
+            <div class="col-lg-4 mx-auto">
+              <div class="auto-form-wrapper">
+                <form action="#">
+                  <div class="form-group">
+                    <label class="label">用户名</label>
+                    <div class="input-group">
+                      <input id="username" type="text" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="label">密码</label>
+                    <div class="input-group">
+                      <input id="password" type="password" class="form-control">
+                      <div class="input-group-append">
+                        <span class="input-group-text">
+                          <i class="mdi mdi-check-circle-outline"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block" onclick="checkInput()">登录</button>
+                  </div>
+                  <div class="text-block text-center my-3">
+                    <span class="text-small font-weight-semibold">还没有账号 ?</span>
+                    <a href="register.html" class="text-black text-small">注册一个新账号</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+</form>
+<!-- 提示模块（用户名或密码不能为空） -->
+<div class="modal fade" id="checkNullModal" tabindex="-1" role="dialog" aria-labelledby="checkNullModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paramsModalLabel">错误提示</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                用户名或密码不能为空
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal" onclick="reset()">重新输入</button>
+            </div>
+        </div>
+    </div>
 </div>
-        <p>
-            <input type="text" name="username" value="小李"/>{{ username }}
-        </p>
-        <p>
-            <input type="password" name="pwd" />{{ password }}
-        </p>
-        <a onclick="testajax();">提交</a>
+<!-- 提示模块（用户名或密码错误） -->
+<div class="modal fade" id="checkLegalModal" tabindex="-1" role="dialog" aria-labelledby="checkLegalModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paramsModalLabel">错误提示</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                用户名或密码错误，请重新输入
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal" onclick="reset()">重新输入</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    </form>
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-        {#提交数据函数#}
-        function save_result() {
-            $.ajax({
-            //几个参数需要注意一下
-                cache:false,
-                type: "POST",//方法类型
-                dataType: "json",//预期服务器返回的数据类型
-                url: "/users/saveResult/" ,//url
-                data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
-                async:false,  //必须要为false,必须必须
-
-                success: function (data) {
-                    console.log(data);//打印服务端返回的数据(调试用)
-                    if(data.status == "success"){
-                        {# 判断确实正确入库之后提示#}
-                        toastr.success('提交数据成功');
-                     }
-                 },
-                error : function() {
-                    toastr.warning("失败");
-                 }
-            })
-        }
-
-        function testajax (){
+<script type="text/javascript">
+    function checkInput(){
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var csrfToken = $("[name='csrfmiddlewaretoken']").val();
+        console.log(username,password);
+        if(username=="" || password==""){
+            {#若为空，跳出为空提示modal#}
+            $("#checkNullModal").modal('show');
+        }else{
+            {#若不为空，传值到后台判断是否输入正确#}
             $.ajax({
                 type: "POST",//预期服务器返回的数据类型
-                dataType: "json",
-                url: "/users/login_ajax/" ,//url
-                data: $('#f1').serialize(),
+                dataType:"json",
+                url: "/users/checkLogin/" ,//url
+                data:{"username":username, 'password':password, 'csrfmiddlewaretoken':csrfToken},
                 success: function (arg) {
                     console.log(arg);//打印服务端返回的数据(调试用)
-                    toastr.success("成功");
+                    if(arg.status == "success"){
+                        console.log("is suc");
+                        window.location.href = '/users/uploadCad/';
+                     }else{
+                        console.log("is fail");
+                        $("#checkLegalModal").modal('show');
+                    }
                  }
             })
         }
-    </script>
+    }
+
+    function reset(){
+        $("#username").val("")
+        $("#password").val("")
+    }
+
+    function hideModal(){
+        $("#downloadModal").modal("hide");
+    }
+</script>
+
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="/static/assets/vendors/js/vendor.bundle.addons.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="/static/assets/js/shared/off-canvas.js"></script>
+<script src="/static/assets/js/shared/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<!-- End custom js for this page-->
 </body>
 </html>

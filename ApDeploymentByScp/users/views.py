@@ -221,9 +221,19 @@ def myDeployment(request):
         return redirect('users/myDeployment.html/')
 
 def login(request):
-    return render(request,'users/login.html',context={"username":'小王',"password":12345})
+    return render(request,'users/login.html')
 
 def login_ajax(request):
     print("login ajax test")
     print(request.POST)
     return HttpResponse(json.dumps({'status': 'success'}))
+
+def checkLogin(request):
+    print(request.POST)
+    uname = request.POST.get("username")
+    pwd = request.POST.get("password")
+    res = User.objects.filter(username=uname, password=pwd)
+    if len(res) == 0:
+        return HttpResponse(json.dumps({'status': 'fail'}))
+    else:
+        return HttpResponse(json.dumps({'status': 'success'}))

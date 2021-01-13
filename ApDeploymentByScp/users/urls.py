@@ -9,5 +9,6 @@ urlpatterns = [
     path('myDeployment/', views.myDeployment, name='myDeployment'),
     path('saveResult/',views.saveResult, name='saveResult'),
     path('login/', views.login, name='login'),
-    path('login_ajax/', views.login_ajax, name='login_ajax')
+    path('login_ajax/', views.login_ajax, name='login_ajax'),
+    path('checkLogin/',views.checkLogin,name='checkLogin')
 ]
