@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="781c3f07-4210-477d-b9f2-9e04a21336e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/linesDataByMaterials.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/mergedLines.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/data/newtestfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/data/resPoints" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/data/solution.res" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle.dxf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/img/rectangle_Nv7SA6B.dxf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/myDeployment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/myDeployment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/readCad.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/readCad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +111,7 @@
         <counts>
           <entry key="cpp" value="1143" />
           <entry key="css" value="317" />
-          <entry key="html" value="7310" />
+          <entry key="html" value="8108" />
           <entry key="py" value="9094" />
         </counts>
       </usages-collector>
@@ -132,7 +119,7 @@
         <counts>
           <entry key="C++" value="1143" />
           <entry key="CSS" value="317" />
-          <entry key="HTML" value="7310" />
+          <entry key="HTML" value="8108" />
           <entry key="Python" value="9084" />
           <entry key="SQL" value="10" />
         </counts>
@@ -157,13 +144,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/users/myDeployment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="238" column="68" selection-start-line="238" selection-start-column="68" selection-end-line="238" selection-end-column="68" />
+            <state relative-caret-position="225">
+              <caret line="127" column="82" lean-forward="true" selection-start-line="127" selection-start-column="82" selection-end-line="127" selection-end-column="82" />
               <folding>
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,7 +171,7 @@
         <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
+              <caret line="189" column="28" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -242,12 +231,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>readLinesByTypes</find>
-      <find>mergeLinesByType</find>
-      <find>readLinesByType</find>
-      <find>deleteShortLine</find>
-      <find>writeMergedLines</find>
-      <find>getRelationsByType</find>
       <find>writeFile1</find>
       <find>linesdata</find>
       <find>staticfiles</find>
@@ -266,12 +249,18 @@
       <find>database</find>
       <find>APP</find>
       <find>readScpRes</find>
-      <find>save_result</find>
       <find>media</find>
       <find>row</find>
-      <find>img</find>
-      <find>showParams</find>
       <find>res_path</find>
+      <find>showParams</find>
+      <find>downloadFile</find>
+      <find>show</find>
+      <find>showPa</find>
+      <find>img</find>
+      <find>download</find>
+      <find>download_fi</find>
+      <find>save_result</find>
+      <find>downloadFi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -325,7 +314,7 @@
       <path value="$PROJECT_DIR$/static/assets/vendors/tinymce/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1890" />
@@ -558,8 +547,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30962005" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -798,13 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="192" column="43" selection-start-line="192" selection-start-column="43" selection-end-line="192" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -830,15 +811,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/users/deploymentResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="189" column="28" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/users/myDeployment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="238" column="68" selection-start-line="238" selection-start-column="68" selection-end-line="238" selection-end-column="68" />
+        <state relative-caret-position="225">
+          <caret line="127" column="82" lean-forward="true" selection-start-line="127" selection-start-column="82" selection-end-line="127" selection-end-column="82" />
           <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

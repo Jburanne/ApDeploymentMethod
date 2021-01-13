@@ -35,7 +35,8 @@
     <title>MyDeployment</title>
 </head>
 <body>
-<form id="mydep-form" class="needs-validation" method="POST" enctype="multipart/form-data" action="{% url 'users:myDeployment' %}">
+<form id="mydep-form" class="needs-validation" method="POST" enctype="multipart/form-data"
+      action="{% url 'users:myDeployment' %}">
     {% csrf_token %}
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper">
@@ -110,14 +111,30 @@
                                         {% for row in res %}
                                             <tr>
                                                 <td> {{ row.cad.cad_description }}</td>
-                                                <td> {{ row.cad.cad_path }}</td>
-                                                <td> {{ row.res.res_path }}</td>
-                                                <td> {{ row.res.pos_path }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-link" data-toggle="modal"
-                                                            data-target="#paramsModal" onclick="showParams({{ row.dep_param.cover_num }},{{ row.dep_param.dist_thre }},{{ row.dep_param.spread_dist }},
-                                                            {{ row.dep_param.wall_reduce_dist }},{{ row.dep_param.glass_reduce_dist }},{{ row.dep_param.wood_reduce_dist }},
-                                                            {{ row.dep_param.other_reduce_dist }},{{ row.dep_param.time_limit }},'{{ row.res.res_path }}')">
+                                                    <button type="button" class="btn" data-toggle="modal"
+                                                            data-target="#downloadModal" onclick="downloadFile('{{ row.cad.cad_path }}',1)">
+                                                        {{ row.cad.cad_path }}
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn" data-toggle="modal"
+                                                            data-target="#downloadModal" onclick="downloadFile('{{ row.res.res_path }}',0)">
+                                                        {{ row.res.res_path }}
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn" data-toggle="modal"
+                                                            data-target="#downloadModal" onclick="downloadFile('{{ row.res.pos_path }}',0)">
+                                                        {{ row.res.pos_path }}
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn" data-toggle="modal"
+                                                            data-target="#paramsModal"
+                                                            onclick="showParams({{ row.dep_param.cover_num }},{{ row.dep_param.dist_thre }},{{ row.dep_param.spread_dist }},
+                                                                    {{ row.dep_param.wall_reduce_dist }},{{ row.dep_param.glass_reduce_dist }},{{ row.dep_param.wood_reduce_dist }},
+                                                                    {{ row.dep_param.other_reduce_dist }},{{ row.dep_param.time_limit }},'{{ row.res.res_path }}')">
                                                         点击查看部署信息
                                                     </button>
                                                 </td>
@@ -165,7 +182,6 @@
 </form>
 
 
-
 <!-- 部署信息查看模态 -->
 <div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-labelledby="paramsModalLabel"
      aria-hidden="true">
@@ -179,7 +195,7 @@
             </div>
             <div class="modal-body">
                 <div style="text-align: center;">
-                    <img id="res_img" style="width: 70%;height: 70%;margin:0 auto;" />
+                    <img id="res_img" style="width: 70%;height: 70%;margin:0 auto;"/>
                 </div>
                 <table class="table table-striped">
                     <tbody>
@@ -224,61 +240,101 @@
         </div>
     </div>
 </div>
+<!-- 文件下载模态 -->
+<div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paramsModalLabel">文件下载</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                要下载文件吗？
+            </div>
+            <div class="modal-footer">
+                <button id="yes-button" type="button" class="btn btn-secondary btn-danger">
+                    <a id="download_file" onclick="hideModal()" style="color: white">
+                        是
+                    </a>
+                </button>
+                <button type="button" class="btn btn-secondary btn-success" data-dismiss="modal">否</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="text/javascript">
 
     function showParams(cover_num, dist_thre, spread_dist, wall_reduce_dist, glass_reduce_dist,
                         wood_recude_dist, other_reduce_dist, time_limit, res_path) {
-        $("#cover_num").val(cover_num+"次");
-        $("#dist_thre").val(dist_thre+"m");
-        $("#spread_dist").val(spread_dist+"m");
-        $("#wall_reduce_dist").val(wall_reduce_dist+"m");
-        $("#glass_reduce_dist").val(glass_reduce_dist+"m");
-        $("#wood_reduce_dist").val(wood_recude_dist+"m");
-        $("#other_reduce_dist").val(other_reduce_dist+"m");
-        $("#time_limit").val(time_limit+"s");
+        $("#cover_num").val(cover_num + "次");
+        $("#dist_thre").val(dist_thre + "m");
+        $("#spread_dist").val(spread_dist + "m");
+        $("#wall_reduce_dist").val(wall_reduce_dist + "m");
+        $("#glass_reduce_dist").val(glass_reduce_dist + "m");
+        $("#wood_reduce_dist").val(wood_recude_dist + "m");
+        $("#other_reduce_dist").val(other_reduce_dist + "m");
+        $("#time_limit").val(time_limit + "s");
         {#$("#res_img").attr('src',"/media/img/5m_0m_cover2_red127.png")#}
-        $("#res_img").attr('src',res_path)
+        $("#res_img").attr('src', res_path)
+    }
 
+    function downloadFile(filepath,type){
+        var new_filepath = filepath;
+        if(type == 1){
+            var new_filepath = "/media/"+filepath;
+        }
+        $("#download_file").attr('href',new_filepath);
+        $("#download_file").attr('download','download-file');
+    }
+
+    function hideModal(){
+        $("#downloadModal").modal("hide");
     }
 </script>
 <script>
-        {#提交数据函数#}
-        function save_result() {
-            $.ajax({
+    {#提交数据函数#}
+
+    function save_result() {
+        $.ajax({
             //几个参数需要注意一下
-                cache:false,
-                type: "POST",//方法类型
-                dataType: "json",//预期服务器返回的数据类型
-                url: "/users/saveResult/" ,//url
-                data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
-                async:false,  //必须要为false,必须必须
+            cache: false,
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/users/saveResult/",//url
+            data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
+            async: false,  //必须要为false,必须必须
 
-                success: function (data) {
-                    console.log(data);//打印服务端返回的数据(调试用)
-                    if(data.status == "success"){
-                        {# 判断确实正确入库之后提示#}
-                        toastr.success('提交数据成功');
-                     }
-                 },
-                error : function() {
-                    toastr.warning("失败");
-                 }
-            })
-        }
+            success: function (data) {
+                console.log(data);//打印服务端返回的数据(调试用)
+                if (data.status == "success") {
+                    {# 判断确实正确入库之后提示#}
+                    toastr.success('提交数据成功');
+                }
+            },
+            error: function () {
+                toastr.warning("失败");
+            }
+        })
+    }
 
-        function testajax (){
-            $.ajax({
-                type: "POST",//预期服务器返回的数据类型
-                dataType: "json",
-                url: "/users/saveResult/" ,//url
-                data: $('#mydep-form').serialize(),
-                success: function (arg) {
-                    console.log(arg);//打印服务端返回的数据(调试用)
-                    toastr.success("成功")
-                 }
-            })
-        }
-    </script>
+    function testajax() {
+        $.ajax({
+            type: "POST",//预期服务器返回的数据类型
+            dataType: "json",
+            url: "/users/saveResult/",//url
+            data: $('#mydep-form').serialize(),
+            success: function (arg) {
+                console.log(arg);//打印服务端返回的数据(调试用)
+                toastr.success("成功")
+            }
+        })
+    }
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
