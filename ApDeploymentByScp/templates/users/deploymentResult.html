@@ -32,6 +32,7 @@
     <title>Title</title>
 </head>
 <body>
+{% if request.session.is_login %}
 <form class="needs-validation" enctype="multipart/form-data" method="POST" id="resform">
     {% csrf_token %}
     <div class="container-scroller">
@@ -164,6 +165,9 @@
     <p>
 </p>
 </form>
+{% else %}
+    <li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>
+{% endif %}
 <!-- 部署信息查看模态 -->
 <div class="modal fade" id="checkSaveModal" tabindex="-1" role="dialog" aria-labelledby="checkSaveModalLabel"
      aria-hidden="true">

@@ -177,7 +177,8 @@ def saveResult(request):
     # res_id = res[0]['id']
     # print(res_id)
     # # user id 暂时固定为1
-    user_i = User.objects.filter(id=1)[0]
+    userid = request.session['userid']
+    user_i = User.objects.filter(id=userid)[0]
 
     # 获取结果id
     Result.objects.create(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
@@ -213,7 +214,8 @@ def myDeployment(request):
         # cursor.execute(sqlstr)
         # res = cursor.fetchall()
         # conn.close()
-        res = Deployment.objects.select_related().filter(user=1)
+        userid = request.session['userid']
+        res = Deployment.objects.select_related().filter(user=userid)
         # for elem in res:
         #     print(elem.id,elem.user.id, elem.user.username)
         return render(request, 'users/myDeployment.html', context={"res": res})
@@ -236,4 +238,23 @@ def checkLogin(request):
     if len(res) == 0:
         return HttpResponse(json.dumps({'status': 'fail'}))
     else:
+        request.session['is_login'] = True
+        request.session['userid'] = res[0].id
+        request.session['username'] = res[0].username
+        return HttpResponse(json.dumps({'status': 'success'}))
+
+def register(request):
+    return render(request, 'users/register.html')
+
+def checkRegister(request):
+    print(request.POST)
+    uname = request.POST.get("username")
+    pwd = request.POST.get("password")
+    confirm_pwd = request.POST.get("confirm_password")
+    print(uname,pwd,confirm_pwd)
+    res = User.objects.filter(username=uname)
+    if len(res) > 0:
+        return HttpResponse(json.dumps({'status': 'fail'}))
+    else:
+        User.objects.create(username=uname, password=pwd)
         return HttpResponse(json.dumps({'status': 'success'}))

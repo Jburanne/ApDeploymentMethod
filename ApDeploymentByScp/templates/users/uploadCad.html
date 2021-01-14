@@ -28,185 +28,188 @@
     <title>UploadCAD</title>
 </head>
 <body>
-<form class="needs-validation" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="container-scroller">
-        <div class="container-fluid page-body-wrapper">
-            <!-- 左侧导航栏 -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                <ul class="nav">
-                    <li class="nav-item nav-profile">
-                        <a href="#" class="nav-link">
-                            <div class="text-wrapper">
-                                <p class="profile-name">Allen Moreno</p>
-                                <p class="designation">Premium user</p>
+{% if request.session.is_login %}
+    <form class="needs-validation" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container-scroller">
+            <div class="container-fluid page-body-wrapper">
+                <!-- 左侧导航栏 -->
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item nav-profile">
+                            <a href="#" class="nav-link">
+                                <div class="text-wrapper">
+                                    <p class="profile-name">Allen Moreno</p>
+                                    <p class="designation">Premium user</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item nav-category">Main Menu</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users:uploadCad' %}">
+                                <i class="menu-icon typcn typcn-document-text"></i>
+                                <span class="menu-title">开始部署</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users:myDeployment' %}">
+                                <i class="menu-icon typcn typcn-shopping-bag"></i>
+                                <span class="menu-title">我的部署</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                               aria-controls="ui-basic">
+                                <i class="menu-icon typcn typcn-coffee"></i>
+                                <span class="menu-title">Basic UI Elements</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           href="../../pages/ui-features/typography.html">Typography</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </a>
-                    </li>
-                    <li class="nav-item nav-category">Main Menu</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:uploadCad' %}">
-                            <i class="menu-icon typcn typcn-document-text"></i>
-                            <span class="menu-title">开始部署</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:myDeployment' %}">
-                            <i class="menu-icon typcn typcn-shopping-bag"></i>
-                            <span class="menu-title">我的部署</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                           aria-controls="ui-basic">
-                            <i class="menu-icon typcn typcn-coffee"></i>
-                            <span class="menu-title">Basic UI Elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                        </li>
 
-                </ul>
-            </nav>
-            <!-- 参数表 -->
-            <div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="row">
-                        <div class="col-12 grid-margin">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title" style="font-size: 20px"><b>开始我的部署</b></h2><br>
-                                    <form class="form-sample">
-                                        <ul class="list-ticked">
-                                            <li class="badge badge-info" style="font-size:14px;"> 文件上传&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        </ul>
-                                        <ul>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">dxf文件</label>
-                                                        <div class="col-sm-6">
-                                                            {{ af.headimg }}
+                    </ul>
+                </nav>
+                <!-- 参数表 -->
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title" style="font-size: 20px"><b>开始我的部署</b></h2><br>
+                                        <form class="form-sample">
+                                            <ul class="list-ticked">
+                                                <li class="badge badge-info" style="font-size:14px;"> 文件上传&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            </ul>
+                                            <ul>
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">dxf文件</label>
+                                                            <div class="col-sm-6">
+                                                                {{ af.headimg }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">文件说明</label>
+                                                            <div class="col-sm-9">
+                                                                {{ af.filename }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">文件说明</label>
-                                                        <div class="col-sm-9">
-                                                            {{ af.filename }}
+                                            </ul>
+                                            <ul class="list-ticked">
+                                                <li class="badge badge-info" style="font-size:14px;"> 部署约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            </ul>
+                                            <ul>
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">覆盖次数</label>
+                                                            <div class="col-sm-9">
+                                                                {{ af.cover_num }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">设备间隔</label>
+                                                            <div class="col-sm-9">
+                                                                {{ af.dist_thre }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-ticked">
-                                            <li class="badge badge-info" style="font-size:14px;"> 部署约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        </ul>
-                                        <ul>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">覆盖次数</label>
-                                                        <div class="col-sm-9">
-                                                            {{ af.cover_num }}
+                                            </ul>
+                                            <ul class="list-ticked">
+                                                <li class="badge badge-info" style="font-size:14px;"> 信号约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            </ul>
+                                            <ul>
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">信号传播距离（米）</label>
+                                                            <div class="col-sm-8">
+                                                                {{ af.propagation_distance }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">设备间隔</label>
-                                                        <div class="col-sm-9">
-                                                            {{ af.dist_thre }}
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-10 col-form-label"> 遇障碍物衰减（米） </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">墙</label>
+                                                            <div class="col-sm-6">
+                                                                {{ af.wall_reduction_distance }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">玻璃</label>
+                                                            <div class="col-sm-6">
+                                                                {{ af.glass_reduction_distance }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">木材</label>
+                                                            <div class="col-sm-6">
+                                                                {{ af.wood_reduction_distance }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-5 col-form-label">其他</label>
+                                                            <div class="col-sm-6">
+                                                                {{ af.other_reduction_distance }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-ticked">
-                                            <li class="badge badge-info" style="font-size:14px;"> 信号约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        </ul>
-                                        <ul>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-4 col-form-label">信号传播距离（米）</label>
-                                                        <div class="col-sm-8">
-                                                            {{ af.propagation_distance }}
+                                            </ul>
+                                            <ul class="list-ticked">
+                                                <li class="badge badge-info" style="font-size:14px;"> 算法约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            </ul>
+                                            <ul>
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">运行时间（秒）</label>
+                                                            <div class="col-sm-3">
+                                                                {{ af.time_limit }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-10 col-form-label"> 遇障碍物衰减（米） </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">墙</label>
-                                                        <div class="col-sm-6">
-                                                            {{ af.wall_reduction_distance }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">玻璃</label>
-                                                        <div class="col-sm-6">
-                                                            {{ af.glass_reduction_distance }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">木材</label>
-                                                        <div class="col-sm-6">
-                                                            {{ af.wood_reduction_distance }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-5 col-form-label">其他</label>
-                                                        <div class="col-sm-6">
-                                                            {{ af.other_reduction_distance }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                        <ul class="list-ticked">
-                                            <li class="badge badge-info" style="font-size:14px;"> 算法约束&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                                        </ul>
-                                        <ul>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="form-group row">
-                                                        <label class="col-sm-3 col-form-label">运行时间（秒）</label>
-                                                        <div class="col-sm-3">
-                                                            {{ af.time_limit }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                        <button type="submit" class="btn btn-inverse-info btn-block">开始部署
-                                        </button>
-                                    </form>
+                                            </ul>
+                                            <button type="submit" class="btn btn-inverse-info btn-block">开始部署
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -214,8 +217,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+{% else %}
+    <li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>
+{% endif %}
 
 
 <!-- Optional JavaScript -->
