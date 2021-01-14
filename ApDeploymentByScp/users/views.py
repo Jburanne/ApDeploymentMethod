@@ -258,3 +258,7 @@ def checkRegister(request):
     else:
         User.objects.create(username=uname, password=pwd)
         return HttpResponse(json.dumps({'status': 'success'}))
+
+def logout(request):
+    request.session.flush()
+    return render(request, 'users/login.html')

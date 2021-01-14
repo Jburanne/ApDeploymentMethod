@@ -43,8 +43,8 @@
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="text-wrapper">
-                                <p class="profile-name">Allen Moreno</p>
-                                <p class="designation">Premium user</p>
+                                <p class="profile-name" style="color:white;font-size: 20px">{{ request.session.username }}</p>
+                                <p class="designation">欢迎你</p>
                             </div>
                         </a>
                     </li>
@@ -62,27 +62,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                           aria-controls="ui-basic">
-                            <i class="menu-icon typcn typcn-coffee"></i>
-                            <span class="menu-title">Basic UI Elements</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
+                            <a class="nav-link" href="{% url 'users:logout' %}">
+                                <i class="menu-icon typcn typcn-shopping-bag"></i>
+                                <span class="menu-title">退出登录</span>
+                            </a>
+                        </li>
                 </ul>
             </nav>
             <!-- 部署结果展示 -->

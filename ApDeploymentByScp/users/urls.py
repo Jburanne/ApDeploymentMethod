@@ -12,5 +12,6 @@ urlpatterns = [
     path('login_ajax/', views.login_ajax, name='login_ajax'),
     path('checkLogin/',views.checkLogin,name='checkLogin'),
     path('register/',views.register,name='register'),
-    path('checkRegister/',views.checkRegister,name='checkRegister')
+    path('checkRegister/',views.checkRegister,name='checkRegister'),
+    path('logout/',views.logout,name='logout')
 ]
