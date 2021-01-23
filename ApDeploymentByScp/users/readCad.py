@@ -56,9 +56,17 @@ def saveLinesByTypes(filepath):
     glass_kw = ['窗','WINDOWS','玻璃']
     wood_kw = ['门扇']
     other_kw = ['阴影','垂直面']
+    # wall_kw = ['墙']
+    # glass_kw = ['WINDOW']
+    # wood_kw = []
+    # other_kw = []
     all_kw = wall_kw+glass_kw+wood_kw+other_kw
+    border = [-5000, 60000, 150000, 250000]
+    excludekeywordlist = ['1-TIF-原墙体-LT']
     #layerkeywordlist = ['窗','WALL','wall','WINDOWS','玻璃','垂直面','门扇','阴影']
     for e in dxf.entities:
+        if e.layer in excludekeywordlist:
+            continue
         for kw in all_kw:
             if kw not in e.layer:
                 continue
@@ -67,35 +75,42 @@ def saveLinesByTypes(filepath):
             #print(linestype)
             if kw in wall_kw:
                 linestype = 0
-                #reduce_dist = wall_reduce_dist
             elif kw in glass_kw:
                 linestype = 1
-                #reduce_dist = glass_reduce_dist
             elif kw in wood_kw:
                 linestype = 2
-                #reduce_dist = wood_reduce_dist
             else:
                 linestype = 3
-                #reduce_dist = other_reduce_dist
-
             if e.dxftype == 'LINE':
-                if e.start[0] < 150000:
-                    continue
+                # if e.start[0] < 150000:
+                #     continue
                 x1 = round(e.start[0])
                 y1 = round(e.start[1])
                 x2 = round(e.end[0])
                 y2 = round(e.end[1])
+                if x1 < border[2] or x1 > border[3] or x2 < border[2] or x2 > border[3]:
+                    continue
+                if y1 < border[0] or y1 > border[1] or y2 < border[0] or y2 > border[1]:
+                    continue
                 lines.append([x1, y1, x2, y2, linestype])
             elif e.dxftype == 'LWPOLYLINE':
                 p = e.points
                 for i in range(len(p) - 1):
-                    if p[i][0] < 150000:
+                    # if p[i][0] < 150000:
+                    #     continue
+                    x1 = round(p[i][0])
+                    x2 = round(p[i + 1][0])
+                    y1 = round(p[i][1])
+                    y2 = round(p[i + 1][1])
+                    if x1 < border[2] or x1 > border[3] or x2 < border[2] or x2 > border[3]:
                         continue
-                    lines.append([round(p[i][0]), round(p[i][1]), round(p[i + 1][0]), round(p[i + 1][1]), linestype])
-                if e.is_closed:
-                    if p[0][1] < 0 or p[0][0] < 150000:
+                    if y1 < border[0] or y1 > border[1] or y2 < border[0] or y2 > border[1]:
                         continue
-                    lines.append([round(p[0][0]), round(p[0][1]), round(p[-1][0]), round(p[-1][1]), linestype])
+                    lines.append([x1, y1, x2, y2, linestype])
+                # if e.is_closed:
+                #     if p[0][1] < 0 or p[0][0] < 150000:
+                #         continue
+                #     lines.append([round(p[0][0]), round(p[0][1]), round(p[-1][0]), round(p[-1][1]), linestype])
             break
 
     nums = len(lines)
@@ -352,7 +367,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
         plt.plot(x[i], y[i], color='b', linewidth=0.6)
         # plt.scatter(x[i],y[i],color='b')
     print(cnt)
-    plt.xlim(184934, 246714)
+    # plt.xlim(184934, 246714)
 
     pic_name = str(round(spread_dist/1000)) + "m_"+ str(round(reduce_dist/1000)) + "m_cover"+str(cover_num) + "_red" + str(cnt)
     plt.title(pic_name)
