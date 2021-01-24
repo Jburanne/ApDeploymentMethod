@@ -2,14 +2,15 @@ import pandas as pd
 import dxfgrabber
 from matplotlib import pyplot as plt
 
-dxf = dxfgrabber.readfile("instance02.dxf")
+dxf = dxfgrabber.readfile("Plan-02-3.dxf")
 x = []
 y = []
 #layerkeywordlist = ['WALL','wall','WINDOW','0','2D']
-layerkeywordlist = ['墙','WINDOW']
+#layerkeywordlist = ['墙','WINDOW']
+layerkeywordlist = ['管井门','A-PLAN-DOOR-门','A-PLAN-WIND-窗','原有墙体','划分新墙','基层','幕墙']
 #border = [-320000, -295000, 195000, 240000]
 #border = [-5000, 60000, 150000, 250000]
-border = [10000, 48000, 10000, 80000]
+border = [-1520000, -1440000, 960000, 1020000]
 excludekeywordlist = ['1-TIF-原墙体-LT']
 print(dxf)
 for e in dxf.entities:
@@ -56,5 +57,6 @@ for e in dxf.entities:
 
 for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
+plt.axis('scaled')
 plt.savefig("test.png")
 plt.show()

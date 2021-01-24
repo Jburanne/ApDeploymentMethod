@@ -52,17 +52,28 @@ def saveLinesByTypes(filepath):
     dxf = dxfgrabber.readfile(filepath)
 
     lines = []
-    wall_kw = ['WALL','wall']
-    glass_kw = ['窗','WINDOWS','玻璃']
-    wood_kw = ['门扇']
-    other_kw = ['阴影','垂直面']
+    # instance01
+    # wall_kw = ['WALL','wall']
+    # glass_kw = ['窗','WINDOWS','玻璃']
+    # wood_kw = ['门扇']
+    # other_kw = ['阴影','垂直面']
+    # border = [-5000, 60000, 150000, 250000]
+    # excludekeywordlist = []
+    #instance02
     # wall_kw = ['墙']
     # glass_kw = ['WINDOW']
     # wood_kw = []
     # other_kw = []
+    # border = [10000, 48000, 10000, 80000]
+    # excludekeywordlist = ['1-TIF-原墙体-LT']
+    #instance03
+    wall_kw = ['原有墙体','划分新墙','幕墙']
+    glass_kw = ['A-PLAN-WIND-窗']
+    wood_kw = ['管井门','A-PLAN-DOOR-门',]
+    other_kw = ['基层']
+    border = [-1520000, -1440000, 960000, 1020000]
+    excludekeywordlist = []
     all_kw = wall_kw+glass_kw+wood_kw+other_kw
-    border = [-5000, 60000, 150000, 250000]
-    excludekeywordlist = ['1-TIF-原墙体-LT']
     #layerkeywordlist = ['窗','WALL','wall','WINDOWS','玻璃','垂直面','门扇','阴影']
     for e in dxf.entities:
         if e.layer in excludekeywordlist:
@@ -371,6 +382,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
 
     pic_name = str(round(spread_dist/1000)) + "m_"+ str(round(reduce_dist/1000)) + "m_cover"+str(cover_num) + "_red" + str(cnt)
     plt.title(pic_name)
+    plt.axis('scaled')
     save_path = os.getcwd().replace("\\", '/')+"/media/img/result/"+pic_name+".png"
     plt.savefig(save_path)
     plt.close()
@@ -389,7 +401,7 @@ def getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, 
 
 def runScp(time_limit):
     file_path = os.getcwd().replace("\\",'/')+'/data/newtestfile'
-    code_path = os.getcwd().replace("\\",'/')+'/cppFiles/SCP/pms.exe'
+    code_path = os.getcwd().replace("\\",'/')+'/cppFiles/SCP1/pms.exe'
     to_exec = code_path + " " + file_path + " " + str(time_limit)
     os.system(to_exec)
 
