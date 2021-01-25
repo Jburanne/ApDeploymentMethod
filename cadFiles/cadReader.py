@@ -2,7 +2,7 @@ import pandas as pd
 import dxfgrabber
 from matplotlib import pyplot as plt
 
-dxf = dxfgrabber.readfile("instance05.dxf")
+dxf = dxfgrabber.readfile("instance06.dxf")
 x = []
 y = []
 #layerkeywordlist = ['WALL','wall','WINDOW','0','2D']
@@ -17,9 +17,13 @@ y = []
 # excludekeywordlist = []
 # border = [-75000,-50000,-40000,5000]
 #instance05
-layerkeywordlist = ['DOOR','WALL-装修面','墙','窗']
+# layerkeywordlist = ['DOOR','WALL-装修面','墙','窗']
+# excludekeywordlist = []
+# border = [-100000,-50000,-350000,-300000]
+#instance06
+layerkeywordlist = ['WALL','COLUMN','黄','隔墙','门窗']
 excludekeywordlist = []
-border = [-100000,-50000,-350000,-300000]
+border = [125000,155000,1790000,1860000]
 
 print(dxf)
 for e in dxf.entities:
