@@ -177,7 +177,7 @@ with open(file_path, 'r') as f:
             continue
         if flag == 1:
             plt.scatter(int(pos[0]), int(pos[1]), color='r', s=5)
-            content = "("+str(round((int(pos[0])-184934)/1000))+","+str(round((int(pos[1])-2746)/1000))+")"
+            #content = "("+str(round((int(pos[0])-184934)/1000))+","+str(round((int(pos[1])-2746)/1000))+")"
             #content = pos[0]+","+pos[1]
             #plt.text(int(pos[0]),int(pos[1]),content,color='g')
             cnt += 1
@@ -189,7 +189,8 @@ for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
     # plt.scatter(x[i],y[i],color='b')
 print(cnt)
-plt.xlim(184934, 246714)
+#plt.xlim(184934, 246714)
 #plt.title("30m_10m_cover3_red9")
+plt.axis('scaled')
 plt.savefig("./test2.png")
 #plt.show()

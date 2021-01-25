@@ -2,16 +2,25 @@ import pandas as pd
 import dxfgrabber
 from matplotlib import pyplot as plt
 
-dxf = dxfgrabber.readfile("Plan-02-3.dxf")
+dxf = dxfgrabber.readfile("instance05.dxf")
 x = []
 y = []
 #layerkeywordlist = ['WALL','wall','WINDOW','0','2D']
 #layerkeywordlist = ['墙','WINDOW']
-layerkeywordlist = ['管井门','A-PLAN-DOOR-门','A-PLAN-WIND-窗','原有墙体','划分新墙','基层','幕墙']
+#layerkeywordlist = ['管井门','A-PLAN-DOOR-门','A-PLAN-WIND-窗','原有墙体','划分新墙','基层','幕墙']
 #border = [-320000, -295000, 195000, 240000]
 #border = [-5000, 60000, 150000, 250000]
-border = [-1520000, -1440000, 960000, 1020000]
-excludekeywordlist = ['1-TIF-原墙体-LT']
+#border = [-1520000, -1440000, 960000, 1020000]
+
+#instance04
+# layerkeywordlist = ['0','图层4']
+# excludekeywordlist = []
+# border = [-75000,-50000,-40000,5000]
+#instance05
+layerkeywordlist = ['DOOR','WALL-装修面','墙','窗']
+excludekeywordlist = []
+border = [-100000,-50000,-350000,-300000]
+
 print(dxf)
 for e in dxf.entities:
     if e.layer in excludekeywordlist:
