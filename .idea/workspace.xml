@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0050b4de-78d3-4de1-959b-6dafafe4ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h.gch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/hexagonResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/hexagonResPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/linesDataByMaterials.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/mergedLines.csv" afterDir="false" />
@@ -12,15 +19,28 @@
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/squareResPoints" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/squareResPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/test2.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/test2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover10_red54.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover10_red54.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover10_red91.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover10_red91.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red10.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red15.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red15.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red6.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red9.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover1_red9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red11.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red17.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red6.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red7.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover2_red7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover3_red16.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover3_red16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red21.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red21.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red13.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red38.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red38.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red44.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover4_red44.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red16.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red17.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red17.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red27.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red32.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover7_red37.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover7_red37.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover8_red43.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover8_red43.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red47.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover5_red47.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red20.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red56.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover6_red56.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover7_red23.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover7_red23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover9_red30.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/img/result/30m_10m_cover9_red30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cadFiles/cadReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/cadFiles/cadReader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cadFiles/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/cadFiles/test.png" afterDir="false" />
@@ -33,56 +53,60 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ApDeployment$draetest.coverage" NAME="draetest Coverage Results" MODIFIED="1611579067946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ApDeploymentByScp/data" />
-    <SUITE FILE_PATH="coverage/ApDeployment$cadReader.coverage" NAME="cadReader Coverage Results" MODIFIED="1611577105450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cadFiles" />
+    <SUITE FILE_PATH="coverage/ApDeployment$draetest.coverage" NAME="draetest Coverage Results" MODIFIED="1611821838555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ApDeploymentByScp/data" />
+    <SUITE FILE_PATH="coverage/ApDeployment$cadReader.coverage" NAME="cadReader Coverage Results" MODIFIED="1611820516795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cadFiles" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1433170418">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.22" value="2" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cpp" value="1" />
           <entry key="h" value="1" />
-          <entry key="png" value="12" />
-          <entry key="py" value="9" />
+          <entry key="html" value="1" />
+          <entry key="png" value="19" />
+          <entry key="py" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C++" value="2" />
-          <entry key="Image" value="12" />
-          <entry key="Python" value="9" />
+          <entry key="HTML" value="1" />
+          <entry key="Image" value="19" />
+          <entry key="Python" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1399" />
+          <entry key="py" value="2518" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1399" />
+          <entry key="Python" value="2518" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cadFiles/cadReader.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="40" />
+            <state relative-caret-position="223">
+              <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -90,16 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/test2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
+        <entry file="file://$PROJECT_DIR$/cadFiles/cadReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+            <state relative-caret-position="125">
+              <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -110,7 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/draetest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="400">
               <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
             </state>
           </provider>
@@ -143,6 +162,8 @@
       <find>exe</find>
       <find>SCP</find>
       <find>print_best_solution</find>
+      <find>scro</find>
+      <find>SCP1</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,8 +174,9 @@
       <list>
         <option value="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h" />
         <option value="$PROJECT_DIR$/cadFiles/cadReader.py" />
-        <option value="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/data/draetest.py" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" />
       </list>
     </option>
   </component>
@@ -204,7 +226,27 @@
               <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
               <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
+              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
@@ -320,12 +362,12 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2700081" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.283751" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3291815" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3291815" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3291815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,7 +376,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32740214" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32562277" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3291815" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -370,6 +412,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cadFiles/test.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/test2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/draetest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -379,38 +434,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="90" column="28" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3174">
+          <caret line="174" column="46" selection-start-line="174" selection-start-column="42" selection-end-line="174" selection-end-column="46" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/draetest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cadFiles/test.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/cadFiles/cadReader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="40" />
+        <state relative-caret-position="125">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/test2.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

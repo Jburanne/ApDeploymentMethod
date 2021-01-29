@@ -205,6 +205,7 @@ class Satlike
 	void build_instance(char *filename);
 	void local_search(vector<int> &init_solution);
 	void local_search_with_decimation(vector<int> &init_solution, char *inputfile);
+	void local_search_original(vector<int> &init_solution, char *inputfile);
 	void simple_print();
 	void print_best_solution();
 	void free_memory();

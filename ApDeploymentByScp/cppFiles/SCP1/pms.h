@@ -416,6 +416,7 @@ void Satlike::init(vector<int> &init_solution)
 		if (org_clause_weight[c] == top_clause_weight)
 		{
 			clause_weight[c] = clause_true_lit_thres[c];
+			//adjust weight
 			//org_unit_weight[c] = ceil((double)clause_weight[c] / (double)clause_true_lit_thres[c]);
 			//unit_weight[c] = org_unit_weight[c];
 			org_unit_weight[c] = 1;
@@ -424,9 +425,9 @@ void Satlike::init(vector<int> &init_solution)
 		else
 		{
 			clause_weight[c] = org_clause_weight[c];
-			//org_unit_weight[c] = ceil((double)clause_weight[c] / (double)clause_true_lit_thres[c]);
+			org_unit_weight[c] = ceil((double)clause_weight[c] / (double)clause_true_lit_thres[c]);
 			//unit_weight[c] = org_unit_weight[c];
-			org_unit_weight[c] = 1;
+			//org_unit_weight[c] = 1;
 			unit_weight[c] = 1;
 
 			if (clause_weight[c] > clause_true_lit_thres[c] && already_in_soft_large_weight_stack[c] == 0)
@@ -1108,10 +1109,28 @@ void Satlike::print_best_solution()
 			cout << i-1 << " ";
 		}
 	}
+	vector<int> notcover_num(11,0);
+	int hard_clause_num = 0;
+	for(int i = 0;i < num_clauses;++i){
+		if(org_clause_weight[i] != top_clause_weight){
+			continue;
+		}
+		hard_clause_num++;
+		for(int j = 1;j <= 10;++j){
+			if(clause_lit_count[i] < j){
+				notcover_num[j]++;
+			}
+		}
+	}
 	cout<<endl<<"-----fix info-----"<<endl;
 	cout<<"fix var ratio:"<<fix_num*1.0/num_vars<<endl;
 	cout<<"fix clause ratio:"<<fix_clause_num*1.0/num_clauses<<endl;
+	cout<<"cover_ratio:"<<endl;
+	for(int j = 1;j <= 10;++j){
+		cout<<j<<":   "<<1-notcover_num[j]*1.0/hard_clause_num<<endl;
+	}
 
+    
 	ofstream ofile("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/solution.res");
 	//ofile << num_vars << " ";
 	int cnt = 0;
@@ -1227,11 +1246,89 @@ void Satlike::local_search_with_decimation(vector<int> &init_solution, char *inp
 				time_stamp[remove_v] = step;
 				continue;
 			}
+			update_clause_weights();
 			
 			//add a set
 			int add_v = pick_add_var();
 			flip(add_v);
 			time_stamp[add_v] = step;
+		}
+	}
+}
+
+void Satlike::local_search_original(vector<int> &init_solution, char *inputfile)
+{
+	settings();
+
+	Decimation deci(var_lit, var_lit_count, clause_lit, org_clause_weight, top_clause_weight);
+	deci.make_space(num_clauses, num_vars);
+
+	for (int i = 1; i <= num_vars; ++i)
+	{
+		local_opt_soln[i] = rand() % 2; //???
+	}
+
+	for (tries = 1; tries < max_tries; ++tries)
+	{
+		deci.init(local_opt_soln, best_soln, unit_clause, unit_clause_count, clause_lit_count, clause_true_lit_thres);
+
+		deci.unit_prosess();
+		cout<<"unit process"<<endl;
+
+		init_solution.resize(num_vars + 1);
+		
+		for (int i = 1; i <= num_vars; ++i)
+		{
+			init_solution[i] = deci.fix[i];
+		}
+
+		init(init_solution);
+		cout<<"cost after init:"<<soft_unsat_weight<<endl;
+		
+		for (step = 1; step < max_flips; ++step)
+		{
+			if (hard_unsat_nb == 0 && (soft_unsat_weight < local_opt_unsat_weight || local_soln_feasible == 0))
+			{
+				//if (soft_unsat_weight < top_clause_weight) //???
+				//{
+					local_soln_feasible = 1;
+					local_opt_unsat_weight = soft_unsat_weight;
+					max_flips = step + max_non_improve_flip;
+					for (int v = 1; v <= num_vars; ++v)
+						local_opt_soln[v] = cur_soln[v];
+				//}
+			}
+			if (hard_unsat_nb == 0 && (soft_unsat_weight < opt_unsat_weight || best_soln_feasible == 0))
+			{
+				cout<<"update best solution"<<endl;
+				//if (soft_unsat_weight < top_clause_weight) 
+				//{
+					best_soln_feasible = 1;
+					opt_unsat_weight = soft_unsat_weight;
+					opt_time = get_runtime();
+					for (int v = 1; v <= num_vars; ++v)
+						best_soln[v] = cur_soln[v];
+
+					if (opt_unsat_weight == 0)
+					{
+						return;
+					}
+				//}
+			}
+			if (step % 1000 == 0)
+			{
+				double elapse_time = get_runtime();
+
+				if (elapse_time >= cutoff_time)
+				{
+					deci.free_memory();
+					return;
+				}
+			}
+			int flipvar = pick_var();
+			//cout<<"flip:"<<flipvar<<" from "<<cur_soln[flipvar]<<endl;
+			flip(flipvar);
+			time_stamp[flipvar] = step;
 		}
 	}
 }

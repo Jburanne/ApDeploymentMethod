@@ -60,12 +60,12 @@ def saveLinesByTypes(filepath):
     # border = [-5000, 60000, 150000, 250000]
     # excludekeywordlist = []
     #instance02
-    # wall_kw = ['墙']
-    # glass_kw = ['WINDOW']
-    # wood_kw = []
-    # other_kw = []
-    # border = [10000, 48000, 10000, 80000]
-    # excludekeywordlist = ['1-TIF-原墙体-LT']
+    wall_kw = ['墙']
+    glass_kw = ['WINDOW']
+    wood_kw = []
+    other_kw = []
+    border = [10000, 48000, 10000, 80000]
+    excludekeywordlist = ['1-TIF-原墙体-LT']
     #instance03
     # wall_kw = ['原有墙体','划分新墙','幕墙']
     # glass_kw = ['A-PLAN-WIND-窗']
@@ -88,12 +88,72 @@ def saveLinesByTypes(filepath):
     # border = [-100000,-50000,-350000,-300000]
     # excludekeywordlist = []
     #instance06
-    wall_kw = ['WALL', '隔墙']
-    glass_kw = ['门窗']
-    wood_kw = []
-    other_kw = ['黄','COLUMN']
-    border = [125000,155000,1790000,1860000]
-    excludekeywordlist = []
+    # wall_kw = ['WALL', '隔墙']
+    # glass_kw = ['门窗']
+    # wood_kw = []
+    # other_kw = ['黄','COLUMN']
+    # border = [125000,155000,1790000,1860000]
+    # excludekeywordlist = []
+    #instance08
+    # wall_kw = ['墙面完成面', '新建墙体']
+    # glass_kw = []
+    # wood_kw = ['门']
+    # other_kw = ['结构']
+    # border = [21000,60000,12000,40000]
+    #instance9
+    # wall_kw = ['0', 'WALL']
+    # glass_kw = ['GLASS','WINDOW']
+    # wood_kw = ['DOOR']
+    # other_kw = []
+    # border = [165000,195000,380000,430000]
+    #instance10
+    # wall_kw = ['STAIR', 'WALL']
+    # glass_kw = ['WINDOW']
+    # wood_kw = ['Door']
+    # other_kw = []
+    # border = [0,25000,150000,250000]
+    # excludekeywordlist = []
+    #instance11
+    # wall_kw = ['0', '墙体']
+    # glass_kw = []
+    # wood_kw = ['平面门']
+    # other_kw = []
+    # border = [57500,74000,-13000,19000]
+    #instance07
+    # wall_kw = ['WALL']
+    # glass_kw = ['WINDOW','WINdows']
+    # wood_kw = []
+    # other_kw = []
+    # border = [0,25000,300000,340000]
+    # excludekeywordlist = []
+    #instance12
+    # wall_kw = ['水泥墙']
+    # glass_kw = ['玻璃', 'WINdows']
+    # wood_kw = ['门-灯具']
+    # other_kw = []
+    # border = [-730000,-700000,2250000,2350000]
+    # excludekeywordlist = []
+    #instance13
+    # wall_kw = ['Wall']
+    # glass_kw = ['Window', 'WINDOW']
+    # wood_kw = ['Door','固定家具']
+    # other_kw = []
+    # border = [-650000,-560000,2100000,2200000]
+    # excludekeywordlist = []
+    #instance14
+    # wall_kw = ['WALL']
+    # glass_kw = ['WIN']
+    # wood_kw = ['FURNI']
+    # other_kw = ['PARTI']
+    # border =  [-250000,-220000,-60000,-20000]
+    # excludekeywordlist = ['P-FURNI']
+    #instance15
+    # wall_kw = ['0-JZ','4-JZ','9-JZ','ID-LOUT-1','ID-WALL-F']
+    # glass_kw = []
+    # wood_kw = []
+    # other_kw = []
+    # border = [-35000,-15000,220000,240000]
+    # excludekeywordlist = []
     all_kw = wall_kw+glass_kw+wood_kw+other_kw
     #layerkeywordlist = ['窗','WALL','wall','WINDOWS','玻璃','垂直面','门扇','阴影']
     for e in dxf.entities:
@@ -138,6 +198,9 @@ def saveLinesByTypes(filepath):
                         continue
                     if y1 < border[0] or y1 > border[1] or y2 < border[0] or y2 > border[1]:
                         continue
+                    # if e.layer == 'Wall-墙线' and y1 > -580000 and y2 > -580000 and x1 != x2 and y1 != y2:
+                    #     # print(x1, y1, x2, y2)
+                    #     continue
                     lines.append([x1, y1, x2, y2, linestype])
                 # if e.is_closed:
                 #     if p[0][1] < 0 or p[0][0] < 150000:

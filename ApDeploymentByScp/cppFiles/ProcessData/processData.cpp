@@ -633,6 +633,10 @@ vector<Point> createPoints(int minX, int minY, int maxX, int maxY, int dist, vec
 	Point p2(minX,minY);
 	Point p3(minX,maxY);
 	Point p4(maxX,minY);
+	/*---temp for instance13 ---*/
+//	int tempX = (minX+maxX)/2;
+//	Point p5(tempX,maxY);
+	/* ---end temp for instance13 ---*/
 
 	for(int i = minX + 1000; i < maxX; i += dist){
 		for(int j = minY + 1000; j < maxY; j += dist){
@@ -658,6 +662,11 @@ vector<Point> createPoints(int minX, int minY, int maxX, int maxY, int dist, vec
 			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
 				continue;
 			}
+			/*---temp for instance13 ---*/
+//			if(!hasBarrier(pos,p5,lines)){
+//				continue;
+//			}
+			/* ---end temp for instance13 ---*/
 			
 			if(isOnLine(pos,lines)) continue;
 			if(type == 1 && isNearLine(pos,lines)) continue;
@@ -804,11 +813,16 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 		int num1 = -(conflictPos[i][0] + 1);
 		int num2 = -(conflictPos[i][1] + 1);
 		int dist = conflictPos[i][2];
+		
+		int weight = ceil(9000.0/dist);
+		location_out<<weight<<" 1 "<<num1<<" "<<num2<<" 0"<<endl;
+		
+		/*
 		if(dist <= 5000){
-			location_out<<"10 1 "<<num1<<" "<<num2<<" 0"<<endl;
+			location_out<<"8 1 "<<num1<<" "<<num2<<" 0"<<endl;
 		} else{
 			location_out<<"5 1 "<<num1<<" "<<num2<<" 0"<<endl;
-		}
+		}*/
 	}
 	/*
 	for(auto elem:ans){
@@ -984,7 +998,8 @@ void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, v
 	Point p3(minX,maxY);
 	Point p4(maxX,minY);
 	r = r/1000;
-	int dist = floor(r*sqrt(2))*1000;
+	//int dist = floor(r*sqrt(2))*1000;
+	int dist = round(r*sqrt(2))*1000;
 	int half_dist = (dist/1000)/2*1000;
 	for(int i = minX + half_dist; i <= maxX; i += dist){
 		int j = minY+half_dist;
@@ -1224,13 +1239,13 @@ int main(int argc, char *argv[]){
 	vector<Line> lines = readLinesByType1("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv");
 	checkLineCntByType(lines,type_cnt);
 	checkLineType(lines);
-	lines = mergeLinesByType(lines); 
+	//lines = mergeLinesByType(lines); 
 	checkLineType(lines);
 	checkLineCntByType(lines,type_cnt);
 	cout<<lines.size()<<endl;
 	
 	
-	lines = deleteShortLine(lines);
+	//lines = deleteShortLine(lines);
 	if(data_type == 0){
 	    writeMergedLines(lines);
 	}
@@ -1246,9 +1261,11 @@ int main(int argc, char *argv[]){
 	if(data_type == 3){
 		int r = cover_num;//temp
 		squareDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		return 0;
 	} else if(data_type == 4){
 		int r = cover_num;//temp
 		hexagonDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		return 0;
 	}
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
