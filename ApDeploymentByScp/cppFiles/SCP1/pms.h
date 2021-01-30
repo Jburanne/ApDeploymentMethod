@@ -44,6 +44,7 @@ void Satlike::settings()
 	hd_count_threshold = 42;
 	rwprob = 0.091;
 	smooth_probability = 0.000003;
+	
 }
 
 void Satlike::allocate_memory()
@@ -1110,12 +1111,10 @@ void Satlike::print_best_solution()
 		}
 	}
 	vector<int> notcover_num(11,0);
-	int hard_clause_num = 0;
 	for(int i = 0;i < num_clauses;++i){
 		if(org_clause_weight[i] != top_clause_weight){
 			continue;
 		}
-		hard_clause_num++;
 		for(int j = 1;j <= 10;++j){
 			if(clause_lit_count[i] < j){
 				notcover_num[j]++;
@@ -1127,7 +1126,7 @@ void Satlike::print_best_solution()
 	cout<<"fix clause ratio:"<<fix_clause_num*1.0/num_clauses<<endl;
 	cout<<"cover_ratio:"<<endl;
 	for(int j = 1;j <= 10;++j){
-		cout<<j<<":   "<<1-notcover_num[j]*1.0/hard_clause_num<<endl;
+		cout<<j<<":   "<<1-notcover_num[j]*1.0/num_hclauses<<endl;
 	}
 
     
@@ -1150,6 +1149,7 @@ void Satlike::print_best_solution()
 void Satlike::local_search_with_decimation(vector<int> &init_solution, char *inputfile)
 {
 	settings();
+	int hard_clause_num_thres = ceil(0.01*num_hclauses);
 
 	Decimation deci(var_lit, var_lit_count, clause_lit, org_clause_weight, top_clause_weight);
 	deci.make_space(num_clauses, num_vars);

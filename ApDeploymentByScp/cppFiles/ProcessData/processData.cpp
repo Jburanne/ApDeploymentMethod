@@ -796,9 +796,9 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 	vector<vector<int>> conflictPos = getConflictCand(cands,thre); //5000ฃบ5รื
 	int total_constraints = m+n+conflictPos.size();
 	//int total_constraints = m+n; //!
-	location_out << "p wcnf " << n << ' ' << total_constraints << ' ' << 10 << endl;
+	location_out << "p wcnf " << n << ' ' << total_constraints << ' ' << 100 << endl;
 	for(int i = 0;i < cover_sets.size();++i){
-		location_out<<"10 "<<cover_times<<" ";
+		location_out<<"100 "<<cover_times<<" ";
 		vector<int> set = cover_sets[i];
 		for(int num:set) location_out<<num+1<<' ';
 		location_out<<"0"<<endl;
@@ -814,7 +814,7 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 		int num2 = -(conflictPos[i][1] + 1);
 		int dist = conflictPos[i][2];
 		
-		int weight = ceil(9000.0/dist);
+		int weight = ceil(90000.0/dist);
 		location_out<<weight<<" 1 "<<num1<<" "<<num2<<" 0"<<endl;
 		
 		/*
@@ -1239,13 +1239,13 @@ int main(int argc, char *argv[]){
 	vector<Line> lines = readLinesByType1("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv");
 	checkLineCntByType(lines,type_cnt);
 	checkLineType(lines);
-	//lines = mergeLinesByType(lines); 
+	lines = mergeLinesByType(lines); 
 	checkLineType(lines);
 	checkLineCntByType(lines,type_cnt);
 	cout<<lines.size()<<endl;
 	
 	
-	//lines = deleteShortLine(lines);
+	lines = deleteShortLine(lines);
 	if(data_type == 0){
 	    writeMergedLines(lines);
 	}
