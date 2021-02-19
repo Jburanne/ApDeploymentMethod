@@ -15,7 +15,9 @@ for index, row in df.iterrows():
 for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
 
-#plt.savefig('./structureGraph')
+plt.savefig('./structureGraph')
+
+'''
 file_path = "./hexagonResPoints"
 cnames = {
         'aliceblue': '#F0F8FF',
@@ -194,3 +196,4 @@ print(cnt)
 plt.axis('scaled')
 plt.savefig("./test2.png")
 #plt.show()
+'''

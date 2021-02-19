@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/uploadCad.css">
+
     <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="/static/assets/css/shared/style.css">
     <link href="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
@@ -31,6 +31,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="/static/assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="/static/css/uploadCad.css">
     <!-- End Layout styles -->
     <title>MyDeployment</title>
 </head>
@@ -82,17 +83,17 @@
                                     <h4 class="card-title mb-0"><b>我的部署</b></h4>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-responsive">
+                                    <table class="table table-hover table-responsive">
                                         <thead>
                                         <tr>
                                             <td><b>cad文件说明</b></td>
                                             <td><b>cad文件</b></td>
                                             <td><b>部署图</b></td>
-                                            <td>部署位置文件</td>
-                                            <td>参数表</td>
+                                            <td><b>部署位置文件</b></td>
+                                            <td><b>参数表</b></td>
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody style="display: block; overflow-y: auto; height: 400px;-webkit-overflow-scrolling: touch;">
                                         {% for row in res %}
                                             <tr>
                                                 <td> {{ row.cad.cad_description }}</td>
@@ -110,17 +111,23 @@
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn" data-toggle="modal"
+                                                            data-target="#paramsModal"
+                                                            onclick="showParams({{ row.dep_param.cover_num }},{{ row.dep_param.dist_thre }},{{ row.dep_param.spread_dist }},
+                                                                    {{ row.dep_param.wall_reduce_dist }},{{ row.dep_param.glass_reduce_dist }},{{ row.dep_param.wood_reduce_dist }},
+                                                                    {{ row.dep_param.other_reduce_dist }},{{ row.dep_param.time_limit }},'{{ row.res.res_path }}')">
+                                                        点击查看部署信息
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn" data-toggle="modal"
                                                             data-target="#downloadModal" onclick="downloadFile('{{ row.res.pos_path }}',0)">
                                                         {{ row.res.pos_path }}
                                                     </button>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn" data-toggle="modal"
-                                                            data-target="#paramsModal"
-                                                            onclick="showParams({{ row.dep_param.cover_num }},{{ row.dep_param.dist_thre }},{{ row.dep_param.spread_dist }},
-                                                                    {{ row.dep_param.wall_reduce_dist }},{{ row.dep_param.glass_reduce_dist }},{{ row.dep_param.wood_reduce_dist }},
-                                                                    {{ row.dep_param.other_reduce_dist }},{{ row.dep_param.time_limit }},'{{ row.res.res_path }}')">
-                                                        点击查看部署信息
+                                                            data-target="#deleteModal" onclick="set_delete_record_id({{ row.id }})">
+                                                        删除
                                                     </button>
                                                 </td>
                                             </tr>
@@ -252,6 +259,27 @@
         </div>
     </div>
 </div>
+<!-- 删除部署任务模态 -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">删除部署任务</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                确定删除该部署任务吗？
+            </div>
+            <div class="modal-footer">
+                <button id='delete-yes-btn' type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">是</button>
+                <button type="button" class="btn btn-secondary btn-success" data-dismiss="modal">否</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script type="text/javascript">
@@ -285,29 +313,50 @@
 </script>
 <script>
     {#提交数据函数#}
-
-    function save_result() {
-        $.ajax({
-            //几个参数需要注意一下
-            cache: false,
-            type: "POST",//方法类型
-            dataType: "json",//预期服务器返回的数据类型
-            url: "/users/saveResult/",//url
-            data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
-            async: false,  //必须要为false,必须必须
-
-            success: function (data) {
-                console.log(data);//打印服务端返回的数据(调试用)
-                if (data.status == "success") {
-                    {# 判断确实正确入库之后提示#}
-                    toastr.success('提交数据成功');
-                }
-            },
-            error: function () {
-                toastr.warning("失败");
-            }
-        })
+    // function save_result() {
+    //     $.ajax({
+    //         //几个参数需要注意一下
+    //         cache: false,
+    //         type: "POST",//方法类型
+    //         dataType: "json",//预期服务器返回的数据类型
+    //         url: "/users/saveResult/",//url
+    //         data: $('#mydep-form').serialize(), //将模态框的form表单数据序列化，以便提交到后台
+    //         async: false,  //必须要为false,必须必须
+    //
+    //         success: function (data) {
+    //             console.log(data);//打印服务端返回的数据(调试用)
+    //             if (data.status == "success") {
+    //                 {# 判断确实正确入库之后提示#}
+    //                 toastr.success('提交数据成功');
+    //             }
+    //         },
+    //         error: function () {
+    //             toastr.warning("失败");
+    //         }
+    //     })
+    // }
+    function set_delete_record_id(recordid){
+        command_str = "delete_record("+recordid+")";
+        $("#delete-yes-btn").attr('onclick', command_str)
     }
+    function delete_record (dc){
+            var csrfToken = $("[name='csrfmiddlewaretoken']").val();
+            $.ajax({
+                type: "POST",//预期服务器返回的数据类型
+                dataType:"json",
+                url: "/users/deleteRecord/" ,//url
+                data:{"dc":dc,'csrfmiddlewaretoken':csrfToken},
+                success: function (arg) {
+                    console.log(arg);//打印服务端返回的数据(调试用)
+                    if(arg.status == "success"){
+                        console.log("is suc");
+                        {# 判断确实正确入库之后提示#}
+                        toastr.success("删除成功");
+                        setTimeout(function(){window.location.reload();},2000);
+                     }
+                 }
+            })
+        }
 
     function testajax() {
         $.ajax({

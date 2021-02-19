@@ -2,7 +2,7 @@ import pandas as pd
 import dxfgrabber
 from matplotlib import pyplot as plt
 
-dxf = dxfgrabber.readfile("instance15.dxf")
+dxf = dxfgrabber.readfile("test_graph_1.dxf")
 x = []
 y = []
 #layerkeywordlist = ['WALL','wall','WINDOW','0','2D']
@@ -60,9 +60,9 @@ y = []
 # excludekeywordlist = ['P-FURNI']
 # border = [-250000,-220000,-60000,-20000]
 #instance15
-layerkeywordlist = ['0-JZ','4-JZ','9-JZ','ID-LOUT-1','ID-WALL-F']
+layerkeywordlist = ['WALL','wall','窗','WINDOWS','玻璃','门扇','阴影','垂直面']
 excludekeywordlist = []
-border = [-35000,-15000,220000,240000]
+border = [-5000, 60000, 150000, 250000]
 print(dxf)
 for e in dxf.entities:
     if e.layer in excludekeywordlist:

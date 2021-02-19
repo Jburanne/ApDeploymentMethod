@@ -194,6 +194,12 @@ def saveResult(request):
     Deployment.objects.create(user=user_i,res=res_i,cad=cad_i,dep_param=param_i)
     return HttpResponse(json.dumps({'status': 'success'}))
 
+def deleteRecord(request):
+    print(request.POST)
+    dep_id = request.POST.get("dc")
+    print(dep_id)
+    Deployment.objects.filter(id=dep_id).delete()
+    return HttpResponse(json.dumps({'status': 'success'}))
 
 def add(request):
     af = AddForm()
