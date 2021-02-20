@@ -23,7 +23,9 @@ def closeSQLConnection(cursor, conn):
 # Create your views here.
 def uploadCad(request):
     # 判断是否为post方法提交
-    if request.method == "POST":
+    if not request.session.has_key('is_login'):
+        return render(request, 'users/login.html')
+    elif request.method == "POST":
         af = AddForm(request.POST, request.FILES)
         # 判断表单值是否合法
         if af.is_valid():
@@ -209,22 +211,13 @@ def add(request):
 def myDeployment(request):
     #conn, cursor = connectToMySQL()
     if request.method == "GET":
-        # sqlstr = "select username,c.filename as cadname,c.filepath as cadpath," \
-        #          "r.filepath as respath,r.pospath as respospath,p.* from " \
-        #          "(select * from res2cad where userid=1) a " \
-        #          "left join (select * from users) u on a.userid=u.id " \
-        #          "left join (select * from cad) c on a.cadid=c.id " \
-        #          "left join (select * from result) r on a.resid=r.id " \
-        #          "left join (select * from params) p on a.paramid=p.id"
-        # #print(sqlstr)
-        # cursor.execute(sqlstr)
-        # res = cursor.fetchall()
-        # conn.close()
-        userid = request.session['userid']
-        res = Deployment.objects.select_related().filter(user=userid)
-        # for elem in res:
-        #     print(elem.id,elem.user.id, elem.user.username)
-        return render(request, 'users/myDeployment.html', context={"res": res})
+        if request.session.has_key('is_login'):
+            userid = request.session['userid']
+            res = Deployment.objects.select_related().filter(user=userid)
+            return render(request, 'users/myDeployment.html', context={"res": res})
+        else:
+            # show_content = "<li><a href=users/login>还没登录，前去登录</a></li>"
+            return render(request,'users/login.html')
     else:
         return redirect('users/myDeployment.html/')
 
@@ -247,6 +240,7 @@ def checkLogin(request):
         request.session['is_login'] = True
         request.session['userid'] = res[0].id
         request.session['username'] = res[0].username
+        request.session.set_expiry(3600)
         return HttpResponse(json.dumps({'status': 'success'}))
 
 def register(request):

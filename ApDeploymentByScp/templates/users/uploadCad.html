@@ -28,7 +28,7 @@
     <title>UploadCAD</title>
 </head>
 <body>
-{% if request.session.is_login %}
+<!--{% if request.session.is_login %}-->
     <form class="needs-validation" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container-scroller">
@@ -203,9 +203,9 @@
             </div>
         </div>
     </form>
-{% else %}
-    <li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>
-{% endif %}
+<!--{% else %}-->
+    <!--<li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>-->
+<!--{% endif %}-->
 
 
 <!-- Optional JavaScript -->
