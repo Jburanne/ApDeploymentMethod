@@ -26,6 +26,8 @@ def uploadCad(request):
     if not request.session.has_key('is_login'):
         return render(request, 'users/login.html')
     elif request.method == "POST":
+        print(request.POST)
+        print(request.FILES)
         af = AddForm(request.POST, request.FILES)
         # 判断表单值是否合法
         if af.is_valid():
@@ -42,6 +44,7 @@ def uploadCad(request):
             time_limit = af.cleaned_data['time_limit']
             dist_thre = af.cleaned_data['dist_thre'] * 1000
 
+            # print(filename, cover_num, spread_dist, glass_reduce_dist)
             # cad文件路径
             cad_file_path = os.getcwd().replace("\\", "/") + "/media/img/cad/" + str(headimg)
             if os.path.exists(cad_file_path)==False:

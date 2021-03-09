@@ -29,7 +29,7 @@
 </head>
 <body>
 <!--{% if request.session.is_login %}-->
-    <form class="needs-validation" method="post" enctype="multipart/form-data">
+    <form class="needs-validation" method="post" enctype="multipart/form-data" id="dep-params">
         {% csrf_token %}
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper">
@@ -191,7 +191,7 @@
                                                     </div>
                                                 </div>
                                             </ul>
-                                            <button type="submit" class="btn btn-inverse-info btn-block">开始部署
+                                            <button class="btn btn-inverse-info btn-block" onclick="checkInput()">开始部署
                                             </button>
                                         </form>
                                     </div>
@@ -206,7 +206,58 @@
 <!--{% else %}-->
     <!--<li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>-->
 <!--{% endif %}-->
+<!-- 输入异常模态 -->
+<div class="modal fade" id="inputErrorModal" tabindex="-1" role="dialog" aria-labelledby="inputErrorModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inputErrorModalLabel">部署参数信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                输入参数不能为空，请重新检查！
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">好的</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+
+<script type="text/javascript">
+    function checkInput(){
+        // console.log(af)
+        var af_data = $("#dep-params").serializeArray(); //表单数据序列化
+        //获取表单的dict形式数据
+        var af_dict = {};
+        $.map(af_data,function(n,i){
+            af_dict[n["name"]]=n["value"]
+        });
+        console.log(af_data);
+        console.log(af_dict);
+        console.log(af_dict['dist_thre']);
+        console.log(af_dict['filename']);
+
+        // var csrfToken = $("[name='csrfmiddlewaretoken']").val();
+        if(af_dict['filename']=="" || af_dict['cover_num']=="" || af_dict['dist_thre']=="" ||
+        af_dict['glass_reduction_distance']=="" || af_dict['other_reduction_distance']=="" ||
+        af_dict['propagation_distance']=="" || af_dict['time_limit']=="" ||
+            af_dict['wall_reduction_distance']=="" || af_dict['wood_reduction_distance']==""){
+            {#若为空，跳出为空提示modal#}
+            $("#inputErrorModal").modal('show');
+        }else{
+            console.log("开始部署……");
+            var formElement = document.getElementById("dep-params");
+            formElement.submit();
+            // console.log("success");
+        }
+    }
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0050b4de-78d3-4de1-959b-6dafafe4ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/newtestfile" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/newtestfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/resPoints" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/users/views.py" afterDir="false" />
     </list>
@@ -21,18 +24,19 @@
     <session id="-1433170418">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -40,34 +44,34 @@
           <entry key="cpp" value="2" />
           <entry key="css" value="5" />
           <entry key="h" value="1" />
-          <entry key="html" value="8" />
+          <entry key="html" value="10" />
           <entry key="map" value="1" />
           <entry key="png" value="23" />
-          <entry key="py" value="13" />
+          <entry key="py" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C++" value="3" />
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="8" />
+          <entry key="HTML" value="10" />
           <entry key="Image" value="23" />
-          <entry key="Python" value="13" />
+          <entry key="Python" value="15" />
           <entry key="SourceMap" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="51" />
-          <entry key="html" value="571" />
-          <entry key="py" value="2946" />
+          <entry key="html" value="1710" />
+          <entry key="py" value="3046" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="51" />
-          <entry key="HTML" value="571" />
-          <entry key="Python" value="2946" />
+          <entry key="HTML" value="1710" />
+          <entry key="Python" value="3046" />
         </counts>
       </usages-collector>
     </session>
@@ -77,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1475">
+            <state relative-caret-position="279">
               <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -87,26 +91,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/static/assets/css/shared/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43250">
-              <caret line="1734" column="14" selection-start-line="1734" selection-start-column="14" selection-end-line="1734" selection-end-column="14" />
-              <folding>
-                <element signature="e#36163#36256#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/models.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="400">
               <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -116,53 +103,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/deploymentResult.html">
+        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="957">
-              <caret line="183" column="50" selection-start-line="183" selection-start-column="31" selection-end-line="183" selection-end-column="50" />
+            <state relative-caret-position="148">
+              <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
               <folding>
-                <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1615277328717" expanded="true" signature="10059:10248" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="241" column="53" lean-forward="true" selection-start-line="241" selection-start-column="53" selection-end-line="241" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1613825872195" expanded="true" signature="9929:10118" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="207" column="18" lean-forward="true" selection-start-line="205" selection-end-line="207" selection-end-column="18" />
-              <folding>
-                <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="224">
+              <caret line="251" column="48" lean-forward="true" selection-start-line="251" selection-start-column="48" selection-end-line="251" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html">
+        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
-              <folding>
-                <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="24">
+              <caret line="121" column="20" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/deploymentResult.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="177" column="28" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -191,7 +166,6 @@
       <find>download_file</find>
       <find>myDe</find>
       <find>csrfmiddlewaretoken</find>
-      <find>save_result</find>
       <find>delete</find>
       <find>sidebar</find>
       <find>set_delete_record_id</find>
@@ -200,6 +174,12 @@
       <find>request.session</find>
       <find>uplo</find>
       <find>myDep</find>
+      <find>dxf-file</find>
+      <find>save_result</find>
+      <find>checkInput</find>
+      <find>button</find>
+      <find>dep-params</find>
+      <find>username</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,15 +192,15 @@
         <option value="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/data/draetest.py" />
         <option value="$PROJECT_DIR$/cadFiles/cadReader.py" />
-        <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/register.html" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/users/urls.py" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/static/assets/css/demo_1/style.css" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/static/assets/css/shared/style.css" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/static/css/uploadCad.css" />
-        <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html" />
         <option value="$PROJECT_DIR$/ApDeploymentByScp/users/views.py" />
+        <option value="$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html" />
       </list>
     </option>
   </component>
@@ -243,7 +223,7 @@
       <path value="$PROJECT_DIR$/ApDeploymentByScp/static/assets/vendors/tinymce/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="1890" />
@@ -254,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,62 +257,6 @@
               <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
               <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
               <item name="cppFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="demo_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="demo_1" type="462c0819:PsiDirectoryNode" />
-              <item name="style.css" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ApDeployment" type="462c0819:PsiDirectoryNode" />
-              <item name="ApDeploymentByScp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ApDeployment" type="b2602c69:ProjectViewProjectNode" />
@@ -363,6 +286,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,7 +386,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2077607" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21099435" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -476,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32562277" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32562277" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3291815" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -551,13 +475,6 @@
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/data/structureGraph.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="34" column="66" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -566,12 +483,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/static/assets/css/demo_1/style.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="212" selection-start-column="212" selection-end-column="212" />
         </state>
       </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/static/assets/css/demo_1/style.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -594,9 +511,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/ApDeploymentByScp/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1475">
+        <state relative-caret-position="279">
           <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -614,40 +538,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/ApDeploymentByScp/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="207" column="18" lean-forward="true" selection-start-line="205" selection-end-line="207" selection-end-column="18" />
-          <folding>
-            <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/myDeployment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+        <state relative-caret-position="1075">
+          <caret line="177" selection-start-line="177" selection-end-line="177" />
           <folding>
             <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -657,24 +551,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/forms.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/deploymentResult.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="183" column="50" selection-start-line="183" selection-start-column="31" selection-end-line="183" selection-end-column="50" />
-          <folding>
-            <element signature="n#form#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="24">
+          <caret line="177" column="28" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="241" column="53" lean-forward="true" selection-start-line="241" selection-start-column="53" selection-end-line="241" selection-end-column="53" />
+        <state relative-caret-position="148">
+          <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1613825872195" expanded="true" signature="9929:10118" ph="..." />
+            <marker date="1615277328717" expanded="true" signature="10059:10248" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="121" column="20" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApDeploymentByScp/templates/users/uploadCad.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="251" column="48" lean-forward="true" selection-start-line="251" selection-start-column="48" selection-end-line="251" selection-end-column="48" />
         </state>
       </provider>
     </entry>
