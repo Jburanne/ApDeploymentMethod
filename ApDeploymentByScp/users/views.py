@@ -62,7 +62,7 @@ def uploadCad(request):
             readCad.getResPoints(spread_dist, wall_reduce_dist, glass_reduce_dist, wood_reduce_dist, other_reduce_dist,
                                  cover_num, dist_thre)
             # 解的可视化
-            img_path, pic_name, ap_num = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
+            img_path, pic_name, ap_num, cover_rate = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
             # img_path = readCad.readLines()
             # 展示图片
             # img_data = open(img_path,'rb').read()
@@ -71,7 +71,7 @@ def uploadCad(request):
             cad_relative_path = 'img/cad/'+str(headimg)
             dc = {"resimgpath": img_relative_path, "cover_num": cover_num,
                                    "spread_dist": spread_dist / 1000, "time_limit": time_limit,
-                                   "dist_thre": dist_thre / 1000, "ap_num": ap_num,
+                                   "dist_thre": dist_thre / 1000, "ap_num": ap_num,"cover_rate":cover_rate,
                                    "filename": filename,"wall_reduce_dist":wall_reduce_dist / 1000,
                   "glass_reduce_dist":glass_reduce_dist / 1000,"wood_reduce_dist":wood_reduce_dist / 1000,
                   "other_reduce_dist":other_reduce_dist / 1000,"cadpath":cad_relative_path,"pospath":""}
@@ -186,9 +186,11 @@ def saveResult(request):
     user_i = User.objects.filter(id=userid)[0]
 
     # 获取结果id
+    maxresid = Result.objects.values('id').order_by('-id').first()
     Result.objects.create(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
     res = Result.objects.filter(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
-    print("res id:",res[len(res)-1].id)
+    print("max res id:",maxresid, "res id:",res[len(res)-1].id)
+    # print(maxresid['id'])
     res_i = res[len(res)-1]
     # # 将结果插入表中
     # insert_sql = "insert into res2cad(resid,cadid,userid,paramid) values(%s,%s,%s,%s)"

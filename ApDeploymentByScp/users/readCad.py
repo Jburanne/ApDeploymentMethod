@@ -281,7 +281,7 @@ def readLines():
 def readScpRes(spread_dist, reduce_dist,cover_num):
     file_path = os.getcwd().replace("\\", '/') + "/data/mergedLines.csv"
     print(file_path)
-    df = pd.read_csv(file_path, sep=' ', header=None, names=['x1', 'x2', 'y1', 'y2']);
+    df = pd.read_csv(file_path, sep=' ', header=None, names=['x1', 'x2', 'y1', 'y2'])
     # print(df)
     df = df.drop_duplicates()
     # print(df)
@@ -441,11 +441,12 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     colorlist = list(cnames.values())
     with open(file_path, 'r') as f:
         lines = f.readlines()
+        cover_rate = round(float(lines[0]), 2)
         flag = 0
         colorcnt = 0
         print(len(lines))
         cnt = 0
-        for i in range(len(lines)):
+        for i in range(1,len(lines)):
             pos = lines[i].split(' ')
             if len(pos) == 1:
                 flag = 1
@@ -472,7 +473,7 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     save_path = os.getcwd().replace("\\", '/')+"/media/img/result/"+pic_name+".png"
     plt.savefig(save_path)
     plt.close()
-    return save_path,pic_name,cnt
+    return save_path,pic_name,cnt,cover_rate
 
 def mergeLines(cpp_path):
     os.system(cpp_path)

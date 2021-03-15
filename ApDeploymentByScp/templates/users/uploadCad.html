@@ -206,7 +206,7 @@
 <!--{% else %}-->
     <!--<li><a href="{% url 'users:login' %}">还没登录，前去登录</a></li>-->
 <!--{% endif %}-->
-<!-- 输入异常模态 -->
+<!-- 输入异常（为空）模态 -->
 <div class="modal fade" id="inputErrorModal" tabindex="-1" role="dialog" aria-labelledby="inputErrorModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -226,6 +226,28 @@
         </div>
     </div>
 </div>
+
+<!-- 输入异常（值异常）模态 -->
+<div class="modal fade" id="valueErrorModal" tabindex="-1" role="dialog" aria-labelledby="valueErrorModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="valueErrorModalLabel">部署参数信息</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                输入参数值异常，请重新检查！
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal">好的</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -248,8 +270,11 @@
         af_dict['glass_reduction_distance']=="" || af_dict['other_reduction_distance']=="" ||
         af_dict['propagation_distance']=="" || af_dict['time_limit']=="" ||
             af_dict['wall_reduction_distance']=="" || af_dict['wood_reduction_distance']==""){
-            {#若为空，跳出为空提示modal#}
             $("#inputErrorModal").modal('show');
+        }else if(af_dict['cover_num']<0 || af_dict['dist_thre']<0 || af_dict['glass_reduction_distance']<0
+        || af_dict['other_reduction_distance']<0 || af_dict['propagation_distance']<0 ||
+        af_dict['time_limit']<0 || af_dict['wall_reduction_distance']<0 || af_dict['wood_reduction_distance']<0){
+            $("#valueErrorModal").modal('show');
         }else{
             console.log("开始部署……");
             var formElement = document.getElementById("dep-params");

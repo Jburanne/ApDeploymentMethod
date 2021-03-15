@@ -834,13 +834,30 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 	*/
 } 
 
-void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Point>& cands,vector<Point>& points){
+void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Point>& cands,vector<Point>& points,int cover_num){
 	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/resPoints");
+	
 	/*
 	location_out.open("../data/resPoints",std::ios::out | std::ios::app);
 	if(!location_out.is_open())
 		return;
 	*/
+	//calculate cover rate
+	vector<int> cover_cnt(points.size(),0);
+	int total_cover = 0;
+	for(int num:ans){
+		for(int pos:cover_points[num]){
+			cover_cnt[pos]++;
+		}
+	}
+	for(int num:cover_cnt){
+		if(num >= cover_num) total_cover++;
+	}
+	cout<<"cover rate:"<<total_cover<<","<<points.size()<<endl;
+	double cover_rate = total_cover*100.0/points.size();
+	location_out<<cover_rate<<endl;
+	
+	//output result
 	vector<int> flag(points.size(),0);
 	for(int num:ans){
 		location_out<<cover_points[num].size()<<endl;
@@ -850,6 +867,17 @@ void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Poin
 			location_out<<points[pos].x<<" "<<points[pos].y<<endl;
 			flag[pos] = 1;
 		}
+	}
+}
+
+void writePositionResult(vector<int>& ans, int minX, int minY, vector<Point>& cands){
+	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/depPosition.csv");
+	int i = 0;
+	for(int num:ans){
+		int x = (cands[num].x - minX)/1000;
+		int y = (cands[num].y - minY)/1000;
+		location_out<<i<<" "<<x<<" "<<y<<endl;
+		i++;
 	}
 }
 
@@ -1281,12 +1309,13 @@ int main(int argc, char *argv[]){
 	    vector<int> ans = readResult("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/solution.res");
 	    for(int num:ans) cout<<num<<' ';
 	    cout<<endl;
-	    writeResult(ans,cover_points,cands,points);
+	    writeResult(ans,cover_points,cands,points,cover_num);
+	    writePositionResult(ans, border[0], border[2], cands);
 	    cout<<"success"<<endl;
 	} else if(data_type == 2){
 		//vector<int> resPoints = getManualRes("./codeRes_2.txt", cands);
 		vector<int> resPoints = getManualRes("./manualRes.txt", cands);
-		writeResult(resPoints,cover_points,cands,points);
+		writeResult(resPoints,cover_points,cands,points,cover_num);
 		for(int num:resPoints) cout<<num<<" :"<<cands[num].x-184934<<" "<<cands[num].y-2746<<endl;
 		verifyManualRes(resPoints,cover_sets,cands.size(),1);
 		verifyManualRes(resPoints,cover_sets,cands.size(),2);
