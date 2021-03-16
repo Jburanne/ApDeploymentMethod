@@ -116,9 +116,10 @@ def saveResult(request):
     other_reduce_dist = request.POST.get("dc[other_reduce_dist]")
     ap_num = request.POST.get("dc[ap_num]")
     cadpath = request.POST.get("dc[cadpath]")
-    pospath = request.POST.get("dc[pospath]")
+    # pospath = request.POST.get("dc[pospath]")
+
     print(cover_num,spread_dist,time_limit,dist_thre,resImgPath,cad_description,wall_reduce_dist,glass_reduce_dist,
-          wood_reduce_dist,other_reduce_dist,ap_num,cadpath,pospath)
+          wood_reduce_dist,other_reduce_dist,ap_num,cadpath)
     # 获得cad id
     # cad_select_sql = "select id from cad where filepath=%s"
     # cursor.execute(cad_select_sql,[cadpath,])
@@ -187,10 +188,18 @@ def saveResult(request):
 
     # 获取结果id
     maxresid = Result.objects.values('id').order_by('-id').first()
+    print(maxresid['id'])
+    next_id = maxresid['id']+1
+    # 将文件剪切至指定文件夹并以id重命名
+    frompath = "data\depPosition.csv"
+    topath = "media\csv\position_result\\"+str(next_id)+"_depPosition.csv"
+    os.system("move " + frompath + " " + topath)
+    print(frompath)
+    print(topath)
+    pospath = "/media/csv/position_result/"+str(next_id)+"_depPosition.csv"
     Result.objects.create(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
     res = Result.objects.filter(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
     print("max res id:",maxresid, "res id:",res[len(res)-1].id)
-    # print(maxresid['id'])
     res_i = res[len(res)-1]
     # # 将结果插入表中
     # insert_sql = "insert into res2cad(resid,cadid,userid,paramid) values(%s,%s,%s,%s)"
