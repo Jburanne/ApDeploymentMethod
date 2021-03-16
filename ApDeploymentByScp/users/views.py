@@ -67,7 +67,8 @@ def uploadCad(request):
             # 展示图片
             # img_data = open(img_path,'rb').read()
             # return HttpResponse(img_data, content_type="image/png")
-            img_relative_path = '/media/img/result/' + pic_name + '.png'
+            # img_relative_path = '/media/img/result/' + pic_name + '.png'
+            img_relative_path = '/media/temp_img/positionImg.png'
             cad_relative_path = 'img/cad/'+str(headimg)
             dc = {"resimgpath": img_relative_path, "cover_num": cover_num,
                                    "spread_dist": spread_dist / 1000, "time_limit": time_limit,
@@ -108,7 +109,7 @@ def saveResult(request):
     spread_dist = request.POST.get("dc[spread_dist]")
     time_limit = request.POST.get("dc[time_limit]")
     dist_thre = request.POST.get("dc[dist_thre]")
-    resImgPath = request.POST.get("dc[resimgpath]")
+    # resImgPath = request.POST.get("dc[resimgpath]")
     cad_description = request.POST.get("dc[filename]")
     wall_reduce_dist = request.POST.get("dc[wall_reduce_dist]")
     glass_reduce_dist = request.POST.get("dc[glass_reduce_dist]")
@@ -118,7 +119,7 @@ def saveResult(request):
     cadpath = request.POST.get("dc[cadpath]")
     # pospath = request.POST.get("dc[pospath]")
 
-    print(cover_num,spread_dist,time_limit,dist_thre,resImgPath,cad_description,wall_reduce_dist,glass_reduce_dist,
+    print(cover_num,spread_dist,time_limit,dist_thre,cad_description,wall_reduce_dist,glass_reduce_dist,
           wood_reduce_dist,other_reduce_dist,ap_num,cadpath)
     # 获得cad id
     # cad_select_sql = "select id from cad where filepath=%s"
@@ -190,13 +191,18 @@ def saveResult(request):
     maxresid = Result.objects.values('id').order_by('-id').first()
     print(maxresid['id'])
     next_id = maxresid['id']+1
-    # 将文件剪切至指定文件夹并以id重命名
+    # 将位置文件剪切至指定文件夹并以id重命名
     frompath = "data\depPosition.csv"
     topath = "media\csv\position_result\\"+str(next_id)+"_depPosition.csv"
     os.system("move " + frompath + " " + topath)
     print(frompath)
     print(topath)
     pospath = "/media/csv/position_result/"+str(next_id)+"_depPosition.csv"
+    # 将位置图片剪切至指定文件夹并以id重命名
+    frompath1 = "media\\temp_img\positionImg.png"
+    topath1 = "media\img\\result\\"+str(next_id)+"_positionImg.png"
+    os.system("move " + frompath1 + " " + topath1)
+    resImgPath = "/media/img/result/"+str(next_id)+"_positionImg.png"
     Result.objects.create(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
     res = Result.objects.filter(res_path=resImgPath,pos_path=pospath,ap_num=ap_num)
     print("max res id:",maxresid, "res id:",res[len(res)-1].id)

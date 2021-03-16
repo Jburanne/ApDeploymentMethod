@@ -470,7 +470,8 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     pic_name = str(round(spread_dist/1000)) + "m_"+ str(round(reduce_dist/1000)) + "m_cover"+str(cover_num) + "_red" + str(cnt)
     plt.title(pic_name)
     plt.axis('scaled')
-    save_path = os.getcwd().replace("\\", '/')+"/media/img/result/"+pic_name+".png"
+    # save_path = os.getcwd().replace("\\", '/')+"/media/img/result/"+pic_name+".png"
+    save_path = os.getcwd().replace("\\", '/') + "/media/temp_img/positionImg.png"
     plt.savefig(save_path)
     plt.close()
     return save_path,pic_name,cnt,cover_rate
