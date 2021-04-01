@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/assets/css/shared/style.css">
+    <link href="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+    <!-- js -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/toastr.js/2.1.4/toastr.min.js"></script>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="/static/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/static/assets/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="/static/assets/vendors/icheck/skins/all.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/static/assets/css/demo_1/style.css">
+    <link rel="stylesheet" href="/static/css/uploadCad.css">
+    <!-- End Layout styles -->
+    <title>MyDeployment</title>
+</head>
+<body>
+<form id="mydep-form" class="needs-validation" method="POST" enctype="multipart/form-data"
+      action="{% url 'users:myDeployment' %}">
+    {% csrf_token %}
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper">
+            <!-- 左侧导航栏 -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="text-wrapper">
+                                <p class="profile-name" style="color:white;font-size: 20px">{{ request.session.username
+                                    }}</p>
+                                <p class="designation">欢迎你</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Main Menu</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:uploadCad' %}">
+                            <i class="menu-icon typcn typcn-document-text"></i>
+                            <span class="menu-title">开始部署</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:myDeployment' %}">
+                            <i class="menu-icon typcn typcn-shopping-bag"></i>
+                            <span class="menu-title">我的部署</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:cadSet' %}">
+                            <i class="menu-icon typcn typcn-document-text"></i>
+                            <span class="menu-title">CAD设置</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:logout' %}">
+                            <i class="menu-icon typcn typcn-shopping-bag"></i>
+                            <span class="menu-title">退出登录</span>
+                        </a>
+                    </li>
+                </ul>
+                s
+            </nav>
+            <!--页面主体-->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title" style="font-size: 20px"><b>CAD实例设置</b></h2><br>
+                                    <form class="form-sample">
+                                        <ul>
+                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;选择模式&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                        </ul>
+                                        <ul>
+                                            <!--<label class="col-sm-3 col-form-label">参数选择</label>-->
+                                            <div class="form-group">
+                                                <select class="form-control col-sm-6" onclick="setparams()" id="modename">
+                                                    <option>实例1</option>
+                                                    <option>实例2</option>
+                                                    <option>实例3</option>
+                                                    <option>实例4</option>
+                                                    <option>实例5</option>
+                                                    <option>实例6</option>
+                                                    <option>实例7</option>
+                                                    <option>实例8</option>
+                                                    <option>实例9</option>
+                                                    <option>实例10</option>
+                                                    <option>实例11</option>
+                                                    <option>实例12</option>
+                                                    <option>实例13</option>
+                                                    <option>实例14</option>
+                                                    <option>实例15</option>
+                                                    <option>自定义</option>
+                                                </select>
+                                            </div>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title" style="font-size: 20px"><b>参数详情</b></h2><br>
+                                    <form class="form-sample">
+                                        <ul>
+                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;坐标范围&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                        </ul>
+                                        <ul>
+                                             <div class="row">
+                                                 <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">X坐标范围</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="minX"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                 <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">~</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="maxX"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                            <div class="row">
+                                                 <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">Y坐标范围</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="minY"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                 <div class="col-md-4">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">~</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="maxY"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                        </ul>
+                                        <ul>
+                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;图层关键字&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            <div class="row">
+                                                 <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">墙壁图层</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="wall_kw"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                             <div class="row">
+                                                 <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">玻璃图层</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="glass_kw"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                             <div class="row">
+                                                 <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">木门图层</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="wood_kw"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                             <div class="row">
+                                                 <div class="col-md-12">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-6 col-form-label">其他图层</label>
+                                                            <div class="col-sm-9">
+                                                                <input type="text" class="form-control" id="other_kw"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             </div>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<button onclick="setparams()">测试</button>
+
+<script type="text/javascript">
+    function setparams(){
+        var mode=$("#modename").val();
+        var minXArray = new Array(150000,10000,960000,-40000,-350000,1790000,300000,12000,380000,150000,-13000,2250000,2100000,-60000,220000);
+        var maxXArray = new Array(250000,80000,1020000,5000,300000,1860000,340000,40000,430000,250000,19000,2350000,2200000,-20000,240000);
+        var minYArray = new Array(-5000,10000,-1520000,-75000,-100000,125000,0,21000,165000,0,57500,-730000,-650000,-250000,-35000);
+        var maxYArray = new Array(60000,48000,-1440000,-50000,-50000,155000,25000,60000,195000,25000,74000,-700000,-560000,-220000,-15000);
+        var wallKW = new Array("WALL,wall", "墙", "原有墙体,划分新墙,幕墙", "0", "WALL-装修面,墙", "WALL,隔墙", "WALL", "墙面完成面,新建墙体", "0,WALL", "STAIR,WALL", "0,墙体", "水泥墙", "Wall", "WALL", "0-JZ,4-JZ,9-JZ,ID-LOUT-1,ID-WALL-F");
+        var glassKW = new Array("窗,WINDOWS,玻璃", "WINDOW", "A-PLAN-WIND-窗", "", "窗", "门窗", "WINDOW,WINdows", "", "GLASS,WINDOW", "WINDOW", "", "玻璃,WINdows", "Window,WINDOW", "WIN", "");
+        var woodKW = new Array("门扇", "", "管井门,A-PLAN-DOOR-门", "图层4", "DOOR", "", "", "门", "DOOR", "Door", "平面门", "门-灯具", "Door,固定家具", "FURNI", "");
+        var otherKW = new Array("阴影,垂直面", "", "基层", "", "", "黄,COLUMN", "", "结构", "", "", "", "", "", "PARTI", "");
+        if(mode=="自定义"){
+            $("#minX").val("");
+            $("#maxX").val("");
+            $("#minY").val("");
+            $("#maxY").val("");
+            $("#wall_kw").val("");
+            $("#glass_kw").val("");
+            $("#wood_kw").val("");
+            $("#other_kw").val("");
+            // $("#minX").removeAttribute("disabled");
+            // $("#maxX").attr('abled',"");
+            // $("#minY").attr('abled',"");
+            // $("#maxY").attr('abled',"");
+            // $("#wall_kw").attr('abled',"");
+            // $("#glass_kw").attr('abled',"");
+            // $("#wood_kw").attr('abled',"");
+            // $("#other_kw").attr('abled',"");
+        }else {
+            var mode_index = Number(mode.substring(2))-1;
+            $("#minX").val(minXArray[mode_index]);
+            $("#maxX").val(maxXArray[mode_index]);
+            $("#minY").val(minYArray[mode_index]);
+            $("#maxY").val(maxYArray[mode_index]);
+            $("#wall_kw").val(wallKW[mode_index]);
+            $("#glass_kw").val(glassKW[mode_index]);
+            $("#wood_kw").val(woodKW[mode_index]);
+            $("#other_kw").val(otherKW[mode_index]);
+            // $("#minX").attr('disabled',"");
+            // $("#maxX").attr('disabled',"");
+            // $("#minY").attr('disabled',"");
+            // $("#maxY").attr('disabled',"");
+            // $("#wall_kw").attr('disabled',"");
+            // $("#glass_kw").attr('disabled',"");
+            // $("#wood_kw").attr('disabled',"");
+            // $("#other_kw").attr('disabled',"");
+
+        }
+    }
+
+</script>
+
+<script src="/static/assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="/static/assets/vendors/js/vendor.bundle.addons.js"></script>
+
+</body>
+</html>

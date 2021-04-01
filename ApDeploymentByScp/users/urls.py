@@ -14,5 +14,6 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('checkRegister/',views.checkRegister,name='checkRegister'),
     path('logout/',views.logout,name='logout'),
-    path('deleteRecord/',views.deleteRecord,name='deleteRecord')
+    path('deleteRecord/',views.deleteRecord,name='deleteRecord'),
+    path('cadSet/',views.cadSet,name='cadSet')
 ]

@@ -37,7 +37,7 @@ void Satlike::settings()
 	large_clause_count_threshold = 0;
 	soft_large_clause_count_threshold = 0;
 
-	h_inc = 1;
+	h_inc = 2;
 	softclause_weight_threshold = 1000;
 
 	rdprob = 0.01;

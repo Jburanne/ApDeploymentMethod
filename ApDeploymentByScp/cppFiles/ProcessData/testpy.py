@@ -1,3 +1,2 @@
-s = "98.77765"
-b = round(float(s),2)
-print(b)
+s="墙,强"
+print(s.split(",") ) # or .split(" ")

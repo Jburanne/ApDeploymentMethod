@@ -282,3 +282,7 @@ def checkRegister(request):
 def logout(request):
     request.session.flush()
     return render(request, 'users/login.html')
+
+
+def cadSet(request):
+    return render(request, 'users/cadSet.html')
