@@ -25,6 +25,8 @@ def uploadCad(request):
     # 判断是否为post方法提交
     if not request.session.has_key('is_login'):
         return render(request, 'users/login.html')
+    elif not request.session.has_key('is_set_cad') or not request.session['is_set_cad']:
+        return render(request, 'users/cadSet.html')
     elif request.method == "POST":
         print(request.POST)
         print(request.FILES)
@@ -51,8 +53,17 @@ def uploadCad(request):
                 # 写入数据表Test中
                 user = Cad(cad_description=filename, cad_path=headimg)
                 user.save()
+            #读取cad参数
+            minX = int(request.session['minX'])
+            minY = int(request.session['minY'])
+            maxX = int(request.session['maxX'])
+            maxY = int(request.session['maxY'])
+            wall_kw = request.session['wall_kw'].split(",")
+            glass_kw = request.session['glass_kw'].split(",")
+            wood_kw = request.session['wood_kw'].split(",")
+            other_kw = request.session['other_kw'].split(",")
             # 读取cad文件
-            readCad.saveLinesByTypes(cad_file_path)
+            readCad.saveLinesByTypes(cad_file_path,minX,minY,maxX,maxY,wall_kw,glass_kw,wood_kw,other_kw)
             # c++处理线条&获取算法的输入文件
             readCad.getInput(spread_dist, wall_reduce_dist, glass_reduce_dist, wood_reduce_dist, other_reduce_dist,
                              cover_num, dist_thre)
@@ -260,6 +271,7 @@ def checkLogin(request):
         request.session['is_login'] = True
         request.session['userid'] = res[0].id
         request.session['username'] = res[0].username
+        request.session['is_set_cad'] = False
         request.session.set_expiry(3600)
         return HttpResponse(json.dumps({'status': 'success'}))
 
@@ -286,3 +298,19 @@ def logout(request):
 
 def cadSet(request):
     return render(request, 'users/cadSet.html')
+
+
+def saveCadParams(request):
+    print(request.POST)
+    request.session['is_set_cad'] = True
+    request.session['minX'] = request.POST.get("minx")
+    request.session['maxX'] = request.POST.get("maxx")
+    request.session['minY'] = request.POST.get("miny")
+    request.session['maxY'] = request.POST.get("maxy")
+    request.session['wall_kw'] = request.POST.get("wall_kw")
+    request.session['glass_kw'] = request.POST.get("glass_kw")
+    request.session['wood_kw'] = request.POST.get("wood_kw")
+    request.session['other_kw'] = request.POST.get("other_kw")
+    # print("minY is:",request.session['minY'])
+    # readCad.readTest(request.session['wood_kw'])
+    return HttpResponse(json.dumps({'status': 'success'}))

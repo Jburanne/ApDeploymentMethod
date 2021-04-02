@@ -47,18 +47,24 @@ def saveLines(filepath):
     print('success')
 
 # get lines information for whole area with regard to different types
-def saveLinesByTypes(filepath):
+def saveLinesByTypes(filepath,minX,minY,maxX,maxY,wall_kw,glass_kw,wood_kw,other_kw):
     #read cad files
     dxf = dxfgrabber.readfile(filepath)
 
     lines = []
-    # instance01
-    wall_kw = ['WALL','wall']
-    glass_kw = ['窗','WINDOWS','玻璃']
-    wood_kw = ['门扇']
-    other_kw = ['阴影','垂直面']
-    border = [-5000, 60000, 150000, 250000]
+    wall_kw = wall_kw
+    glass_kw = glass_kw
+    wood_kw = wood_kw
+    other_kw = other_kw
+    border = [minY, maxY, minX, maxX]
     excludekeywordlist = []
+    # instance01
+    # wall_kw = ['WALL','wall']
+    # glass_kw = ['窗','WINDOWS','玻璃']
+    # wood_kw = ['门扇']
+    # other_kw = ['阴影','垂直面']
+    # border = [-5000, 60000, 150000, 250000]
+    # excludekeywordlist = []
     #instance02
     # wall_kw = ['墙']
     # glass_kw = ['WINDOW']
@@ -498,4 +504,8 @@ def getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_di
                + " " + str(cover_num) + " " + str(dist_thre) + " " + str(wall_reduce_dist) \
               + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)
     os.system(to_exec)
+
+
+def readTest(request):
+    print(request.split(","))
 

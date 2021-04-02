@@ -96,7 +96,8 @@
                                         <ul>
                                             <!--<label class="col-sm-3 col-form-label">参数选择</label>-->
                                             <div class="form-group">
-                                                <select class="form-control col-sm-6" onclick="setparams()" id="modename">
+                                                <select class="form-control col-sm-6" onclick="setparams()"
+                                                        id="modename">
                                                     <option>实例1</option>
                                                     <option>实例2</option>
                                                     <option>实例3</option>
@@ -127,86 +128,88 @@
                                             <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;坐标范围&nbsp;&nbsp;&nbsp;&nbsp;</li>
                                         </ul>
                                         <ul>
-                                             <div class="row">
-                                                 <div class="col-md-4">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">X坐标范围</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="minX"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                 <div class="col-md-4">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">~</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="maxX"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                             </div>
                                             <div class="row">
-                                                 <div class="col-md-4">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">Y坐标范围</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="minY"/>
-                                                            </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">X坐标范围</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="minX"/>
                                                         </div>
                                                     </div>
-                                                 <div class="col-md-4">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">~</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="maxY"/>
-                                                            </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-3 col-form-label">~</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="maxX"/>
                                                         </div>
                                                     </div>
-                                             </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">Y坐标范围</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="minY"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-3 col-form-label">~</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="maxY"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </ul>
                                         <ul>
                                             <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;图层关键字&nbsp;&nbsp;&nbsp;&nbsp;</li>
                                             <div class="row">
-                                                 <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">墙壁图层</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" id="wall_kw"/>
-                                                            </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">墙壁图层</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="wall_kw"/>
                                                         </div>
                                                     </div>
-                                             </div>
-                                             <div class="row">
-                                                 <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">玻璃图层</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" id="glass_kw"/>
-                                                            </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">玻璃图层</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="glass_kw"/>
                                                         </div>
                                                     </div>
-                                             </div>
-                                             <div class="row">
-                                                 <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">木门图层</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" id="wood_kw"/>
-                                                            </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">木门图层</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="wood_kw"/>
                                                         </div>
                                                     </div>
-                                             </div>
-                                             <div class="row">
-                                                 <div class="col-md-12">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-6 col-form-label">其他图层</label>
-                                                            <div class="col-sm-9">
-                                                                <input type="text" class="form-control" id="other_kw"/>
-                                                            </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-6 col-form-label">其他图层</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="other_kw"/>
                                                         </div>
                                                     </div>
-                                             </div>
+                                                </div>
+                                            </div>
                                         </ul>
+                                        <button type="button" class="btn btn-inverse-info btn-block" onclick="saveCadParams()">设置
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -217,20 +220,19 @@
         </div>
     </div>
 </form>
-<button onclick="setparams()">测试</button>
 
 <script type="text/javascript">
-    function setparams(){
-        var mode=$("#modename").val();
-        var minXArray = new Array(150000,10000,960000,-40000,-350000,1790000,300000,12000,380000,150000,-13000,2250000,2100000,-60000,220000);
-        var maxXArray = new Array(250000,80000,1020000,5000,300000,1860000,340000,40000,430000,250000,19000,2350000,2200000,-20000,240000);
-        var minYArray = new Array(-5000,10000,-1520000,-75000,-100000,125000,0,21000,165000,0,57500,-730000,-650000,-250000,-35000);
-        var maxYArray = new Array(60000,48000,-1440000,-50000,-50000,155000,25000,60000,195000,25000,74000,-700000,-560000,-220000,-15000);
+    function setparams() {
+        var mode = $("#modename").val();
+        var minXArray = new Array(150000, 10000, 960000, -40000, -350000, 1790000, 300000, 12000, 380000, 150000, -13000, 2250000, 2100000, -60000, 220000);
+        var maxXArray = new Array(250000, 80000, 1020000, 5000, 300000, 1860000, 340000, 40000, 430000, 250000, 19000, 2350000, 2200000, -20000, 240000);
+        var minYArray = new Array(-5000, 10000, -1520000, -75000, -100000, 125000, 0, 21000, 165000, 0, 57500, -730000, -650000, -250000, -35000);
+        var maxYArray = new Array(60000, 48000, -1440000, -50000, -50000, 155000, 25000, 60000, 195000, 25000, 74000, -700000, -560000, -220000, -15000);
         var wallKW = new Array("WALL,wall", "墙", "原有墙体,划分新墙,幕墙", "0", "WALL-装修面,墙", "WALL,隔墙", "WALL", "墙面完成面,新建墙体", "0,WALL", "STAIR,WALL", "0,墙体", "水泥墙", "Wall", "WALL", "0-JZ,4-JZ,9-JZ,ID-LOUT-1,ID-WALL-F");
         var glassKW = new Array("窗,WINDOWS,玻璃", "WINDOW", "A-PLAN-WIND-窗", "", "窗", "门窗", "WINDOW,WINdows", "", "GLASS,WINDOW", "WINDOW", "", "玻璃,WINdows", "Window,WINDOW", "WIN", "");
         var woodKW = new Array("门扇", "", "管井门,A-PLAN-DOOR-门", "图层4", "DOOR", "", "", "门", "DOOR", "Door", "平面门", "门-灯具", "Door,固定家具", "FURNI", "");
         var otherKW = new Array("阴影,垂直面", "", "基层", "", "", "黄,COLUMN", "", "结构", "", "", "", "", "", "PARTI", "");
-        if(mode=="自定义"){
+        if (mode == "自定义") {
             $("#minX").val("");
             $("#maxX").val("");
             $("#minY").val("");
@@ -247,8 +249,8 @@
             // $("#glass_kw").attr('abled',"");
             // $("#wood_kw").attr('abled',"");
             // $("#other_kw").attr('abled',"");
-        }else {
-            var mode_index = Number(mode.substring(2))-1;
+        } else {
+            var mode_index = Number(mode.substring(2)) - 1;
             $("#minX").val(minXArray[mode_index]);
             $("#maxX").val(maxXArray[mode_index]);
             $("#minY").val(minYArray[mode_index]);
@@ -267,6 +269,37 @@
             // $("#other_kw").attr('disabled',"");
 
         }
+    }
+
+
+    function saveCadParams(){
+        var csrfToken = $("[name='csrfmiddlewaretoken']").val();
+        var minx = $("#minX").val();
+        var maxx = $("#maxX").val();
+        var miny = $("#minY").val();
+        var maxy = $("#maxY").val();
+        var wall = $("#wall_kw").val();
+        var glass = $("#glass_kw").val();
+        var wood = $("#wood_kw").val();
+        var other = $("#other_kw").val();
+        console.log("begin……");
+         $.ajax({
+                type: "POST",//预期服务器返回的数据类型
+                dataType:"json",
+                url: "/users/saveCadParams/" ,//url
+                data:{"minx":minx,"maxx":maxx,"miny":miny,"maxy":maxy,
+                    "wall_kw":wall,"glass_kw":glass,"wood_kw":wood,"other_kw":other,
+                    'csrfmiddlewaretoken':csrfToken},
+                success: function (arg) {
+                    // console.log(arg);//打印服务端返回的数据(调试用)
+                    if(arg.status == "success"){
+                        console.log("is suc");
+                        {# 判断确实正确入库之后提示#}
+                        toastr.success("保存成功啦");
+                     }
+                 }
+            })
+
     }
 
 </script>
