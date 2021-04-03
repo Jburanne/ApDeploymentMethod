@@ -1267,13 +1267,13 @@ int main(int argc, char *argv[]){
 	vector<Line> lines = readLinesByType1("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv");
 	checkLineCntByType(lines,type_cnt);
 	checkLineType(lines);
-	lines = mergeLinesByType(lines); 
-	checkLineType(lines);
-	checkLineCntByType(lines,type_cnt);
-	cout<<lines.size()<<endl;
-	
-	
-	lines = deleteShortLine(lines);
+//	lines = mergeLinesByType(lines); 
+//	checkLineType(lines);
+//	checkLineCntByType(lines,type_cnt);
+//	cout<<lines.size()<<endl;
+//	
+//	
+//	lines = deleteShortLine(lines);
 	if(data_type == 0){
 	    writeMergedLines(lines);
 	}

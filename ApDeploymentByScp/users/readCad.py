@@ -47,17 +47,33 @@ def saveLines(filepath):
     print('success')
 
 # get lines information for whole area with regard to different types
-def saveLinesByTypes(filepath,minX,minY,maxX,maxY,wall_kw,glass_kw,wood_kw,other_kw):
+def saveLinesByTypes(filepath,minX,minY,maxX,maxY,wall_kw1,glass_kw1,wood_kw1,other_kw1):
     #read cad files
     dxf = dxfgrabber.readfile(filepath)
 
     lines = []
-    wall_kw = wall_kw
-    glass_kw = glass_kw
-    wood_kw = wood_kw
-    other_kw = other_kw
+    wall_kw, glass_kw, wood_kw, other_kw = [],[],[],[]
+    if wall_kw1[0] != '':
+        wall_kw = wall_kw1
+    if glass_kw1[0] != '':
+        glass_kw = glass_kw1
+    if wood_kw1[0] != '':
+        wood_kw = wood_kw1
+    if other_kw1[0] != '':
+        other_kw = other_kw1
     border = [minY, maxY, minX, maxX]
     excludekeywordlist = []
+    print(wall_kw)
+    print(glass_kw)
+    print(wood_kw)
+    print(other_kw)
+    print(border)
+    # wall_kw = wall_kw
+    # glass_kw = glass_kw
+    # wood_kw = wood_kw
+    # other_kw = other_kw
+    # border = [minY, maxY, minX, maxX]
+    # excludekeywordlist = []
     # instance01
     # wall_kw = ['WALL','wall']
     # glass_kw = ['窗','WINDOWS','玻璃']
