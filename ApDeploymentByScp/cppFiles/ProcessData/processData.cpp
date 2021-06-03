@@ -24,6 +24,7 @@ struct Line{
 };
 
 //读取线段信息 
+//read information of lines 
 vector<Line> readLines(string filepath){
 	vector<Line> lines;
 	ifstream fin(filepath);
@@ -640,7 +641,7 @@ vector<Point> createPoints(int minX, int minY, int maxX, int maxY, int dist, vec
 
 	for(int i = minX + 1000; i < maxX; i += dist){
 		for(int j = minY + 1000; j < maxY; j += dist){
-			//测试区域处理
+			/*测试区域处理*/
 			/* 
 			if(i >= 195444 && j >= 15816 && j <= 24951){
 				//cout<<"pass"<<endl;
@@ -655,13 +656,18 @@ vector<Point> createPoints(int minX, int minY, int maxX, int maxY, int dist, vec
 			if(type == 1 && i >= 194724 && j >= 40746){
 				continue;
 			}*/ 
+			/*测试区域处理*/
 			
+			/* temp for nanjing */
+//			if(type == 1 && i < 17000 && j <= minY+3000) continue;
+			/* temp for nanjing */
 			
 			Point pos(i,j);
 			
 			if(!hasBarrier(pos,p1,lines) || !hasBarrier(pos,p2,lines) || !hasBarrier(pos,p3,lines) || !hasBarrier(pos,p4,lines)){
 				continue;
 			}
+
 			/*---temp for instance13 ---*/
 //			if(!hasBarrier(pos,p5,lines)){
 //				continue;
@@ -769,14 +775,16 @@ vector<vector<int>> getConflictCand(vector<Point>& cands, double thre){
 }
 
 //输出算法所需数据
-void writeFile(vector<vector<int>>& cover_sets, int m, int n){
+void writeFile(vector<vector<int>>& cover_sets, int m, int n, string absolute_path){
 	/*
 	ofstream location_out;
 	location_out.open("../data/testfile",std::ios::out | std::ios::app);
 	if(!location_out.is_open())
 		return;
 	*/
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/testfile");
+	string save_path = absolute_path + "/data/testfile";
+	ofstream location_out(save_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/testfile");
 	location_out << m << ' ' << n << endl;
 	for(int i = 0;i < cover_sets.size(); ++i){
 		vector<int> pos = cover_sets[i];
@@ -789,8 +797,10 @@ void writeFile(vector<vector<int>>& cover_sets, int m, int n){
 } 
 
 //输出算法所需数据2 
-void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& cands,int cover_times, int thre){
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/newtestfile");
+void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& cands,int cover_times, int thre, string absolute_path){
+	string save_path = absolute_path + "/data/newtestfile";
+	ofstream location_out(save_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/newtestfile");
 	
 	//约束：距离太近的两个部署点不能同时被选中
 	vector<vector<int>> conflictPos = getConflictCand(cands,thre); //5000：5米
@@ -817,12 +827,12 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 		int weight = ceil(90000.0/dist);
 		location_out<<weight<<" 1 "<<num1<<" "<<num2<<" 0"<<endl;
 		
-		/*
-		if(dist <= 5000){
-			location_out<<"8 1 "<<num1<<" "<<num2<<" 0"<<endl;
-		} else{
-			location_out<<"5 1 "<<num1<<" "<<num2<<" 0"<<endl;
-		}*/
+		
+//		if(dist <= 3000){
+//			location_out<<"100 1 "<<num1<<" "<<num2<<" 0"<<endl;
+//		} else{
+//			location_out<<"5 1 "<<num1<<" "<<num2<<" 0"<<endl;
+//		}
 	}
 	/*
 	for(auto elem:ans){
@@ -834,8 +844,10 @@ void writeFile1(vector<vector<int>>& cover_sets, int m, int n, vector<Point>& ca
 	*/
 } 
 
-void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Point>& cands,vector<Point>& points,int cover_num){
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/resPoints");
+void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Point>& cands,vector<Point>& points,int cover_num,string absolute_path){
+	string save_path = absolute_path + "/data/resPoints";
+	ofstream location_out(save_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/resPoints");
 	
 	/*
 	location_out.open("../data/resPoints",std::ios::out | std::ios::app);
@@ -870,8 +882,10 @@ void writeResult(vector<int>& ans, vector<vector<int>>& cover_points,vector<Poin
 	}
 }
 
-void writePositionResult(vector<int>& ans, int minX, int minY, vector<Point>& cands){
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/depPosition.csv");
+void writePositionResult(vector<int>& ans, int minX, int minY, vector<Point>& cands, string absolute_path){
+	string save_path = absolute_path+"/data/depPosition.csv";
+	ofstream location_out(save_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/depPosition.csv");
 	int i = 0;
 	for(int num:ans){
 		int x = (cands[num].x - minX)/1000;
@@ -881,8 +895,10 @@ void writePositionResult(vector<int>& ans, int minX, int minY, vector<Point>& ca
 	}
 }
 
-void writeMergedLines(vector<Line>& lines){
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/mergedLines.csv");
+void writeMergedLines(vector<Line>& lines, string absolute_path){
+	string save_path = absolute_path + "/data/mergedLines.csv";
+	ofstream location_out(save_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/mergedLines.csv");
 	for(Line l:lines){
 		location_out<<l.endpoint1.x<<" "<<l.endpoint2.x<<" "<<l.endpoint1.y<<" "<<l.endpoint2.y<<endl;
 	}
@@ -971,7 +987,7 @@ bool isLegalPoint(vector<Point>& points, int px, int py){
 
 
 //正四边形部署方法（规则区域） 
-void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY, string absolute_path){
 	vector<Point> s_ans;
 	Point p1(maxX,maxY);
 	Point p2(minX,minY);
@@ -999,7 +1015,9 @@ void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<
 	vector<vector<int>> s_cover_sets(points.size());
 	getRelationsByType(points, s_ans, lines, r*1000, s_cover_points, s_cover_sets, reduceDist);
 	//write result
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
+	string squareRes_path = absolute_path + "/data/squareResPoints";
+	ofstream location_out(squareRes_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
 	vector<int> flag(points.size(),0);
 	for(int num = 0;num < s_ans.size();++num){
 		location_out<<s_cover_points[num].size()<<endl;
@@ -1019,7 +1037,7 @@ void squareDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<
 }
 
 //正四边形部署方法（不规则区域） 
-void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY, string absolute_path){
 	vector<Point> s_ans;
 	Point p1(maxX,maxY);
 	Point p2(minX,minY);
@@ -1054,7 +1072,9 @@ void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, v
 	vector<vector<int>> s_cover_sets(points.size());
 	getRelationsByType(points, s_ans, lines, spread_dist, s_cover_points, s_cover_sets, reduceDist);
 	//write result
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
+	string squareRes_path = absolute_path + "/data/squareResPoints";
+	ofstream location_out(squareRes_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/squareResPoints");
 	vector<int> cnt(points.size(),0);
 	for(int num = 0;num < s_ans.size();++num){
 		location_out<<s_cover_points[num].size()<<endl;
@@ -1080,7 +1100,7 @@ void squareDeployment_unregular(int r, int spread_dist, vector<Point>& points, v
 }
 
 //正六边形部署 （规则区域） 
-void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY,string absolute_path){
 	vector<Point> h_ans;
 	Point p1(maxX,maxY);
 	Point p2(minX,minY);
@@ -1125,7 +1145,9 @@ void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector
 	vector<vector<int>> h_cover_sets(points.size());
 	getRelationsByType(points, h_ans, lines, r*1000, h_cover_points, h_cover_sets, reduceDist);
 	//write result
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
+	string hexagonRes_path = absolute_path + "/data/hexagonResPoints";
+	ofstream location_out(hexagonRes_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
 	vector<int> flag(points.size(),0);
 	for(int num = 0;num < h_ans.size();++num){
 		location_out<<h_cover_points[num].size()<<endl;
@@ -1145,7 +1167,7 @@ void hexagonDeployment(int r, vector<Point>& points, vector<Line>& lines, vector
 }
 
 //正六边形部署 （不规则区域） 
-void hexagonDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY){
+void hexagonDeployment_unregular(int r, int spread_dist, vector<Point>& points, vector<Line>& lines, vector<int>& reduceDist, int minX, int minY, int maxX, int maxY,string absolute_path){
 	vector<Point> h_ans;
 	Point p1(maxX,maxY);
 	Point p2(minX,minY);
@@ -1206,7 +1228,9 @@ void hexagonDeployment_unregular(int r, int spread_dist, vector<Point>& points, 
 	vector<vector<int>> h_cover_sets(points.size());
 	getRelationsByType(points, h_ans, lines, spread_dist, h_cover_points, h_cover_sets, reduceDist);
 	//write result
-	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
+	string hexagonRes_path = absolute_path + "/data/hexagonResPoints";
+	ofstream location_out(hexagonRes_path);
+//	ofstream location_out("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/hexagonResPoints");
 	vector<int> cnt(points.size(),0);
 	for(int num = 0;num < h_ans.size();++num){
 		location_out<<h_cover_points[num].size()<<endl;
@@ -1233,12 +1257,14 @@ void hexagonDeployment_unregular(int r, int spread_dist, vector<Point>& points, 
 
  
 int main(int argc, char *argv[]){
-	// 要获取的数据类型：
-	//0-线条处理数据以及算法输入所需数据
-	//1-解中对应的节点数据
-	//2-确认人工构造的解
-	//3-产出正四边形部署结果 
+	//get parameters
 	int data_type = atoi(argv[1]);
+	/* data_type：要获取的数据类型 
+	0-线条处理数据以及算法输入所需数据
+	1-解中对应的节点数据
+	2-确认人工构造的解
+	3-产出正四边形部署结果
+	*/
 	int spread_dist = atoi(argv[2]);
 	int cover_num = atoi(argv[3]);
 	int dist_thre = atoi(argv[4]);
@@ -1246,8 +1272,9 @@ int main(int argc, char *argv[]){
 	int glass_reduce_dist = atoi(argv[6]);
 	int wood_reduce_dist = atoi(argv[7]);
 	int other_reduce_dist = atoi(argv[8]);
-
-	int reduce_dist = wall_reduce_dist;
+	int merge = atoi(argv[9]);
+	string absolute_path = argv[10];
+	
 	//记录不同类型的材料的衰减距离
 	vector<int> reduceDist;
 	reduceDist.push_back(wall_reduce_dist);
@@ -1255,67 +1282,70 @@ int main(int argc, char *argv[]){
 	reduceDist.push_back(wood_reduce_dist);
 	reduceDist.push_back(other_reduce_dist);
 	int type_cnt = reduceDist.size();
-	//读取线段
+	
+	//read data
 	/*
-	//不区分障碍物类型 
+	//do not consider barriers
+	
 	vector<Line> lines = readLines("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesdata.csv");
 	cout<<lines.size()<<endl;
 	lines = mergeLines(lines);
 	cout<<lines.size()<<endl;*/
 	
-	//区分障碍物类型 
-	vector<Line> lines = readLinesByType1("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/linesDataByMaterials.csv");
+	//consider barriers 
+	string linesdata_path = absolute_path+"/data/linesDataByMaterials.csv";
+	vector<Line> lines = readLinesByType1(linesdata_path);
 	checkLineCntByType(lines,type_cnt);
 	checkLineType(lines);
-//	lines = mergeLinesByType(lines); 
-//	checkLineType(lines);
-//	checkLineCntByType(lines,type_cnt);
-//	cout<<lines.size()<<endl;
-//	
-//	
-//	lines = deleteShortLine(lines);
+	/* merge or not*/ 
+	if(merge == 1){
+		lines = mergeLinesByType(lines); 
+		lines = deleteShortLine(lines);
+	}	
+	/* merge or not*/ 
+	
 	if(data_type == 0){
-	    writeMergedLines(lines);
+	    writeMergedLines(lines,absolute_path);
 	}
 	vector<int> border = getBorder(lines);
 	for(int num:border) cout<<num<<' ';
 	cout<<endl;
-	//打点（地板，待覆盖坐标点） 
+	//打点（地板，待覆盖坐标点）  positions to be covered
 	vector<Point> points = createPoints(border[0],border[2],border[1],border[3],1000,lines,0);
-
-	//打点（天花板，设备候选部署点）
+	//打点（天花板，设备候选部署点） positions to put devices
 	vector<Point> cands = createPoints(border[0],border[2],border[1],border[3],1000,lines,1);
 	//若为正四边形部署，产出部署方案
+	//square and hexagon deployment
 	if(data_type == 3){
 		int r = cover_num;//temp
-		squareDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		squareDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3],absolute_path);
 		return 0;
 	} else if(data_type == 4){
 		int r = cover_num;//temp
-		hexagonDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3]);
+		hexagonDeployment_unregular(r, spread_dist, points, lines, reduceDist, border[0],border[2],border[1],border[3],absolute_path);
 		return 0;
 	}
 	//得到覆盖关系
 	vector<vector<int>> cover_points(cands.size());
 	vector<vector<int>> cover_sets(points.size());
-	//getRelations2(points, cands, lines, spread_dist, reduce_dist, cover_points, cover_sets);
 	getRelationsByType(points, cands, lines, spread_dist, cover_points, cover_sets, reduceDist);
 	cout<<"total cands:"<<cover_points.size()<<" total points:"<<cover_sets.size()<<endl;
 	if(data_type == 0){
-	    //输出scp算法所需数据
-	    writeFile1(cover_sets,points.size(),cands.size(),cands,cover_num,dist_thre); //new_code
+	    //输出scp算法所需数据 output data for local search algorithm
+	    writeFile1(cover_sets,points.size(),cands.size(),cands,cover_num,dist_thre,absolute_path); //new_code
 	} else if (data_type == 1){
 	    //输出解的信息
-	    vector<int> ans = readResult("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/solution.res");
+	    string solution_path = absolute_path+"/data/solution.res";
+		vector<int> ans = readResult(solution_path);
 	    for(int num:ans) cout<<num<<' ';
 	    cout<<endl;
-	    writeResult(ans,cover_points,cands,points,cover_num);
-	    writePositionResult(ans, border[0], border[2], cands);
+	    writeResult(ans,cover_points,cands,points,cover_num,absolute_path);
+	    writePositionResult(ans, border[0], border[2], cands,absolute_path);
 	    cout<<"success"<<endl;
 	} else if(data_type == 2){
 		//vector<int> resPoints = getManualRes("./codeRes_2.txt", cands);
 		vector<int> resPoints = getManualRes("./manualRes.txt", cands);
-		writeResult(resPoints,cover_points,cands,points,cover_num);
+		writeResult(resPoints,cover_points,cands,points,cover_num,absolute_path);
 		for(int num:resPoints) cout<<num<<" :"<<cands[num].x-184934<<" "<<cands[num].y-2746<<endl;
 		verifyManualRes(resPoints,cover_sets,cands.size(),1);
 		verifyManualRes(resPoints,cover_sets,cands.size(),2);

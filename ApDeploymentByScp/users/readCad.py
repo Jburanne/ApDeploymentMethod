@@ -494,31 +494,34 @@ def readScpRes(spread_dist, reduce_dist,cover_num):
     plt.axis('scaled')
     # save_path = os.getcwd().replace("\\", '/')+"/media/img/result/"+pic_name+".png"
     save_path = os.getcwd().replace("\\", '/') + "/media/temp_img/positionImg.png"
-    plt.savefig(save_path)
+    plt.savefig(save_path, dpi=500)
     plt.close()
     return save_path,pic_name,cnt,cover_rate
 
 def mergeLines(cpp_path):
     os.system(cpp_path)
 
-def getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre):
+def getInput(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre, is_merge):
     #to_exec = os.getcwd().replace("\\",'/')+"/cppFiles/processData/processData.exe 0 "+str(spread_dist)+" "\
               #+str(reduce_dist) + " " + str(cover_num) + " " + str(dist_thre)
+    absolute_path = os.getcwd().replace("\\", '/')
     to_exec = os.getcwd().replace("\\", '/') + "/cppFiles/processData/processData.exe 0 " + str(spread_dist) + " " \
                + " " + str(cover_num) + " " + str(dist_thre) + " " + str(wall_reduce_dist) \
-              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)
+              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist) + " " + str(is_merge) + " " + absolute_path
     os.system(to_exec)
 
 def runScp(time_limit):
     file_path = os.getcwd().replace("\\",'/')+'/data/newtestfile'
     code_path = os.getcwd().replace("\\",'/')+'/cppFiles/SCP1/pms.exe'
-    to_exec = code_path + " " + file_path + " " + str(time_limit)
+    absolute_path = os.getcwd().replace("\\", '/')
+    to_exec = code_path + " " + file_path + " " + str(time_limit) + " " + absolute_path
     os.system(to_exec)
 
-def getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre):
+def getResPoints(spread_dist, wall_reduce_dist,glass_reduce_dist, wood_reduce_dist, other_reduce_dist, cover_num, dist_thre,is_merge):
+    absolute_path = os.getcwd().replace("\\", '/')
     to_exec = os.getcwd().replace("\\", '/') + "/cppFiles/processData/processData.exe 1 "+ str(spread_dist) + " " \
                + " " + str(cover_num) + " " + str(dist_thre) + " " + str(wall_reduce_dist) \
-              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)
+              + " " + str(glass_reduce_dist) + " " + str(wood_reduce_dist) + " " + str(other_reduce_dist)+ " " + str(is_merge) + " " + absolute_path
     os.system(to_exec)
 
 

@@ -1093,7 +1093,7 @@ void Satlike::local_search(vector<int> &init_solution)
 	cout << "goodvar nb is " << goodvar_stack_fill_pointer << endl;
 }
 
-void Satlike::print_best_solution()
+void Satlike::print_best_solution(char* absolute_path)
 {
 	if(best_soln_feasible==1)
 	{
@@ -1128,9 +1128,12 @@ void Satlike::print_best_solution()
 	for(int j = 1;j <= 10;++j){
 		cout<<j<<":   "<<1-notcover_num[j]*1.0/num_hclauses<<endl;
 	}
-
-    
-	ofstream ofile("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/solution.res");
+	
+	cout<<"pms absolute_path:"<<absolute_path<<endl;
+    strcat(absolute_path, "/data/solution.res");
+    cout<<"pms save_path:"<<absolute_path<<endl; 
+    ofstream ofile(absolute_path);
+//	ofstream ofile("E:/Study/FinalProject/ApDeployment/ApDeploymentByScp/data/solution.res");
 	//ofile << num_vars << " ";
 	int cnt = 0;
 	for (int i = 1; i <= num_vars; i++)

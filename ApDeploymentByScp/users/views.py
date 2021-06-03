@@ -62,16 +62,17 @@ def uploadCad(request):
             glass_kw = request.session['glass_kw'].split(",")
             wood_kw = request.session['wood_kw'].split(",")
             other_kw = request.session['other_kw'].split(",")
+            is_merge = int(request.session['is_merge'])
             # 读取cad文件
             readCad.saveLinesByTypes(cad_file_path,minX,minY,maxX,maxY,wall_kw,glass_kw,wood_kw,other_kw)
             # c++处理线条&获取算法的输入文件
             readCad.getInput(spread_dist, wall_reduce_dist, glass_reduce_dist, wood_reduce_dist, other_reduce_dist,
-                             cover_num, dist_thre)
+                             cover_num, dist_thre,is_merge)
             # 运行scp代码，输出解
             readCad.runScp(time_limit)
             # 读取解
             readCad.getResPoints(spread_dist, wall_reduce_dist, glass_reduce_dist, wood_reduce_dist, other_reduce_dist,
-                                 cover_num, dist_thre)
+                                 cover_num, dist_thre,is_merge)
             # 解的可视化
             img_path, pic_name, ap_num, cover_rate = readCad.readScpRes(spread_dist, reduce_dist, cover_num)
             # img_path = readCad.readLines()
@@ -311,6 +312,7 @@ def saveCadParams(request):
     request.session['glass_kw'] = request.POST.get("glass_kw")
     request.session['wood_kw'] = request.POST.get("wood_kw")
     request.session['other_kw'] = request.POST.get("other_kw")
+    request.session['is_merge'] = request.POST.get("is_merge")
     # print("minY is:",request.session['minY'])
     # readCad.readTest(request.session['wood_kw'])
     return HttpResponse(json.dumps({'status': 'success'}))

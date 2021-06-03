@@ -207,7 +207,7 @@ class Satlike
 	void local_search_with_decimation(vector<int> &init_solution, char *inputfile);
 	void local_search_original(vector<int> &init_solution, char *inputfile);
 	void simple_print();
-	void print_best_solution();
+	void print_best_solution(char *path);
 	void free_memory();
 	void check_new_score();
 	void check_softunsat_weight();

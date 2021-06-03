@@ -90,7 +90,7 @@
                                     <h2 class="card-title" style="font-size: 20px"><b>CAD实例设置</b></h2><br>
                                     <form class="form-sample">
                                         <ul>
-                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;选择模式&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;选择实例&nbsp;&nbsp;&nbsp;&nbsp;</li>
                                         </ul>
                                         <ul>
                                             <!--<label class="col-sm-3 col-form-label">参数选择</label>-->
@@ -207,6 +207,24 @@
                                                 </div>
                                             </div>
                                         </ul>
+                                        <ul>
+                                            <li class="badge badge-info" style="font-size:14px;"> &nbsp;&nbsp;&nbsp;&nbsp;是否特殊处理&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                                        </ul>
+                                        <ul>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-9 col-form-label">是否连接零碎障碍物</label>
+                                                        <div class="col-sm-6">
+                                                             <select class="form-control" id="merge">
+                                                                 <option>0</option>
+                                                                 <option>1</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ul>
                                         <button type="button" class="btn btn-inverse-info btn-block" onclick="saveCadParams()">设置
                                         </button>
                                     </form>
@@ -231,6 +249,7 @@
         var glassKW = new Array("窗,WINDOWS,玻璃", "WINDOW", "A-PLAN-WIND-窗", "", "窗", "门窗", "WINDOW,WINdows", "", "GLASS,WINDOW", "WINDOW", "", "玻璃,WINdows", "Window,WINDOW", "WIN", "");
         var woodKW = new Array("门扇", "", "管井门,A-PLAN-DOOR-门", "图层4", "DOOR", "", "", "门", "DOOR", "Door", "平面门", "门-灯具", "Door,固定家具", "FURNI", "");
         var otherKW = new Array("阴影,垂直面", "", "基层", "", "", "黄,COLUMN", "", "结构", "", "", "", "", "", "PARTI", "");
+        var isMerge = new Array(1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
         if (mode == "自定义") {
             $("#minX").val("");
             $("#maxX").val("");
@@ -258,6 +277,7 @@
             $("#glass_kw").val(glassKW[mode_index]);
             $("#wood_kw").val(woodKW[mode_index]);
             $("#other_kw").val(otherKW[mode_index]);
+            $("#merge").val(isMerge[mode_index]);
             // $("#minX").attr('disabled',"");
             // $("#maxX").attr('disabled',"");
             // $("#minY").attr('disabled',"");
@@ -281,13 +301,14 @@
         var glass = $("#glass_kw").val();
         var wood = $("#wood_kw").val();
         var other = $("#other_kw").val();
+        var isMerge = $("#merge").val();
         console.log("begin……");
          $.ajax({
                 type: "POST",//预期服务器返回的数据类型
                 dataType:"json",
                 url: "/users/saveCadParams/" ,//url
                 data:{"minx":minx,"maxx":maxx,"miny":miny,"maxy":maxy,
-                    "wall_kw":wall,"glass_kw":glass,"wood_kw":wood,"other_kw":other,
+                    "wall_kw":wall,"glass_kw":glass,"wood_kw":wood,"other_kw":other,"is_merge":isMerge,
                     'csrfmiddlewaretoken':csrfToken},
                 success: function (arg) {
                     // console.log(arg);//打印服务端返回的数据(调试用)

@@ -8,9 +8,11 @@ int main(int argc, char *argv[])
 	Satlike s;
 	vector<int> init_solution;
 	stringstream ss;
+	//get time_limit
 	ss<<argv[2];
 	int cutofftime;
 	ss>>cutofftime;
+	//build instance
 	s.build_instance(argv[1]);
 	s.cutoff_time=cutofftime;
 	s.local_search_with_decimation(init_solution, argv[1]);
@@ -20,7 +22,7 @@ int main(int argc, char *argv[])
 	//else cout<<"wrong"<<endl;
 
 	//s.simple_print();
-	s.print_best_solution();
+	s.print_best_solution(argv[3]);
 	s.free_memory();
 
 	return 0;

@@ -2,7 +2,7 @@ import pandas as pd
 import dxfgrabber
 from matplotlib import pyplot as plt
 
-dxf = dxfgrabber.readfile("test_graph_1.dxf")
+dxf = dxfgrabber.readfile("nanjing1.dxf")
 x = []
 y = []
 #layerkeywordlist = ['WALL','wall','WINDOW','0','2D']
@@ -60,9 +60,13 @@ y = []
 # excludekeywordlist = ['P-FURNI']
 # border = [-250000,-220000,-60000,-20000]
 #instance15
-layerkeywordlist = ['WALL','wall','窗','WINDOWS','玻璃','门扇','阴影','垂直面']
+# layerkeywordlist = ['WALL','wall','窗','WINDOWS','玻璃','门扇','阴影','垂直面']
+# excludekeywordlist = []
+# border = [-5000, 60000, 150000, 250000]
+#instance 南京分行
+layerkeywordlist = ['墙']
 excludekeywordlist = []
-border = [-5000, 60000, 150000, 250000]
+border = [0, 15000, -5000, 35000]
 print(dxf)
 for e in dxf.entities:
     if e.layer in excludekeywordlist:
@@ -111,6 +115,7 @@ for e in dxf.entities:
 
 for i in range(len(x)):
     plt.plot(x[i], y[i], color='b', linewidth=0.6)
+plt.scatter(-820,1727,color='r')
 plt.axis('scaled')
 plt.savefig("test.png")
 plt.show()
