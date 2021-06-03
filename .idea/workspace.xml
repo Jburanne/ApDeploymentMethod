@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0050b4de-78d3-4de1-959b-6dafafe4ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/ProcessData/processData.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/basis_pms.h.gch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/cppFiles/SCP1/pms.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/depPosition.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/depPosition.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/linesDataByMaterials.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/linesDataByMaterials.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/mergedLines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/mergedLines.csv" afterDir="false" />
@@ -18,13 +11,7 @@
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/resPoints" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/resPoints" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/data/solution.res" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/media/temp_img/positionImg.png" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/media/temp_img/positionImg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/cadSet.html" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/templates/users/cadSet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/users/readCad.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApDeploymentByScp/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApDeploymentByScp/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cadFiles/cadReader.py" beforeDir="false" afterPath="$PROJECT_DIR$/cadFiles/cadReader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cadFiles/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/cadFiles/test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment_results/results-V2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_results/results-V2.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment_results/summary.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_results/summary.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadFiles/test_graph_1.dxf" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -430,9 +417,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.327405" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.327405" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -446,7 +432,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16014235" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40213522" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3291815" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
